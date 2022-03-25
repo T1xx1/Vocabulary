@@ -12,7 +12,17 @@
           @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap');
 
           :root {
-               --color: #00ffff;
+               --background-color: var(--white);
+               --border-radius_block: 10px;
+               --border-radius_inline: 5px;
+               --color: var(--capri);
+
+               --black: #000000;
+               --capri: #00bbff;
+               --pink: #f038ff;
+               --red: #ff0000;
+               --gray: #9eabae;
+               --white: #ffffff;
           }
 
           * {
@@ -21,7 +31,7 @@
 
           body {
                align-items: center;
-               background-color: var(--color);
+               background-color: var(--capri);
                display: flex;
                justify-content: center;
                margin: 0;
@@ -35,23 +45,26 @@
                margin: 0;
           }
 
+          h1,
+          h2,
+          h3 {
+               color: var(--color);
+          }
+
           box {
-               background-color: #ffffff;
-               border-radius: 5px;
-               box-shadow: 5px 5px 10px #000000;
-               height: 110px;
-               margin: 20px 25px;
-               padding: 10px 25px 15px 25px;
-               transition: all 1s;
-               width: 450px;
+               background-color: var(--background-color);
+               border-radius: var(--border-radius_block);
+               bottom: 10vh;
+               box-shadow: 5px 5px 7px var(--black);
+               min-height: 110px;
+               margin: 100px 30px;
+               padding: 20px 30px;
+               position: relative;
+               width: 500px;
           }
 
-          box.open {
-               height: fit-content;
-          }
-
-          box.open #info {
-               display: block;
+          box a {
+               float: right;
           }
 
           box header {
@@ -61,35 +74,38 @@
           }
 
           box input {
-               border: 2.2px solid #999;
-               border-radius: 5px;
+               background-color: transparent;
+               border: 2.4px solid var(--gray);
+               border-radius: var(--border-radius_inline);
+               color: var(--color);
                cursor: pointer;
                font-size: 1rem;
-               margin: 10px 0;
+               margin: 7px 0 5px 5px;
                padding-left: 5px;
-               width: 90%;
+               outline: 0;
           }
 
-          box input:focus {
-               outline-color: #00ffff;
+          box input:focus,
+          box input:hover {
+               border-color: var(--color);
           }
 
           box #definition {
-               padding-left: 15px;
+               padding-left: 10px;
           }
 
           box #error {
-               padding-left: 15px;
+               color: var(--red);
           }
 
           box #info {
-               display: none;
-               transition: all 2s;
+               padding-left: 3px;
           }
 
           box #partOfSpeech {
-               border-radius: 5px;
-               color: #ff00ff;
+               border-radius: var(--border-radius_inline);
+               color: var(--pink);
+               padding: 0 5px;
           }
 
           box #phonetic {
@@ -104,6 +120,10 @@
 
                body {
                     align-items: flex-start;
+               }
+
+               box {
+                    width: 300px;
                }
           }
      </style>
@@ -130,8 +150,6 @@
                     } else {
                          result = result[0];
 
-                         box_node.classList.add("open");
-
                          let tot = `<header><h2>${word} `;
                          
                          if (result.phonetic) tot += `<span id="phonetic">${result.phonetic}</span>`;
@@ -139,7 +157,7 @@
                          tot += `</h2><span id="partOfSpeech">${result.meanings[0].partOfSpeech}</span></header><div id="definition">${result.meanings[0].definitions[0].definition}</div>`;
 
                          if (result.meanings[0].synonyms.length != 0) {
-                              tot += "<b>Synonyms</b><ul>";
+                              tot += "<h3>Synonyms</h3><ul>";
 
                               for (let synonym of result.meanings[0].synonyms) tot += `<li>${synonym}</li>`;
 
@@ -161,7 +179,7 @@
 
                if (word) {
                     get(word);
-               } else box_node.classList.remove("open");
+               } else info_node.innerHTML = "";
           });
      </script>
 </body>
