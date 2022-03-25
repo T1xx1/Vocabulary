@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+     <meta charset="UTF-8">
+     <meta http-equiv="X-UA-Compatible" content="IE=edge">
+     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+     <title>Vocabulary</title>
+
+     <style>
+          @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap');
+
+          :root {
+               --color: #00ffff;
+          }
+
+          * {
+               font-family: "Poppins", sans-serif;
+          }
+
+          body {
+               align-items: center;
+               background-color: var(--color);
+               display: flex;
+               justify-content: center;
+               margin: 0;
+               min-height: 100vh;
+          }
+
+          h1,
+          h2,
+          h3,
+          ul {
+               margin: 0;
+          }
+
+          box {
+               background-color: #ffffff;
+               border-radius: 5px;
+               box-shadow: 5px 5px 10px #000000;
+               height: 110px;
+               margin: 20px 25px;
+               padding: 10px 25px 15px 25px;
+               transition: all 1s;
+               width: 450px;
+          }
+
+          box.open {
+               height: fit-content;
+          }
+
+          box.open #info {
+               display: block;
+          }
+
+          box header {
+               align-items: baseline;
+               display: flex;
+               justify-content: space-between;
+          }
+
+          box input {
+               border: 2.2px solid #999;
+               border-radius: 5px;
+               cursor: pointer;
+               font-size: 1rem;
+               margin: 10px 0;
+               padding-left: 5px;
+               width: 90%;
+          }
+
+          box input:focus {
+               outline-color: #00ffff;
+          }
+
+          box #definition {
+               padding-left: 15px;
+          }
+
+          box #error {
+               padding-left: 15px;
+          }
+
+          box #info {
+               display: none;
+               transition: all 2s;
+          }
+
+          box #partOfSpeech {
+               border-radius: 5px;
+               color: #ff00ff;
+          }
+
+          box #phonetic {
+               color: #999;
+               font-size: .8rem;
+          }
+
+          @media (max-width: 426px) {
+               :root {
+                    font-size: 20px;
+               }
+
+               body {
+                    align-items: flex-start;
+               }
+          }
+     </style>
+</head>
+
+<body>
+     <box>
+          <h1>Vocabulary</h1>
+
+          <input type="text" autofocus placeholder="Type your word...">
+
+          <div id="info"></div>
+     </box>
+
+     <script>
+          let box_node = document.querySelector("box");
+          let info_node = document.querySelector("#info");
+          let input_node = document.querySelector("input");
+
+          const get = word => {
+               fetch(`https://api.dictionaryapi.dev/api/v2/entries/en/${word}`).then(response => response.json()).then(result => {
+                    if (result.title) {
+                         throwErr(word);
+                    } else {
+                         result = result[0];
+
+                         box_node.classList.add("open");
+
+                         let tot = `<header><h2>${word} `;
+                         
+                         if (result.phonetic) tot += `<span id="phonetic">${result.phonetic}</span>`;
+                         
+                         tot += `</h2><span id="partOfSpeech">${result.meanings[0].partOfSpeech}</span></header><div id="definition">${result.meanings[0].definitions[0].definition}</div>`;
+
+                         if (result.meanings[0].synonyms.length != 0) {
+                              tot += "<b>Synonyms</b><ul>";
+
+                              for (let synonym of result.meanings[0].synonyms) tot += `<li>${synonym}</li>`;
+
+                              tot += "</ul>";
+                         }
+
+                         tot += `<a href="${result.sourceUrls[0]}">Source</a>`
+
+                         info_node.innerHTML = tot;
+                    }
+               }).catch(() => throwErr(word));
+          }
+          const throwErr = word => {
+               info_node.innerHTML = `<span id="error">Can't find <b>${word}</b><div>`;
+          }
+
+          input_node.addEventListener("keyup", () => {
+               let word = input_node.value.toLowerCase();
+
+               if (word) {
+                    get(word);
+               } else box_node.classList.remove("open");
+          });
+     </script>
+</body>
+
+</html>
