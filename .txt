@@ -1,0 +1,16 @@
+src/
+├─ assets/ #medias
+├─ components/
+├─ config/
+├─ containers/ #keep tracking
+├─ context/
+├─ hooks/
+├─ helpers/ #exported functions
+├─ i18n/ #languages
+│  ├─ en/
+│  ├─ fr/
+│  ├─ ar/
+├─ layouts/ #navbar, footer etc
+├─ pages/
+├─ services/ #apis
+├─ validations/
