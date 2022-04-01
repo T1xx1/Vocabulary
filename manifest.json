@@ -1,0 +1,17 @@
+{
+  "name": "Vocabulary",
+  "start_url": ".",
+  "display": "fullscreen",
+  "icons": [
+    {
+      "src": "./github48.png",
+      "types": "png",
+      "size": "48x48"
+    },
+    {
+      "src": "./icon96.ico",
+      "types": "ico",
+      "size": "96x96"
+    }
+  ]
+}
