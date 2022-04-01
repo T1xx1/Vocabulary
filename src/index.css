@@ -1,0 +1,39 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap');
+
+:root {
+   --border: 2.5px solid var(--black);
+   --border-radius: 5px;
+
+   --black: #000000;
+}
+
+* {
+   font-family: 'Poppins', monospace;
+}
+
+body {
+   margin: 0;
+}
+
+button,
+input {
+   background-color: transparent;
+   font-size: 1rem;
+}
+
+h1,
+h2,
+h3 {
+   margin: 0;
+}
+
+hr {
+   border: var(--border);
+   border-radius: var(--border-radius);
+   height: 5px;
+}
+
+ol,
+ul {
+   margin: 0;
+}
