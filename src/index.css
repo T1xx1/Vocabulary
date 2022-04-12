@@ -2,13 +2,20 @@
 
 :root {
    --border: 2.5px solid var(--black);
-   --border-radius: 5px;
+   --border-radius_inline: 5px;
 
    --black: #000000;
 }
 
 * {
+   box-sizing: border-box;
    font-family: 'Poppins', monospace;
+   scroll-behavior: smooth;
+}
+
+body,
+html {
+   min-height: 100%;
 }
 
 body {
@@ -29,8 +36,8 @@ h3 {
 
 hr {
    border: var(--border);
-   border-radius: var(--border-radius);
-   height: 5px;
+   border-radius: var(--border-radius_inline);
+   height: 10px;
 }
 
 ol,

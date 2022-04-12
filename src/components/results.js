@@ -1,76 +1,88 @@
-import { json } from '../App';
-import '../App.css';
+import ReactDOM from 'react-dom';
+
+import '../css/style.css';
+
+import json from '../js/json';
+
+import Learn from './learn';
+import Share from './share';
 
 function Result(word) {
-     let results_node = document.querySelector('#results');
-     let vocabulary = json.read();
+     let results = '';
 
-     results_node.innerHTML = `Searching <b>${word}</b>...`;
+     let results_node = document.querySelector('#results');
+
+     function error() {
+          ReactDOM.render(
+               <span className='error'>Can't find <b className='word'>{word}</b></span>,
+               results_node
+          );
+     }
+
+     ReactDOM.render(
+          <span>Searching <b className='word'>{word}</b>...</span>,
+          results_node
+     );
 
      fetch(`https://api.dictionaryapi.dev/api/v2/entries/en/${word}`).then(response => response.json()).then(result => {
           if (result.title) {
-               throwErr(word);
+               error();
           } else {
-               let word = result[0];
+               result = result[0];
 
-               let tot = `<h2>${word.word} <small>${word.phonetic ?? ''}</small></h2>`;
+               result.meanings.forEach(meaning => {
+                    function block(key) {
+                         if (meaning[key].length !== 0) {
+                              results += `<div><b>${key.charAt(0).toUpperCase() + key.substring(1)}</b><ul>`;
 
-               vocabulary.history[word.word] = '';
+                              meaning[key].map(subkey => results += `<li class='word'>${subkey}</li>`);
 
-               json.write(vocabulary);
-
-               word.meanings.forEach(meaning => {
-                    tot += `<div id='type'><h3>${meaning.partOfSpeech}</h3>`;
-
-                    if (meaning.definitions.length !== 0) {
-                         tot += `<div><b>Definitions</b><ol>`;
-
-                         meaning.definitions.forEach(definition => {
-                              tot += `<li>${definition.definition}</li>`;
-                         });
-
-                         tot += `</ol></div>`;
+                              results += `</ul></div>`;
+                         }
                     }
 
-                    if (meaning.synonyms.length !== 0) {
-                         tot += `<div><b>Synonyms</b><ul>`;
+                    results += `<h3 class='partOfSpeech'>${meaning.partOfSpeech}</h3><div><b>Definitions</b><div>`;
 
-                         meaning.synonyms.forEach(synonym => {
-                              tot += `<li>${synonym}</li>`;
-                         });
-
-                         tot += '</ul></div>';
-                    }
-
-                    if (meaning.antonyms.length !== 0) {
-                         tot += `<div><b>antonyms</b><ul>`;
-
-                         meaning.antonyms.forEach(antonym => {
-                              tot += `<li>${antonym}</li>`;
-                         });
-
-                         tot += '</ul></div>';
-                    }
-
-                    tot += `</div><hr>`;
-               });
-
-               if (word.sourceUrls.length !== 0) {
-                    tot += `<b>Sources</b><ul>`;
-
-                    word.sourceUrls.forEach(source => {
-                         tot += `<li><a href='${source}'>${source}</a></li>`;
+                    meaning.definitions.forEach(definition => {
+                         results += `<span>${definition.definition}</span><br>`;
                     });
 
-                    tot += '</ul>';
+                    results += '</div></div>';
+
+                    block('synonyms');
+                    block('antonyms');
+               });
+
+               if (result.sourceUrls.length !== 0) {
+                    results += '<br><hr><div><b>Sources</b><ul>';
+
+                    result.sourceUrls.forEach(source => results += `<li><a href='${source}'>${source}</a></li>`);
+
+                    results += '</ul><div>';
                }
 
-               results_node.innerHTML = tot;
+               ReactDOM.render(
+                    <>
+                         <header>
+                              <h2>
+                                   <span className='word'>{result.word}</span>
+                                   <small>{result.phonetic}</small>
+                              </h2>
+
+                              <nav>
+                                   <Learn />
+                                   <Share word={result.word} />
+                              </nav>
+                         </header>
+
+                         <div dangerouslySetInnerHTML={{ __html: results }}></div>
+                    </>,
+                    results_node
+               );
+
+               json.push('history', result.word);
           }
-     }).catch(() => throwErr(word));
-}
-function throwErr(word) {
-     document.querySelector('#results').innerHTML = `<span id='error'>Can't find <b>${word}</b></span>`;
+     }).catch(() => error());
 }
 
 export default Result;
