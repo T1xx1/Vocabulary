@@ -2,7 +2,7 @@ import '../css/style.css';
 
 function Share(props) {
    function copy() {
-      navigator.clipboard.writeText(`https:/t1xx1.github.io/Vocabulary?word=${props.word}`);
+      navigator.clipboard.writeText(`https://t1xx1.github.io/Vocabulary?word=${props.word}`);
 
       alert('Link copied');
    }

@@ -141,7 +141,7 @@ ul {
    outline: 0;
 }
 
-#settings #buttons>* {
+#settings #buttons>button {
    border: var(--border);
    border-radius: var(--border-radius_inline);
    margin: 0 0 7px 5px;

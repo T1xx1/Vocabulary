@@ -1,4 +1,4 @@
-import ReactDOM from 'react-dom';
+import ReactDOM from 'react-dom/client';
 
 import '../css/style.css';
 
@@ -13,9 +13,8 @@ function Words() {
 
       if (words.length === 0) words = <h3>You haven't learn any word</h3>
 
-      ReactDOM.render(
-         <ul>{words}</ul>,
-         document.querySelector('#words>div')
+      ReactDOM.createRoot(document.querySelector('#words>div')).render(
+         <ul>{words}</ul>
       );
 
       document.querySelector('#words').setAttribute('open', '');

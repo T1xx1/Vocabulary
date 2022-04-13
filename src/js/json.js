@@ -18,7 +18,7 @@ const json = {
 
    push: (key, value) => {
       let vocabulary = json.read();
-
+      console.log(vocabulary, key, value, vocabulary[key]);
       vocabulary[key].push(value);
 
       json.update(key, [...new Set(vocabulary[key])]);

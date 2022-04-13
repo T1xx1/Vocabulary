@@ -6,16 +6,20 @@ import Header from './header';
 import Input from './input';
 
 function App() {
-  let word = String(new URL(window.location.href).searchParams.get('word') ?? '');
+   let url = new URL(window.location.href);
 
-  if (json.read() === null) json.init();
+   let word = String(url.searchParams.get('word') ?? '');
+   let importArray = url.searchParams.get('import');
 
-  return <div id='box'>
-    <Header />
-    <Input word={word} />
+   if (json.read() === null) json.init();
+   if (importArray) json.update('learned', [...new Set(json.read().learned.concat(...importArray.split(',')))]);
 
-    <div id='results'></div>
-  </div>;
+   return <div id='box'>
+      <Header />
+      <Input word={word} />
+
+      <div id='results'></div>
+   </div>;
 }
 
 export default App;

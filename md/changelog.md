@@ -5,8 +5,7 @@
 <details>
    <summary>Versions</summary>
 
-   - [Incoming](#incoming)
-   - [Unreleased](#unreleased)
+   - [Upcoming](#upcoming)
    - [1.2.0](#120-•-12042022)
    - [1.1.0](#110-•-react-01042022)
    - [1.0.0](#100-•-setup-25032022)
@@ -27,26 +26,22 @@
 - Info window
 - Credits
 
-<br>
-
----
-
 ## 1.2.0 • 12/04/2022
 
 ### `Added`
 - Settings window
 - Learned words window
+- Import words throught url
+- Create and restore backups
 - Learn word button
-- Delete word button
 - Share button
 - Delete history button
 - Delete all learned words button
 - Delete everything button
+
 ### `Changed`
 - Github button moved into settings window
 - Changelog new format
-
----
 
 ## 1.1.0 • React 01/04/2022
 
@@ -61,8 +56,6 @@
 - Many definitions for a word
 - Different sources
 - Restyle
-
----
 
 ## 1.0.0 • Setup 25/03/2022
 
