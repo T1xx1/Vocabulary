@@ -1,9 +1,9 @@
-function Word(props) {
+function Word({ inner }) {
    function click(event) {
       //Search
    }
 
-   return <span className='word' onClick={click}>{props.inner}</span>;
+   return <span className='word' onClick={click}>{inner}</span>;
 }
 
 export default Word;

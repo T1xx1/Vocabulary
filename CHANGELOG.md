@@ -61,7 +61,7 @@
 - Restyle
 
 ### Fixed
-- Learning a word with the empty search bar doesn't save anything
+- Learning a word with empty search bar doesn't save anything
 
 ## 1.2.0 • 12/04/2022
 
@@ -83,7 +83,7 @@
 
 ### Added
 - Words history in search bar
-- Search icon in search bar
+- Search button in search bar
 - Github repository button
 - Changelog
 

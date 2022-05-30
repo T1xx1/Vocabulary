@@ -1,5 +1,6 @@
 {
    "name": "Vocabulary",
+   "description": "Search and learn words",
    "version": "1.3.0",
    "private": true,
    "homepage": "https://t1xx1.github.io/Vocabulary",

@@ -1,7 +1,7 @@
-import app from '../constants/info';
+import info from '../constants/info';
 import { intial } from '../constants/variables';
 
-let key = `${app.manifest.name} ${app.version}`
+let key = `${info.name} ${info.version}`;
 
 const storage = {
    read: () => {
@@ -14,11 +14,11 @@ const storage = {
    push: (key, value) => storage.update(key, storage.read()[key].push(value)),
    update: (key, obj) => {
       let temp = storage.read();
-      
+
       temp[key] = obj;
 
       storage.write(temp);
    },
-}
+};
 
 export default storage;

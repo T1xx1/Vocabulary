@@ -1,17 +1,27 @@
 import cross from '../assets/images/cross.png';
 import Button from './button';
 
-function Dialog(id, icon, inner, start = () => { }, end = () => { }) {
+function Dialog(id, icon, inner = <></>, load = {
+   beginning: () => { },
+   during: () => { },
+   end: () => { }
+}) {
    function close() {
       document.querySelector(`#${id}`).removeAttribute('open');
 
-      end();
+      load.end();
    }
    function open() {
-      start();
+      load.beginning();
 
       document.querySelector(`#${id}`).setAttribute('open', '');
+
+      load.during();
    }
+
+   if (load.beginning === undefined) load.beginning = () => { };
+   if (load.during === undefined) load.during = () => { };
+   if (load.end === undefined) load.end = () => { };
 
    return <div>
       <dialog id={id} fullscreen=''>
