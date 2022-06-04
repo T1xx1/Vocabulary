@@ -31,7 +31,7 @@ function Archieve() {
             <ul>
                {archieved.sort().map(word => <div key={word} flex='' highlight=''>
                   <Word inner={word} />
-                  <Button src={trash} title='delete' click={del} />
+                  <Button src={trash} title='Delete' click={del} />
                </div>)}
             </ul>
          </div>;

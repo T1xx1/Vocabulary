@@ -48,8 +48,8 @@ function Words() {
                {saved.sort().map(word => <div key={word} flex='' highlight=''>
                   <Word inner={word} />
                   <div>
-                     <Button src={archieve} title='delete' click={arch} />
-                     <Button src={trash} title='delete' click={del} />
+                     <Button src={archieve} title='Archieve' click={arch} />
+                     <Button src={trash} title='Delete' click={del} />
                   </div>
                </div>)}
             </ul>

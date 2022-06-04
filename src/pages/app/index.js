@@ -2,6 +2,7 @@ import info from '../../constants/info';
 import storage from '../../helpers/storage';
 import Words from '../words/index';
 import Settings from '../settings/index';
+import Search from '../../layouts/search';
 
 function App() {
    function url() {
@@ -17,14 +18,16 @@ function App() {
    if (storage.read() === null) storage.init();
 
    return <div id='app' onLoad={url}>
-      <header flex=''>
+      <header>
          <h1 onClick={reload} title={info.start_url}>{info.name}</h1>
 
-         <div flex=''>
+         <div>
             <Words />
             <Settings />
          </div>
       </header>
+
+      <Search />
 
       <div id='results'></div>
    </div>;

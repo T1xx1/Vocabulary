@@ -8,6 +8,7 @@
 - be
 - cousine
 - determinated
+- dispoportionality
 - dj
 - exageration
 - hell
@@ -20,6 +21,7 @@
 - nightground
 - paned
 - pharagraf
+- phase
 - precive
 - raker
 - razer
