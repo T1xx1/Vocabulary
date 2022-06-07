@@ -5,7 +5,7 @@
   "description": "Search and learn words get their definitions, synonyms and antonyms",
   "start_url": "https://t1xx1.github.io/Vocabulary",
   "background_color": "#1bb2ff",
-  "theme_color": "#ff1b8d",
+  "theme_color": "#000000",
   "dir": "auto",
   "display": "fullscreen",
   "orientation": "any",
