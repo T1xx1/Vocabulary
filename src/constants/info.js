@@ -6,3 +6,5 @@ const info = {
 }
 
 export default info;
+
+//dev/completer.mjs

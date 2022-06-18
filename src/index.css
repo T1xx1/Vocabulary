@@ -1,12 +1,13 @@
 /* Sasscript */
-@import 'https://fonts.googleapis.com/css2?family=Courier+Prime&display=swap';
+@import 'https://fonts.googleapis.com/css2?family=Montserrat&display=swap';
+@import 'https://fonts.googleapis.com/css2?family=Oxygen&display=swap';
 @import 'https://fonts.googleapis.com/css2?family=Poppins&display=swap';
 @import 'https://fonts.googleapis.com/css2?family=Roboto&display=swap';
 * {
   box-sizing: border-box;
-  font-family: "Poppins";
+  font-family: "Montserrat";
   scroll-behavior: smooth;
-  transition: all 0.2s;
+  transition: all 0.1s linear;
 }
 
 :root {
@@ -15,21 +16,23 @@
 }
 
 html {
-  height: 100vh;
+  min-height: 100vh;
+  min-width: 100vw;
 }
 
 body {
-  margin: 0;
   min-height: 100vh;
-  padding: 0.5rem 0.9rem;
-  padding-bottom: 2rem;
+  min-width: 100vw;
+  margin: 0;
+  padding: 0.6rem 0.9rem;
+  padding-bottom: 1.7rem;
 }
 body:after {
-  bottom: 5px;
-  content: "Sasscript 0.1.0";
-  font-size: 0.45rem;
-  position: absolute;
-  right: 5px;
+  bottom: 1px;
+  content: "Sasscript 1.2.0";
+  font-size: 0.4rem;
+  right: 1px;
+  position: fixed;
 }
 
 h1,
@@ -42,11 +45,11 @@ h6 {
 }
 
 h1 {
-  font-size: 2.2rem;
+  font-size: 2rem;
 }
 
 h2 {
-  font-size: 1.6rem;
+  font-size: 1.5rem;
 }
 
 h3 {
@@ -69,8 +72,8 @@ hr {
   border: 2.5px solid currentColor;
   border-radius: 6px;
   box-shadow: 1.3px 1.3px 0 currentColor;
-  padding: 0.2rem 0.5rem;
-  height: 8px;
+  padding: 0.3rem 0.5rem;
+  height: 15px;
 }
 
 article {
@@ -78,40 +81,40 @@ article {
   border-radius: 6px;
   box-shadow: 1.3px 1.3px 0 currentColor;
   border-radius: 6px;
-  margin: 0.5rem 0.9rem;
+  margin: 0.6rem 0.9rem;
   padding: 8px 12.5px;
 }
 
 aside {
   float: right;
-  margin: 0.5rem 0.9rem;
+  margin: 0.6rem 0.9rem;
   width: fit-content;
 }
 
 footer {
-  margin: 0.5rem 0.9rem;
+  margin: 0.6rem 0.9rem;
   margin-left: 0;
   margin-right: 0;
 }
 
 header {
-  margin: 0.5rem 0.9rem;
+  margin: 0.6rem 0.9rem;
   margin-right: 0;
   margin-left: 0;
 }
 
 main {
-  margin: 0.5rem 0.9rem;
+  margin: 0.6rem 0.9rem;
 }
 
 mark {
   background-color: #ffff00;
   border-radius: 6px;
-  padding: 0.2rem 0.5rem;
+  padding: 0.3rem 0.5rem;
 }
 
 nav {
-  margin: 0.5rem 0.9rem;
+  margin: 0.6rem 0.9rem;
 }
 
 summary {
@@ -123,13 +126,10 @@ ul {
   margin: 0;
 }
 
-ol {
-  padding-left: 30px;
+ol, ul {
+  padding-left: 25px;
 }
 
-ul {
-  padding-left: 30px;
-}
 ul li {
   list-style-type: disc;
 }
@@ -142,7 +142,7 @@ ul li {
 }
 
 abbr[title] {
-  text-decoration: underline dotted #008000;
+  text-decoration: underline dotted #008000 3px;
 }
 
 address {
@@ -150,7 +150,7 @@ address {
   border-radius: 6px;
   box-shadow: 1.3px 1.3px 0 currentColor;
   border-radius: 6px;
-  margin: 0.5rem 0.9rem;
+  margin: 0.6rem 0.9rem;
   padding: 8px 12.5px;
 }
 
@@ -159,48 +159,52 @@ blockquote {
   border-radius: 6px;
   box-shadow: 1.3px 1.3px 0 currentColor;
   border-radius: 6px;
-  margin: 0.5rem 0.9rem;
+  margin: 0.6rem 0.9rem;
   padding: 8px 12.5px;
 }
 
-button {
+button, [button],
+[buttons] > * {
   border: 2.5px solid currentColor;
   border-radius: 6px;
   box-shadow: 1.3px 1.3px 0 currentColor;
-  padding: 0.2rem 0.5rem;
+  padding: 0.3rem 0.5rem;
   background-color: transparent;
-  border-color: currentColor;
   cursor: pointer;
   font-size: 1rem;
 }
-button:disabled {
-  border-color: #cfcfcf;
-  color: #cfcfcf;
+button:disabled, [button]:disabled,
+[buttons] > :disabled {
+  border-color: #f0f0f0;
+  color: #f0f0f0;
   cursor: not-allowed;
 }
-button:hover:not(:disabled) {
-  background-color: #cfcfcf;
+button:hover, [button]:hover,
+[buttons] > :hover {
+  background-color: #f0f0f0;
 }
-button[type=reset] {
+button[type=reset], [type=reset][button],
+[buttons] > [type=reset] {
   border-color: #ff0000;
   color: #ff0000;
 }
-button[type=submit] {
+button[type=submit], [type=submit][button],
+[buttons] > [type=submit] {
   border-color: #008000;
   color: #008000;
 }
 
 code {
-  background-color: #cfcfcf;
+  background-color: #f0f0f0;
   border-radius: 6px;
-  padding: 0.2rem 0.5rem;
+  padding: 0.3rem 0.5rem;
 }
 
 del {
   background-color: #ff0000;
   border-radius: 6px;
   color: #ffffff;
-  padding: 0.2rem 0.5rem;
+  padding: 0.3rem 0.5rem;
   text-decoration: none;
 }
 
@@ -209,7 +213,7 @@ dialog {
   border-radius: 6px;
   box-shadow: 1.3px 1.3px 0 currentColor;
   border-radius: 6px;
-  margin: 0.5rem 0.9rem;
+  margin: 0.6rem 0.9rem;
   padding: 8px 12.5px;
   background-color: #ffffff;
 }
@@ -219,7 +223,7 @@ fieldset {
   border-radius: 6px;
   box-shadow: 1.3px 1.3px 0 currentColor;
   border-radius: 6px;
-  margin: 0.5rem 0.9rem;
+  margin: 0.6rem 0.9rem;
   padding: 8px 12.5px;
 }
 
@@ -228,7 +232,7 @@ form {
   border-radius: 6px;
   box-shadow: 1.3px 1.3px 0 currentColor;
   border-radius: 6px;
-  margin: 0.5rem 0.9rem;
+  margin: 0.6rem 0.9rem;
   padding: 8px 12.5px;
   text-align: center;
 }
@@ -238,7 +242,7 @@ iframe {
   border-radius: 6px;
   box-shadow: 1.3px 1.3px 0 currentColor;
   border-radius: 6px;
-  margin: 0.5rem 0.9rem;
+  margin: 0.6rem 0.9rem;
   padding: 8px 12.5px;
 }
 
@@ -246,7 +250,7 @@ input {
   border: 2.5px solid currentColor;
   border-radius: 6px;
   box-shadow: 1.3px 1.3px 0 currentColor;
-  padding: 0.2rem 0.5rem;
+  padding: 0.3rem 0.5rem;
   background-color: transparent;
   font-size: 1rem;
   outline: 0;
@@ -283,20 +287,20 @@ input[type=reset] {
   cursor: pointer;
 }
 input[type=reset]:hover {
-  background-color: #cfcfcf;
+  background-color: #f0f0f0;
 }
 input[type=submit] {
   cursor: pointer;
 }
 input[type=submit]:hover {
-  background-color: #cfcfcf;
+  background-color: #f0f0f0;
 }
 
 kbd {
   border: 2.5px solid currentColor;
   border-radius: 6px;
   box-shadow: 1.3px 1.3px 0 currentColor;
-  padding: 0.2rem 0.5rem;
+  padding: 0.3rem 0.5rem;
 }
 
 meter {
@@ -308,9 +312,7 @@ progress {
   border: 2.5px solid currentColor;
   border-radius: 6px;
   box-shadow: 1.3px 1.3px 0 currentColor;
-  padding: 0.2rem 0.5rem;
   height: 20px;
-  padding: 0;
   width: 200px;
 }
 
@@ -318,7 +320,7 @@ select {
   border: 2.5px solid currentColor;
   border-radius: 6px;
   box-shadow: 1.3px 1.3px 0 currentColor;
-  padding: 0.2rem 0.5rem;
+  padding: 0.3rem 0.5rem;
   cursor: pointer;
   font-size: 1rem;
 }
@@ -332,21 +334,22 @@ table {
   border-radius: 6px;
   box-shadow: 1.3px 1.3px 0 currentColor;
   border-radius: 6px;
-  margin: 0.5rem 0.9rem;
+  margin: 0.6rem 0.9rem;
   padding: 8px 12.5px;
   border-collapse: collapse;
 }
 
 td {
   border: 2.5px solid currentColor;
-  padding: 0.2rem 0.5rem;
+  padding: 0.3rem 0.5rem;
 }
 
 textarea {
   border: 2.5px solid currentColor;
-  border-radius: 10px;
+  border-radius: 6px;
+  box-shadow: 1.3px 1.3px 0 currentColor;
   font-size: 1rem;
-  padding: 0.2rem 0.5rem;
+  padding: 0.3rem 0.5rem;
 }
 
 textarea:focus-visible {
@@ -355,7 +358,7 @@ textarea:focus-visible {
 
 th {
   border: 2.5px solid currentColor;
-  padding: 0.2rem 0.5rem;
+  padding: 0.3rem 0.5rem;
   text-align: center;
 }
 
@@ -371,14 +374,14 @@ time {
   border: 2.5px solid currentColor;
   border-radius: 6px;
   box-shadow: 1.3px 1.3px 0 currentColor;
-  padding: 0.2rem 0.5rem;
+  padding: 0.3rem 0.5rem;
   cursor: pointer;
   font-size: 1rem;
   margin-bottom: 2px;
 }
 
 ::-webkit-file-upload-button:hover {
-  background-color: #cfcfcf;
+  background-color: #f0f0f0;
 }
 
 ::-webkit-progress-bar {
@@ -391,29 +394,11 @@ time {
   border-radius: 3px;
 }
 
-button > img {
-  border: 0;
-  box-shadow: none;
-  margin: 0;
-  padding: 0;
-}
-
 code pre {
   background-color: inherit;
   color: inherit;
   display: inline;
   margin: 0;
-}
-
-dialog[fullscreen],
-[fullscreens] > dialog {
-  border: 0;
-  border-radius: 0;
-  box-shadow: none;
-  margin: 0;
-  min-height: 100vh;
-  min-width: 100vw;
-  top: 0;
 }
 
 form fieldset:only-child {
@@ -434,7 +419,7 @@ details[block] {
   border: 2.5px solid currentColor;
   border-radius: 6px;
   box-shadow: 1.3px 1.3px 0 currentColor;
-  padding: 0.2rem 0.5rem;
+  padding: 0.3rem 0.5rem;
 }
 details[block]:not([open]) {
   width: fit-content;
@@ -453,29 +438,14 @@ table[crossed] tr:first-child {
   border-bottom: 2.5px solid currentColor;
 }
 
-[bubble]:hover,
-[bubbles] > :hover {
-  background-color: #cfcfcf;
-  border-radius: 6px;
-  padding: 0.2rem 0.5rem;
-}
-
 [button],
 [buttons] > * {
-  border: 2.5px solid currentColor;
-  border-radius: 6px;
-  box-shadow: 1.3px 1.3px 0 currentColor;
-  padding: 0.2rem 0.5rem;
-  cursor: pointer;
-  margin: 0.5rem 0.9rem;
-  margin-bottom: 7px;
-  margin-left: 0;
+  margin: 10px 0 0 10px;
   text-decoration: none;
 }
-
-[highlight]:hover,
-[highlights] > :hover {
-  background-color: #cfcfcf;
+[button]:hover,
+[buttons] > *:hover {
+  background-color: transparent;
 }
 
 svg {
@@ -484,59 +454,38 @@ svg {
   stroke-width: 2px;
 }
 
-/**/
 :root {
   color: #000000;
   color-scheme: light;
+  overflow-x: hidden;
 }
 
-.button {
-  aspect-ratio: 1/1;
+dialog {
+  min-height: 100vh;
+  min-width: 100vw;
+  border: 0;
+  margin: 0;
+}
+dialog > header {
   display: flex;
-  border: 0;
-  box-shadow: none;
-  height: 50px;
-  padding: 0;
-}
-.button img {
-  height: inherit;
-  width: inherit;
-}
-
-.word {
-  cursor: pointer;
-}
-.word:hover {
-  text-decoration: underline;
-}
-
-#Words ul > div,
-#Archieve ul > div {
-  border: 2.5px solid currentColor;
-  border-radius: 6px;
-  box-shadow: 1.3px 1.3px 0 currentColor;
-  padding: 0.2rem 0.5rem;
+  flex-wrap: wrap;
   align-items: center;
-  border: 0;
-  box-shadow: none;
+  margin-top: 0;
   justify-content: space-between;
 }
-#Words ul > div:hover > div > .button,
-#Archieve ul > div:hover > div > .button {
-  display: block;
-}
-#Words ul > div div,
-#Archieve ul > div div {
+dialog > header > .button {
   display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
 }
-#Words ul > div div > .button,
-#Archieve ul > div div > .button {
-  display: none;
-  background-color: #cfcfcf;
-  height: 30px;
+dialog > header > .button > img {
+  aspect-ratio: 1/1;
+  height: 40px;
 }
 
-#app header {
+#app > header {
   display: flex;
   flex-wrap: wrap;
   align-items: center;
@@ -544,38 +493,131 @@ svg {
   margin-top: 0;
 }
 @media (max-width: 426px) {
-  #app header {
+  #app > header {
     flex-direction: column;
   }
 }
-#app header > div {
+#app > header > div {
   display: flex;
   flex-wrap: wrap;
 }
-#app header > h1 {
-  font-size: 2.4rem;
+#app > header > div > * > .button {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
 }
-#app nav {
+#app > header > div > * > .button > img {
+  aspect-ratio: 1/1;
+  height: 50px;
+}
+#app > header > h1 {
+  font-size: 2.5rem;
+}
+#app > nav {
   border: 2.5px solid currentColor;
   border-radius: 6px;
   box-shadow: 1.3px 1.3px 0 currentColor;
   display: flex;
   flex-wrap: wrap;
   align-items: center;
+  justify-content: space-between;
   width: fit-content;
 }
 @media (max-width: 426px) {
-  #app nav {
+  #app > nav {
+    margin: 0;
     width: 100%;
   }
 }
-#app nav > button {
+#app > nav > div {
+  display: flex;
+  flex-wrap: wrap;
+}
+#app > nav > div > .button {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+}
+#app > nav > div > .button > img {
+  aspect-ratio: 1/1;
   height: 35px;
 }
-#app nav > input {
+#app > nav > input {
   border: 0;
   box-shadow: none;
-  width: inherit;
+  width: 75%;
 }
+#words ul > div,
+#archieve ul > div {
+  border: 2.5px solid currentColor;
+  border-radius: 6px;
+  box-shadow: 1.3px 1.3px 0 currentColor;
+  padding: 0.3rem 0.5rem;
+  align-items: center;
+  border: 0;
+  box-shadow: none;
+  justify-content: space-between;
+}
+#words ul > div:hover > div > .button,
+#archieve ul > div:hover > div > .button {
+  display: block;
+}
+#words ul > div div,
+#archieve ul > div div {
+  display: flex;
+}
+#words ul > div div > .button,
+#archieve ul > div div > .button {
+  display: none;
+  background-color: #f0f0f0;
+  height: 30px;
+}
+
+.button {
+  border: 0;
+  box-shadow: none;
+}
+
+.word {
+  cursor: pointer;
+}
+.word:hover {
+  text-decoration: dotted;
+}
+
+.snackbar {
+  display: flex;
+  flex-wrap: wrap;
+  background-color: #000000;
+  border-radius: 6px;
+  bottom: 15px;
+  color: #ffffff;
+  left: 15px;
+  padding: 8px 12.5px;
+  position: fixed;
+  min-width: 250px;
+  animation: in 700ms ease, out 700ms ease 5s;
+}
+@keyframes in {
+  from {
+    transform: translateY(120%);
+  }
+}
+@keyframes out {
+  to {
+    transform: translateY(150%);
+  }
+}
+
+/*
+$cadet-blue-crayola: #9eabae;
+$dark-cornflower-blue: #00438f;
+$magenta-process: #ff1b8d;
+$school-bus-yellow: #ffd900;
+*/
 
 /*# sourceMappingURL=index.css.map */

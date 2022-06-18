@@ -1,37 +1,29 @@
 import cross from '../assets/images/cross.png';
 import Button from './button';
 
-function Dialog(id, icon, inner = <></>, load = {
-   beginning: () => { },
-   during: () => { },
-   end: () => { }
-}) {
+function Dialog(id, icon, inner = <></>, beginning = () => { }, during = () => { }, end = () => { }) {
    function close() {
-      document.querySelector(`#${id}`).removeAttribute('open');
+      document.querySelector(`#${id}>dialog`).close();
 
-      load.end();
+      end();
    }
    function open() {
-      load.beginning();
+      beginning();
 
-      document.querySelector(`#${id}`).setAttribute('open', '');
-
-      load.during();
+      document.querySelector(`#${id}>dialog`).showModal();
    }
 
-   if (load.beginning === undefined) load.beginning = () => { };
-   if (load.during === undefined) load.during = () => { };
-   if (load.end === undefined) load.end = () => { };
+   let title = id.charAt(0).toUpperCase() + id.slice(1);
 
-   return <div>
-      <dialog id={id} fullscreen=''>
-         <header flex=''>
-            <h1>{id}</h1>
+   return <div id={id} onLoad={during}>
+      <Button src={icon} title={title} click={open} />
+      <dialog id={id}>
+         <header>
+            <h1>{title}</h1>
             <Button src={cross} title='Close' click={close} />
          </header>
          <div>{inner}</div>
       </dialog>
-      <Button src={icon} title={id} click={open} />
    </div>;
 }
 

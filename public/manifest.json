@@ -12,5 +12,6 @@
    "theme_color": "#000000",
    "background_color": "#ffffff",
    "description": "Search and learn words",
-   "orientation": "portrait"
+   "orientation": "portrait",
+   "version": "1.3.0"
 }

@@ -24,5 +24,4 @@ yarn-error.log*
 
 #
 
-backup.json
-completer.mjs
+dev/

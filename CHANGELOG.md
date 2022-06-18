@@ -1,10 +1,3 @@
-<style>
-   summary {
-      cursor: pointer;
-      font-size: 1.2rem;
-   }
-</style>
-
 [Back](README.md)
 
 # Changelog
@@ -15,6 +8,7 @@
    <summary>Versions</summary>
 
    - [1.3.0](#130)
+   - [1.2.1](#121-•-07062022)
    - [1.2.0](#120-•-12042022)
    - [1.1.0](#110-•-react-•-01042022)
    - [1.0.0](#100-•-setup-•-25032022)
@@ -26,7 +20,6 @@
    - 1.3.0
      - Credits window
      - Info window
-     - Random word
      - Snackbars instead of alerts
      - Default word at opening
      - Dowload words
@@ -43,7 +36,8 @@
 ## 1.3.0
 
 ### Added
-- [Unaviable words](src/md/unaviable%20words.md) list
+- [Unaviable words](md/unaviable%20words.md) list
+- Random word
 - Title attribute to imgs
 - Alt attribute to imgs
 - Search words on click
@@ -62,6 +56,20 @@
 
 ### Fixed
 - Learning a word with empty search bar doesn't save anything
+
+## 1.2.1 • 07/06/2022
+
+### Added
+- Download words file button
+- Import words throught url parameter
+- Backup button
+- Restore backup button
+
+### Changed
+- Manifest theme-color
+
+### Fixed
+- Missing slash in share link
 
 ## 1.2.0 • 12/04/2022
 

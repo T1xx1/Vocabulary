@@ -1,13 +1,13 @@
 import ReactDOM from 'react-dom/client';
-import archieve from '../../assets/images/archieve.png';
-import trash from '../../assets/images/trash.png';
-import storage from '../../helpers/storage';
-import Word from '../../components/word';
-import Button from '../../components/button';
-import Dialog from '../../components/dialog';
+import archieve from '../assets/images/archieve.png';
+import trash from '../assets/images/trash.png';
+import storage from '../helpers/storage';
+import Word from '../components/word';
+import Button from '../components/button';
+import Dialog from '../components/dialog';
 
 function Archieve() {
-   return Dialog('Archieve', archieve, '', {
+   return Dialog('archieve', archieve, '', {
       beginning: () => {
          let archieved = storage.read().archieved;
 
