@@ -1,13 +1,13 @@
-import cross from '../assets/images/cross.png';
+import cross from '../assets/img/cross.png';
 import Button from './button';
 
 function Dialog(id, icon, inner = <></>, beginning = () => { }, during = () => { }, end = () => { }) {
-   function close() {
+   let close = () => {
       document.querySelector(`#${id}>dialog`).close();
 
       end();
    }
-   function open() {
+   let open = () => {
       beginning();
 
       document.querySelector(`#${id}>dialog`).showModal();
@@ -17,7 +17,7 @@ function Dialog(id, icon, inner = <></>, beginning = () => { }, during = () => {
 
    return <div id={id} onLoad={during}>
       <Button src={icon} title={title} click={open} />
-      <dialog id={id}>
+      <dialog>
          <header>
             <h1>{title}</h1>
             <Button src={cross} title='Close' click={close} />

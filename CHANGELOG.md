@@ -18,13 +18,7 @@
    <summary>Upcoming features</summary>
 
    - 1.3.0
-     - Credits window
-     - Info window
-     - Snackbars instead of alerts
-     - Default word at opening
-     - Dowload words
      - Search bar in words
-     - Search word on Google
      - Dark mode
    - 1.4.0
      - Move words throught url
@@ -36,8 +30,12 @@
 ## 1.3.0
 
 ### Added
+- Upload words button
 - [Unaviable words](md/unaviable%20words.md) list
+- Search bar in words
 - Random word
+- Word report
+- Info window
 - Title attribute to imgs
 - Alt attribute to imgs
 - Search words on click

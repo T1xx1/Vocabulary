@@ -24,6 +24,7 @@
 - mouring
 - nightground
 - paned
+- pansophy
 - pharagraf
 - phase
 - poliester

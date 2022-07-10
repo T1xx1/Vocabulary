@@ -1,4 +1,4 @@
-function Snackbar(output) {console.log(output)
+function Snackbar(output) {
    let app = document.querySelector('#app');
    let snackbar = document.createElement('output');
 

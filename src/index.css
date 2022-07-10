@@ -181,7 +181,7 @@ button:disabled, [button]:disabled,
 }
 button:hover, [button]:hover,
 [buttons] > :hover {
-  background-color: #f0f0f0;
+  background-color: #afafaf;
 }
 button[type=reset], [type=reset][button],
 [buttons] > [type=reset] {
@@ -287,13 +287,13 @@ input[type=reset] {
   cursor: pointer;
 }
 input[type=reset]:hover {
-  background-color: #f0f0f0;
+  background-color: #afafaf;
 }
 input[type=submit] {
   cursor: pointer;
 }
 input[type=submit]:hover {
-  background-color: #f0f0f0;
+  background-color: #afafaf;
 }
 
 kbd {
@@ -381,7 +381,7 @@ time {
 }
 
 ::-webkit-file-upload-button:hover {
-  background-color: #f0f0f0;
+  background-color: #afafaf;
 }
 
 ::-webkit-progress-bar {
@@ -409,6 +409,10 @@ form fieldset:only-child {
 }
 form li {
   list-style-type: none;
+}
+
+header:first-child {
+  margin-top: 0;
 }
 
 p:first-child {
@@ -573,7 +577,6 @@ dialog > header > .button > img {
 #words ul > div div > .button,
 #archieve ul > div div > .button {
   display: none;
-  background-color: #f0f0f0;
   height: 30px;
 }
 

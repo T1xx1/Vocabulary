@@ -1,18 +1,18 @@
 import { createRoot } from 'react-dom/client';
 import Dictionary from '../services/dictionary';
 import Google from '../components/google';
-import random from '../assets/images/random.png';
-import search from '../assets/images/search.png';
+import random from '../assets/img/random.png';
+import lens from '../assets/img/lens.png';
 import Button from '../components/button';
 import results from './results';
 import Randomword from '../services/randomword';
-import Snackbar from '../components/snakcbar';
+import Report from '../components/report';
 
-function Search(props) {
+function Search({ search }) {
    let keyboard = event => {
       if (event.key === 'Enter') research();
    };
-   let load = () => research(props.search);
+   let load = () => research(search);
    let random_ = () => Randomword().then(result => research(result[0]));
    let research = (word = document.querySelector('input[type="search"]').value) => {
       let result = createRoot(document.querySelector('#result'));
@@ -26,26 +26,23 @@ function Search(props) {
 
          Dictionary(word).then(response => {
             let error = () => result.render(<>
-               <div>Canno't find <span className='word'>{word}</span></div>
+               <div>Cannot find <span className='word'>{word}</span></div>
                <Google search={word} />
+               <Report word={word} />
             </>);
 
-            try {
-               if (response.title) {
-                  error();
-               } else results(response);
-            } catch {
+            if (response.title) {
                error();
-            }
+            } else results(response);
          });
       } else result.innerHTML = '';
    };
 
    return <nav onLoad={load}>
-      <input type='search' autoFocus onKeyUp={keyboard} placeholder='Search word...' />
+      <input type='search' autoFocus list='datalist' onKeyUp={keyboard} placeholder='Search word...' />
       <div>
          <Button src={random} title='Random' click={random_} />
-         <Button src={search} title='Search' click={research} />
+         <Button src={lens} title='Search' click={research} />
       </div>
    </nav>;
 }

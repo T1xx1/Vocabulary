@@ -1,4 +1,4 @@
-export const intial = {
+export const initial = {
    archieved: [],
    history: [],
    saved: [],
