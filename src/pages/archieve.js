@@ -1,42 +1,37 @@
 import ReactDOM from 'react-dom/client';
+
 import box from '../assets/img/box.png';
-import trash from '../assets/img/trash.png';
-import storage from '../helpers/storage';
-import Word from '../components/word';
-import Button from '../components/button';
 import Dialog from '../components/dialog';
+import Word from '../components/word';
+import trash from '../assets/img/trash.png';
+import Snackbar from '../components/snackbar';
 
-function Archieve() {
+export default function Archieve({ words, vocabulary }) {
    return Dialog('archieve', box, <></>, () => {
-      let archieved = storage.read().archieved;
-
       let node;
 
-      function del(event) {
-         event = event.target.parentNode.parentNode;
-         event.parentNode.removeChild(event);
+      let del = e => {
+         e = e.target.parentNode.parentNode.parentNode;
 
-         archieved.splice(archieved.indexOf(event.querySelector('.word').innerHTML), 1);
+         e.parentNode.removeChild(e);
 
-         storage.update('archieved', archieved);
+         vocabulary.words.remove(e.querySelector('.word').innerHTML);
 
-         //Snackbar
-      }
+         Snackbar('Word removed');
+      };
 
-      if (archieved.length === 0) {
+      if (words.archieved.length === 0) {
          node = <h3>You haven't archieved any word</h3>;
       } else node = <div>
-         <h3 id='length'>{archieved.length} archieved words</h3>
-         <ul>
-            {archieved.sort().map(word => <div key={word}>
+         <h3 id='length'>{words.archieved.length} archieved words</h3>
+         <div>
+            {words.archieved.sort().map(word => <div key={word}>
                <Word inner={word} />
-               <Button src={trash} title='Delete' click={del} />
+               <img src={trash} alt='Delete' onClick={del} />
             </div>)}
-         </ul>
+         </div>
       </div>;
 
       ReactDOM.createRoot(document.querySelector('#archieve>dialog>div')).render(node);
    });
 }
-
-export default Archieve;

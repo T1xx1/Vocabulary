@@ -1,70 +1,86 @@
-import download from '../helpers/download';
-import storage from '../helpers/storage';
-import gear from '../assets/img/gear.png';
-import Dialog from '../components/dialog';
-import Snackbar from '../components/snackbar';
 import Credits from './credits';
-import Info from './info';
-import { initial } from '../constants/variables';
+import Dialog from '../components/dialog';
+import download from '../utils/download';
+import gear from '../assets/img/gear.png';
+import Snackbar from '../components/snackbar';
 
-function Settings() {
+export default function Settings({ vocabulary, value, setValue }) {
    let setting = {
-      clearHistory: () => {
-         window.confirm('Are you sure you want to clear the history') && storage.update('history', []);
+      backup: () => {
+         localvocabulary.setItem('backup', JSON.stringify(value));
 
-         Snackbar('History cleared');
+         Snackbar('Backup created');
       },
-      defaultWord: () => {
-         let temp = storage.read();
+      defaultWord: () => {console.log(vocabulary, value)
+         if (!vocabulary.value.settings.defaultWord) vocabulary.settings = {};
 
-         temp.settings.defaultWord = document.querySelector('#settings').querySelector('input').value;
+         vocabulary.settings.defaultWord = document.querySelector('#settings').querySelector('input').value;
+         setValue(vocabulary.value);
+      },
+      deleteBackup: () => {
+         window.confirm('Are you sure you want to delete the backup') && localvocabulary.removeItem('backup');
 
-         storage.write(temp);
+         Snackbar('Backup deleted');
       },
       deleteSavedWords: () => {
-         window.confirm('Are you sure you want to delete all words') && storage.update('saved', []);
+         if (window.confirm('Are you sure you want to delete all words')) vocabulary.value.words.saved = [];
+
+         setValue(vocabulary.value);
 
          Snackbar('Words deleted');
       },
       downloadWords: () => {
-         download('Vocabulary words.txt', JSON.stringify(storage.read().saved));
+         download('Vocabulary words.txt', JSON.stringify(vocabulary.value.words.saved));
 
          Snackbar('Words downloaded');
       },
-      reset: () => {
-         window.confirm('Are you sure you want to reset all?') && storage.write(initial);
+      /*reset: () => {
+         window.confirm('Are you sure you want to reset all?') && 
 
          Snackbar('Resetted');
+      },*/
+      restoreBackup: () => {
+         window.confirm('Are you sure you want to restore the backup?') && vocabulary.write(JSON.parse(localvocabulary.getItem('backup')));
+
+         Snackbar('Restored');
       },
       uploadWords: () => {
          let input = document.querySelector('input[type="file"]');
-         
+
          let reader = new FileReader();
+
+         reader.readAsText(input.files[0]);
 
          reader.onload = () => {
             try {
-               storage.update('saved', [...storage.read().saved, ...JSON.parse(reader.result)]);
+               vocabulary.value.words.saved = [...vocabulary.value.words.saved, ...JSON.parse(reader.result)];
 
                Snackbar('Words uploaded');
             } catch {
                alert('Invalid file format');
             }
          };
-
-         reader.readAsText(input.files[0])
       }
    };
 
    return Dialog('settings', gear, <>
       <div>
          <span>Deafult word</span>
-         <input type='text' placeholder='Word' onKeyUp={setting.defaultWord} />
+         <input type='text' placeholder='Word' onKeyUp={setting.defaultWord} defaultValue={value.settings.defaultWord} />
+      </div>
+      <h2>Backup</h2>
+      <div>
+         <button onClick={setting.backup}>Backup</button>
+         <button onClick={setting.restoreBackup}>Restore backup</button>
+         <button onClick={setting.deleteBackup}>Delete backup</button>
       </div>
       <h2>Files</h2>
       <div>
          <button onClick={setting.downloadWords}>Download words</button>
+      </div>
+      <div>
          <span>Upload words</span>
-         <input type="file" onChange={setting.uploadWords} />
+         <input type='file' onChange={setting.uploadWords} />
       </div>
       <h2>Danger zone</h2>
       <div>
@@ -73,9 +89,8 @@ function Settings() {
          <button onClick={setting.reset}>Reset</button>
       </div>
       <hr />
-      <Credits />
-      <Info />
-   </>, () => document.querySelector('#settings input').value = storage.read().settings.defaultWord);
+      <div>
+         <Credits />
+      </div>
+   </>);
 }
-
-export default Settings;

@@ -1,7 +1,7 @@
 import cc from '../assets/img/cc.png';
 import Dialog from '../components/dialog';
 
-function Credits() {
+export default function Credits() {
    return Dialog('credits', cc, <ul>
       <li>Words informations by <a href='https://dictionaryapi.dev/'>Free dictionary API</a></li>
       <li>Icons by <a href='https://icons8.com' target='_blank'>Icons8</a></li>
@@ -9,5 +9,3 @@ function Credits() {
       <li>Report by <a href='https://formsubmit.co/'>Formsubmit</a></li>
    </ul>);
 }
-
-export default Credits;

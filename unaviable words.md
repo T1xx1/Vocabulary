@@ -1,11 +1,11 @@
 [Back](../README.md)
 
 # Unaviable words
-
 - abasment
 - allitteration
 - aries
 - be
+- chemiosmotic
 - cousine
 - determinated
 - dispoportionality
@@ -15,6 +15,7 @@
 - hell
 - hurted
 - kerchieve
+- kingliness
 - knikers
 - leggins
 - linel
@@ -33,10 +34,13 @@
 - razer
 - reconise
 - scop
+- swives
 - stokings
 - throught
 - travel book
 - trone
+- unbanded
+- upbiding
 - videoclip
 - wind mill
 - winding paths

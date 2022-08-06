@@ -1,5 +1,5 @@
-function Google({ search }) {
-   return <a href={`https://www.google.com/search?q=${search}`}>Search "{search}" on Google</a>;
-}
+import Word from './word';
 
-export default Google;
+export default function Google({ q }) {
+   return <a href={`https://www.google.com/search?q=${q}`}>Search <Word inner={q}/> on Google</a>;
+}

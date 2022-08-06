@@ -1,0 +1,1134 @@
+@charset "UTF-8";
+/* Sasscript */
+@import 'https://fonts.googleapis.com/css2?family=Montserrat&display=swap';
+@import 'https://fonts.googleapis.com/css2?family=Oxygen&display=swap';
+@import 'https://fonts.googleapis.com/css2?family=Poppins&display=swap';
+@import 'https://fonts.googleapis.com/css2?family=Roboto&display=swap';
+*[ss-black],
+[ss-black-s] > * {
+  color: #000000;
+}
+
+*[ss-white],
+[ss-white-s] > * {
+  color: #ffffff;
+}
+
+*[ss-aqua],
+[ss-aqua-s] > * {
+  color: #00ffff;
+}
+
+*[ss-blue],
+[ss-blue-s] > * {
+  color: #0000ff;
+}
+
+*[ss-green],
+[ss-green-s] > * {
+  color: #00ff00;
+}
+
+*[ss-magenta],
+[ss-magenta-s] > * {
+  color: #ff00ff;
+}
+
+*[ss-red],
+[ss-red-s] > * {
+  color: #ff0000;
+}
+
+*[ss-yellow],
+[ss-yellow-s] > * {
+  color: #ffff00;
+}
+
+*[ss-ao_english],
+[ss-ao_english-s] > * {
+  color: #008000;
+}
+
+*[ss-azure],
+[ss-azure-s] > * {
+  color: #0080ff;
+}
+
+*[ss-chartreuse_web],
+[ss-chartreuse_web-s] > * {
+  color: #80ff00;
+}
+
+*[ss-electric_blue],
+[ss-electric_blue-s] > * {
+  color: #80ffff;
+}
+
+*[ss-gray_web],
+[ss-gray_web-s] > * {
+  color: #808080;
+}
+
+*[ss-laser_lemon],
+[ss-laser_lemon-s] > * {
+  color: #ffff80;
+}
+
+*[ss-light_coral],
+[ss-light_coral-s] > * {
+  color: #ff8080;
+}
+
+*[ss-maroon_web],
+[ss-maroon_web-s] > * {
+  color: #800000;
+}
+
+*[ss-medium_slate_blue],
+[ss-medium_slate_blue-s] > * {
+  color: #8080ff;
+}
+
+*[ss-navy_blue],
+[ss-navy_blue-s] > * {
+  color: #000080;
+}
+
+*[ss-olive],
+[ss-olive-s] > * {
+  color: #808000;
+}
+
+*[ss-orange],
+[ss-orange-s] > * {
+  color: #ff8000;
+}
+
+*[ss-patriarch],
+[ss-patriarch-s] > * {
+  color: #800080;
+}
+
+*[ss-pink_flamingo],
+[ss-pink_flamingo-s] > * {
+  color: #ff80ff;
+}
+
+*[ss-rose],
+[ss-rose-s] > * {
+  color: #ff0080;
+}
+
+*[ss-screamin_green],
+[ss-screamin_green-s] > * {
+  color: #80ff80;
+}
+
+*[ss-spring_green],
+[ss-spring_green-s] > * {
+  color: #00ff80;
+}
+
+*[ss-teal],
+[ss-teal-s] > * {
+  color: #008080;
+}
+
+*[ss-violet_color_wheel],
+[ss-violet_color_wheel-s] > * {
+  color: #8000ff;
+}
+
+*[ss-cultured],
+[ss-cultured-s] > * {
+  color: #f0f0f0;
+}
+
+*[ss-smoky_black],
+[ss-smoky_black-s] > * {
+  color: #0f0f0f;
+}
+
+*[ss-eerie_black],
+[ss-eerie_black-s] > * {
+  color: #1c1c1c;
+}
+
+*[ss-jet],
+[ss-jet-s] > * {
+  color: #393939;
+}
+
+*[ss-davys_grey],
+[ss-davys_grey-s] > * {
+  color: #555555;
+}
+
+*[ss-sonic_silver],
+[ss-sonic_silver-s] > * {
+  color: #717171;
+}
+
+*[ss-spanish_gray],
+[ss-spanish_gray-s] > * {
+  color: #8e8e8e;
+}
+
+*[ss-silver_chalice],
+[ss-silver_chalice-s] > * {
+  color: #aaaaaa;
+}
+
+*[ss-silver],
+[ss-silver-s] > * {
+  color: #c6c6c6;
+}
+
+*[ss-platinum],
+[ss-platinum-s] > * {
+  color: #e3e3e3;
+}
+
+*[ss-montserrat],
+[ss-montserrat-s] > * {
+  font-family: "Montserrat";
+}
+
+*[ss-oxygen],
+[ss-oxygen-s] > * {
+  font-family: "Oxygen";
+}
+
+*[ss-poppins],
+[ss-poppins-s] > * {
+  font-family: "Poppins";
+}
+
+*[ss-roboto],
+[ss-roboto-s] > * {
+  font-family: "Roboto";
+}
+
+* {
+  box-sizing: border-box;
+  font-family: "Montserrat";
+  scroll-behavior: smooth;
+  transition: all 0.3s linear, background 0s, color 0s;
+}
+
+:root {
+  background-size: 100% 100%;
+  color-scheme: light dark;
+  cursor: default;
+}
+:root:after {
+  bottom: 0;
+  content: "Sasscript 3.3.0";
+  font-size: 0.4rem;
+  right: 0;
+  position: fixed;
+}
+
+abbr[title] {
+  text-decoration: underline dotted #008000 3px;
+}
+
+address {
+  border-radius: 10px;
+  border: 2.5px solid currentColor;
+  margin: 0.6rem 0.9rem;
+  padding: 8px 12.5px;
+  box-shadow: 1.5px 1.5px 0 currentColor;
+}
+address > h1,
+address > h2,
+address > h3 {
+  margin: 0;
+}
+
+article {
+  border-radius: 10px;
+  border: 2.5px solid currentColor;
+  margin: 0.6rem 0.9rem;
+  padding: 8px 12.5px;
+  box-shadow: 1.5px 1.5px 0 currentColor;
+}
+article > h1,
+article > h2,
+article > h3 {
+  margin: 0;
+}
+
+aside {
+  margin: 0.6rem 0.9rem;
+  float: right;
+  width: fit-content;
+}
+
+blockquote {
+  border-radius: 10px;
+  border: 2.5px solid currentColor;
+  margin: 0.6rem 0.9rem;
+  padding: 8px 12.5px;
+  box-shadow: 1.5px 1.5px 0 currentColor;
+}
+blockquote > h1,
+blockquote > h2,
+blockquote > h3 {
+  margin: 0;
+}
+
+body {
+  border: 0;
+  margin: 0;
+  min-height: 100vh;
+  min-width: 100vw;
+  padding: 0.4rem 0.6rem;
+  padding-bottom: 1.5rem;
+}
+
+button, #app dialog > header > img, #app > header > div img, #app > header > div > div#words#words dialog > div > div:last-child > * > div img, #app > header > div > div#words#words > dialog > div > div:first-child img, #app > nav > div > img, #app > #results > div:nth-child(1):not(#error) > div:nth-child(2) > img, img[ss-imgbutton],
+[ss-imgbutton-s] > img, a[ss-abutton],
+[ss-abutton-s] > a {
+  border-radius: 6px;
+  border: 2.5px solid currentColor;
+  padding: 0.4rem 0.6rem;
+  background-color: transparent;
+  cursor: pointer;
+  font-size: 1rem;
+}
+button:hover, #app dialog > header > img:hover, #app > header > div img:hover, #app > header > div > div#words#words dialog > div > div:last-child > * > div img:hover, #app > header > div > div#words#words > dialog > div > div:first-child img:hover, #app > nav > div > img:hover, #app > #results > div:nth-child(1):not(#error) > div:nth-child(2) > img:hover, img[ss-imgbutton]:hover,
+[ss-imgbutton-s] > img:hover, a[ss-abutton]:hover,
+[ss-abutton-s] > a:hover {
+  background-color: #aaaaaa;
+}
+button:disabled, #app dialog > header > img:disabled, #app > header > div img:disabled, #app > header > div > div#words#words dialog > div > div:last-child > * > div img:disabled, #app > header > div > div#words#words > dialog > div > div:first-child img:disabled, #app > nav > div > img:disabled, #app > #results > div:nth-child(1):not(#error) > div:nth-child(2) > img:disabled, img[ss-imgbutton]:disabled,
+[ss-imgbutton-s] > img:disabled, a[ss-abutton]:disabled,
+[ss-abutton-s] > a:disabled {
+  border-color: #f0f0f0;
+  color: #f0f0f0;
+  cursor: not-allowed;
+}
+button[type=reset], #app dialog > header > img[type=reset], #app > header > div img[type=reset], #app > header > div > div#words#words dialog > div > div:last-child > * > div img[type=reset], #app > header > div > div#words#words > dialog > div > div:first-child img[type=reset], #app > nav > div > img[type=reset], #app > #results > div:nth-child(1):not(#error) > div:nth-child(2) > img[type=reset], img[type=reset][ss-imgbutton],
+[ss-imgbutton-s] > img[type=reset], a[type=reset][ss-abutton],
+[ss-abutton-s] > a[type=reset] {
+  border-color: #ff0000;
+  color: #ff0000;
+}
+button[type=submit], #app dialog > header > img[type=submit], #app > header > div img[type=submit], #app > header > div > div#words#words dialog > div > div:last-child > * > div img[type=submit], #app > header > div > div#words#words > dialog > div > div:first-child img[type=submit], #app > nav > div > img[type=submit], #app > #results > div:nth-child(1):not(#error) > div:nth-child(2) > img[type=submit], img[type=submit][ss-imgbutton],
+[ss-imgbutton-s] > img[type=submit], a[type=submit][ss-abutton],
+[ss-abutton-s] > a[type=submit] {
+  border-color: #008000;
+  color: #008000;
+}
+
+code, mark, del {
+  border-radius: 6px;
+  padding: 0.4rem 0.6rem;
+  background-color: #808080;
+}
+
+del {
+  background-color: #ff0000;
+  color: #ffffff;
+  text-decoration: none;
+}
+
+dialog {
+  border-radius: 10px;
+  border: 2.5px solid currentColor;
+  margin: 0.6rem 0.9rem;
+  padding: 8px 12.5px;
+  box-shadow: 1.5px 1.5px 0 currentColor;
+  background-color: #ffffff;
+}
+dialog > h1,
+dialog > h2,
+dialog > h3 {
+  margin: 0;
+}
+
+fieldset {
+  border-radius: 10px;
+  border: 2.5px solid currentColor;
+  margin: 0.6rem 0.9rem;
+  padding: 8px 12.5px;
+  box-shadow: 1.5px 1.5px 0 currentColor;
+}
+fieldset > h1,
+fieldset > h2,
+fieldset > h3 {
+  margin: 0;
+}
+
+form {
+  border-radius: 10px;
+  border: 2.5px solid currentColor;
+  margin: 0.6rem 0.9rem;
+  padding: 8px 12.5px;
+  box-shadow: 1.5px 1.5px 0 currentColor;
+  text-align: center;
+}
+form > h1,
+form > h2,
+form > h3 {
+  margin: 0;
+}
+
+footer {
+  margin: 0.6rem 0.9rem;
+  margin-left: 0;
+  margin-right: 0;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  margin: 5px;
+}
+
+h1 {
+  font-size: 2rem;
+}
+
+h2 {
+  font-size: 1.4rem;
+}
+
+h3 {
+  font-size: 1.2rem;
+}
+
+h4 {
+  font-size: 0.9rem;
+}
+
+h5 {
+  font-size: 0.8rem;
+}
+
+h6 {
+  font-size: 0.7rem;
+}
+
+header {
+  margin: 0.6rem 0.9rem;
+  margin-right: 0;
+  margin-left: 0;
+}
+
+hr {
+  border-radius: 6px;
+  border: 2.5px solid currentColor;
+  padding: 0.4rem 0.6rem;
+  height: 15px;
+}
+
+html {
+  border: 0;
+  margin: 0;
+  min-height: 100vh;
+  min-width: 100vw;
+}
+
+iframe {
+  border-radius: 10px;
+  border: 2.5px solid currentColor;
+  margin: 0.6rem 0.9rem;
+  padding: 8px 12.5px;
+  box-shadow: 1.5px 1.5px 0 currentColor;
+}
+iframe > h1,
+iframe > h2,
+iframe > h3 {
+  margin: 0;
+}
+
+input {
+  border-radius: 6px;
+  border: 2.5px solid currentColor;
+  padding: 0.4rem 0.6rem;
+  background-color: transparent;
+  font-size: 1rem;
+  outline: 0;
+}
+input[type=button] {
+  cursor: pointer;
+}
+input[type=checkbox], input[type=radio] {
+  accent-color: #0080ff;
+  box-shadow: none;
+  cursor: pointer;
+  height: 20px;
+  width: 20px;
+}
+input[type=color] {
+  cursor: pointer;
+  padding: 5px;
+  height: 35px;
+  width: 50px;
+}
+input[type=range] {
+  accent-color: #0080ff;
+  box-shadow: none;
+  cursor: pointer;
+}
+input[type=reset] {
+  cursor: pointer;
+}
+input[type=reset]:hover {
+  background-color: #aaaaaa;
+}
+input[type=submit] {
+  cursor: pointer;
+}
+input[type=submit]:hover {
+  background-color: #aaaaaa;
+}
+
+kbd {
+  border-radius: 6px;
+  border: 2.5px solid currentColor;
+  padding: 0.4rem 0.6rem;
+}
+
+main {
+  margin: 0.6rem 0.9rem;
+}
+
+mark {
+  background-color: #ffff00;
+}
+
+meter {
+  height: 20px;
+  width: 200px;
+}
+
+nav {
+  margin: 0.6rem 0.9rem;
+}
+
+ol, ul {
+  margin: 0;
+  padding-left: 25px;
+}
+
+p::first-letter {
+  text-transform: uppercase;
+}
+
+progress {
+  border-radius: 10px;
+  border: 2.5px solid currentColor;
+  height: 20px;
+  width: 200px;
+}
+
+select {
+  border-radius: 6px;
+  border: 2.5px solid currentColor;
+  padding: 0.4rem 0.6rem;
+  background-color: transparent;
+  font-size: 1rem;
+  outline: 0;
+  cursor: pointer;
+}
+
+summary {
+  cursor: pointer;
+}
+
+table {
+  border-radius: 10px;
+  border: 2.5px solid currentColor;
+  margin: 0.6rem 0.9rem;
+  padding: 8px 12.5px;
+  box-shadow: 1.5px 1.5px 0 currentColor;
+  border-collapse: collapse;
+}
+table > h1,
+table > h2,
+table > h3 {
+  margin: 0;
+}
+
+td, th {
+  border-radius: 10px;
+  border: 2.5px solid currentColor;
+  padding: 0.4rem 0.6rem;
+  box-shadow: none;
+}
+
+textarea {
+  border-radius: 6px;
+  border: 2.5px solid currentColor;
+  padding: 0.4rem 0.6rem;
+  background-color: transparent;
+  font-size: 1rem;
+  outline: 0;
+}
+
+th {
+  text-align: center;
+}
+
+ul li {
+  list-style-type: disc;
+}
+
+:any-link {
+  color: #0080ff;
+}
+:any-link:hover {
+  color: #0000ff;
+}
+
+/*
+::-webkit-file-upload-button
+::-webkit-inner-spin-button
+::-webkit-input-placeholder
+::-webkit-media-controls
+::-webkit-media-controls-current-time-display
+::-webkit-media-controls-enclosure
+::-webkit-media-controls-fullscreen-button
+::-webkit-media-controls-mute-button
+::-webkit-media-controls-overlay-enclosure
+::-webkit-media-controls-panel
+::-webkit-media-controls-play-button
+::-webkit-media-controls-timeline
+::-webkit-media-controls-time-remaining-display
+::-webkit-media-controls-toggle-closed-captions-button
+::-webkit-media-controls-volume-control-container
+::-webkit-media-controls-volume-control-hover-background
+::-webkit-media-controls-volume-slider
+::-webkit-meter-bar
+::-webkit-meter-even-less-good-value
+::-webkit-meter-inner-element
+::-webkit-meter-optimum-value
+::-webkit-meter-suboptimum-value
+::-webkit-media-text-track-container
+::-webkit-outer-spin-button
+::-webkit-progress-bar
+::-webkit-progress-inner-element
+::-webkit-progress-value
+::-webkit-search-cancel-button
+::-webkit-search-results-button
+::-webkit-slider-runnable-track
+::-webkit-slider-thumb
+::-webkit-textfield-decoration-container
+::-webkit-validation-bubble
+::-webkit-validation-bubble-arrow
+::-webkit-validation-bubble-arrow-clipper
+::-webkit-validation-bubble-heading
+::-webkit-validation-bubble-message
+::-webkit-validation-bubble-text-block
+*/
+::-webkit-calendar-picker-indicator {
+  cursor: pointer;
+}
+
+::-webkit-file-upload-button {
+  border-radius: 6px;
+  border: 2.5px solid currentColor;
+  padding: 0.4rem 0.6rem;
+  cursor: pointer;
+  font-size: 1rem;
+  margin-bottom: 2px;
+}
+
+::-webkit-file-upload-button:hover:hover {
+  background-color: #aaaaaa;
+}
+
+::-webkit-progress-bar {
+  border-radius: 10px;
+  background-color: #ffffff;
+}
+
+::-webkit-progress-value {
+  border-radius: 10px;
+  background-color: #008000;
+}
+
+code pre, del pre, mark pre {
+  background-color: inherit;
+  color: inherit;
+  display: inline;
+  margin: 0;
+}
+
+fieldset > form:only-of-type {
+  border: 0;
+  box-shadow: none;
+  margin: 0;
+  padding: 0;
+}
+
+form > fieldset:only-child {
+  border: 0;
+  box-shadow: none;
+  margin: 0;
+  padding: 0;
+}
+form li {
+  list-style-type: none;
+}
+
+header:first-child {
+  margin-top: 0;
+}
+
+p:first-child {
+  margin-top: 0;
+}
+
+table[ss-crossed] td,
+table[ss-crossed] th,
+table[ss-crossed] tr {
+  border: 0;
+}
+table[ss-crossed] td:first-child,
+table[ss-crossed] th:first-child,
+table[ss-crossed] tr:first-child {
+  border-radius: 10px;
+  border: 2.5px solid currentColor;
+  box-shadow: none;
+}
+table[ss-note] td,
+table[ss-note] th,
+table[ss-note] tr {
+  border: 0;
+}
+table[ss-note] tr:first-child {
+  border-radius: 10px;
+  border: 2.5px solid currentColor;
+  box-shadow: none;
+}
+
+*[ss-block],
+[ss-block-s] > * {
+  border-radius: 10px;
+  border: 2.5px solid currentColor;
+  margin: 0.6rem 0.9rem;
+  padding: 8px 12.5px;
+  box-shadow: 1.5px 1.5px 0 currentColor;
+}
+*[ss-block] > h1,
+*[ss-block] > h2,
+*[ss-block] > h3,
+[ss-block-s] > * > h1,
+[ss-block-s] > * > h2,
+[ss-block-s] > * > h3 {
+  margin: 0;
+}
+
+*[ss-block-blur],
+[ss-block-blur-s] > * {
+  border-radius: 10px;
+  box-shadow: 0 0 5px #808080;
+  margin: 0.6rem 0.9rem;
+  padding: 8px 12.5px;
+}
+*[ss-block-blur] > h1,
+*[ss-block-blur] > h2,
+*[ss-block-blur] > h3,
+[ss-block-blur-s] > * > h1,
+[ss-block-blur-s] > * > h2,
+[ss-block-blur-s] > * > h3 {
+  margin: 0;
+}
+
+*[ss-input],
+[ss-input-s] > * {
+  border-radius: 6px;
+  border: 2.5px solid currentColor;
+  padding: 0.4rem 0.6rem;
+  background-color: transparent;
+  font-size: 1rem;
+  outline: 0;
+}
+
+*[ss-inline],
+[ss-inline-s] > * {
+  border-radius: 6px;
+  border: 2.5px solid currentColor;
+  padding: 0.4rem 0.6rem;
+}
+
+*[ss-inline-blur],
+[ss-inline-blur-s] > * {
+  border-radius: 6px;
+  box-shadow: 0 0 5px #808080;
+  padding: 0.4rem 0.6rem;
+}
+
+*[ss-border],
+[ss-border-s] > * {
+  border-radius: 10px;
+  border: 2.5px solid currentColor;
+}
+
+*[ss-border-inline],
+[ss-border-inline-s] > * {
+  border-radius: 10px;
+  border: 2.5px solid currentColor;
+}
+
+*[ss-border-blur],
+[ss-border-blur-s] > * {
+  border-radius: 10px;
+  box-shadow: 0 0 5px #808080;
+}
+
+*[ss-border-radius],
+[ss-border-radius-s] > * {
+  border-radius: 10px;
+}
+
+*[ss-border-radius-inline],
+[ss-border-radius-inline-s] > * {
+  border-radius: 6px;
+}
+
+*[ss-box-shadow],
+[ss-box-shadow-s] > * {
+  box-shadow: 1.5px 1.5px 0 currentColor;
+}
+
+*[ss-margin],
+[ss-margin-s] > * {
+  margin: 0.6rem 0.9rem;
+}
+
+*[ss-padding],
+[ss-padding-s] > * {
+  padding: 8px 12.5px;
+}
+
+*[ss-padding-inline],
+[ss-padding-inline-s] > * {
+  padding: 0.4rem 0.6rem;
+}
+
+*[ss-flex],
+[ss-flex-s] > * {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+*[ss-fullscreen],
+[ss-fullscreen-s] > * {
+  border: 0;
+  margin: 0;
+  min-height: 100vh;
+  min-width: 100vw;
+}
+
+*[ss-highlight]:hover,
+[ss-highlight-s] > *:hover {
+  background-color: #aaaaaa;
+}
+
+*[ss-highlight-bubble]:hover,
+[ss-highlight-bubble-s] > *:hover {
+  background-color: #aaaaaa;
+  border-radius: 6px;
+  padding: 0.4rem 0.6rem;
+}
+
+*[ss-reset],
+[ss-reset-s] > * {
+  border: 0;
+  box-shadow: none;
+  margin: 0;
+  padding: 0;
+}
+
+*[ss-var-number],
+[ss-var-number-s] > * {
+  color: #80ff80;
+}
+
+*[ss-var-string],
+[ss-var-string-s] > * {
+  color: #ff8000;
+}
+
+a[ss-abutton],
+[ss-abutton-s] > a {
+  display: inline-block;
+  text-decoration: none;
+}
+a[ss-abutton]:hover,
+[ss-abutton-s] > a:hover {
+  background-color: transparent;
+}
+
+img[ss-imgbutton],
+[ss-imgbutton-s] > img {
+  padding: 5px;
+  height: 40px;
+  width: 40px;
+}
+
+details[ss-detailsfieldset],
+[ss-detailsfieldset-s] > details {
+  border-radius: 10px;
+  border: 2.5px solid currentColor;
+  margin: 0.6rem 0.9rem;
+  padding: 8px 12.5px;
+  box-shadow: 1.5px 1.5px 0 currentColor;
+}
+details[ss-detailsfieldset] > h1,
+details[ss-detailsfieldset] > h2,
+details[ss-detailsfieldset] > h3,
+[ss-detailsfieldset-s] > details > h1,
+[ss-detailsfieldset-s] > details > h2,
+[ss-detailsfieldset-s] > details > h3 {
+  margin: 0;
+}
+details[ss-detailsfieldset]:not([open]),
+[ss-detailsfieldset-s] > details:not([open]) {
+  width: fit-content;
+}
+
+*[ss-error],
+[ss-error-s] > * {
+  border-radius: 6px;
+  border: 2.5px solid currentColor;
+  padding: 0.4rem 0.6rem;
+  color: #ff0000;
+}
+*[ss-error]::before,
+[ss-error-s] > *::before {
+  content: "❌Error: ";
+}
+
+*[ss-warn],
+[ss-warn-s] > * {
+  border-radius: 6px;
+  border: 2.5px solid currentColor;
+  padding: 0.4rem 0.6rem;
+  color: #ff8000;
+}
+*[ss-warn]::before,
+[ss-warn-s] > *::before {
+  content: "⚠️Warning: ";
+}
+
+:root {
+  color-scheme: light;
+  overflow-x: hidden;
+}
+:root [hidden] {
+  display: none !important;
+}
+
+@media (min-width: 426px) {
+  body {
+    background-color: #47c2ff;
+  }
+  body > #root {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+}
+
+@media (min-width: 426px) {
+  #app {
+    border-radius: 10px;
+    border: 2.5px solid currentColor;
+    margin: 0.6rem 0.9rem;
+    padding: 8px 12.5px;
+    box-shadow: 1.5px 1.5px 0 currentColor;
+    background-color: #ffffff;
+    border: 0;
+    box-shadow: 7px 7px 2px;
+    padding-bottom: 1rem;
+    width: clamp(60ch, 60%, 90ch);
+  }
+  #app > h1,
+#app > h2,
+#app > h3 {
+    margin: 0;
+  }
+}
+#app img {
+  border: 0 !important;
+  box-shadow: none;
+}
+#app dialog {
+  border: 0;
+  margin: 0;
+  min-height: 100vh;
+  min-width: 100vw;
+}
+#app dialog > header {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+}
+#app dialog > header > h1 {
+  color: #007ab8;
+}
+#app dialog > header > img {
+  padding: 0;
+  height: 45px;
+  width: 45px;
+}
+#app > header {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+}
+@media (max-width: 426px) {
+  #app > header {
+    flex-direction: column;
+  }
+}
+#app > header > div {
+  display: flex;
+  flex-wrap: wrap;
+}
+#app > header > div img {
+  padding: 1px;
+  height: 50px;
+  width: 50px;
+}
+#app > header > div > div#settings > dialog > div > div {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+}
+#app > header > div > div#words#words dialog > div > div:last-child > *, #app > header > div > div#words#archieve dialog > div > div:last-child > * {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+}
+#app > header > div > div#words#words dialog > div > div:last-child > *:hover, #app > header > div > div#words#archieve dialog > div > div:last-child > *:hover {
+  background-color: #aaaaaa;
+  border-radius: 6px;
+  padding: 0.4rem 0.6rem;
+}
+#app > header > div > div#words#words dialog > div > div:last-child > *:hover img, #app > header > div > div#words#archieve dialog > div > div:last-child > *:hover img {
+  display: flex;
+}
+#app > header > div > div#words#words dialog > div > div:last-child > * > div, #app > header > div > div#words#archieve dialog > div > div:last-child > * > div {
+  display: flex;
+  flex-wrap: wrap;
+}
+#app > header > div > div#words#words dialog > div > div:last-child > * > div img, #app > header > div > div#words#archieve dialog > div > div:last-child > * > div img {
+  padding: 0;
+  height: 30px;
+  width: 30px;
+  display: none;
+}
+#app > header > div > div#words#words > dialog > div > div:first-child {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  margin-bottom: 10px;
+}
+#app > header > div > div#words#words > dialog > div > div:first-child img {
+  padding: 1px;
+  height: 35px;
+  width: 35px;
+}
+#app > header > div > div#words#words > dialog > div > div:first-child #all > dialog > div > span {
+  margin-right: 7px;
+}
+#app > header > h1 {
+  color: #007ab8;
+  font-size: 2.5rem;
+}
+#app > nav {
+  border-radius: 10px;
+  border: 2.5px solid currentColor;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  border-radius: 7px;
+  justify-content: space-between;
+  width: fit-content;
+}
+@media (max-width: 426px) {
+  #app > nav {
+    margin: 0;
+    width: 100%;
+  }
+}
+#app > nav > div {
+  display: flex;
+  flex-wrap: wrap;
+}
+#app > nav > div > img {
+  padding: 0;
+  height: 35px;
+  width: 35px;
+}
+#app > nav > input {
+  border: 0;
+  box-shadow: none;
+  color: #ff1b8d;
+  width: 75%;
+}
+#app > #results b,
+#app > #results h3 {
+  color: #007ab8;
+}
+#app > #results > div:nth-child(1):not(#error) {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+#app > #results > div:nth-child(1):not(#error) > div {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+}
+#app > #results > div:nth-child(1):not(#error) > div:nth-child(2) > img {
+  padding: 0;
+  height: 45px;
+  width: 45px;
+}
+#app > #results > div:nth-child(1):not(#error) > div:nth-child(2) > input {
+  accent-color: #ff1b8d;
+  height: 25px;
+  width: 25px;
+}
+#app .word {
+  color: #ff1b8d;
+  cursor: pointer;
+}
+#app .snackbar {
+  border-radius: 6px;
+  border: 2.5px solid currentColor;
+  padding: 0.4rem 0.6rem;
+  animation: in 700ms ease, out 700ms ease 5s;
+  background-color: #000000;
+  bottom: 15px;
+  color: #ffffff;
+  left: 15px;
+  position: fixed;
+  min-width: 250px;
+}
+@keyframes in {
+  from {
+    transform: translateY(120%);
+  }
+}
+@keyframes out {
+  to {
+    transform: translateY(150%);
+  }
+}
+
+/*# sourceMappingURL=style.css.map */

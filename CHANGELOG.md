@@ -14,18 +14,7 @@
    - [1.0.0](#100-•-setup-•-25032022)
 </details>
 
-<details>
-   <summary>Upcoming features</summary>
-
-   - 1.3.0
-     - Search bar in words
-     - Dark mode
-   - 1.4.0
-     - Move words throught url
-     - Open words in another page
-</details>
-
-<br>
+<hr>
 
 ## 1.3.0
 
@@ -36,6 +25,8 @@
 - Random word
 - Word report
 - Info window
+- Restyle
+- New favicon
 - Title attribute to imgs
 - Alt attribute to imgs
 - Search words on click

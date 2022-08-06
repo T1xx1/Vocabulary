@@ -2,6 +2,5 @@
 
 Search and learn words
 
-## Md
+## Links
 - [Changelog](CHANGELOG.md)
-- [Unaviable words](md/unaviable%20words.md)

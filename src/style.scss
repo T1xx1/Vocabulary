@@ -1,0 +1,225 @@
+@use '../../Sasscript/scss/ss.scss';
+
+$capri: #47c2ff;
+$star-command-blue: #007ab8;
+$magenta-process: #ff1b8d;
+
+:root {
+   color-scheme: light;
+   overflow-x: hidden;
+
+   [hidden] {
+      display: none !important;
+   }
+}
+
+body {
+   @media (min-width: 426px) {
+      background-color: $capri;
+
+      >#root {
+         @include ss.flex;
+
+         justify-content: center;
+      }
+   }
+}
+
+#app {
+   @media (min-width: 426px) {
+      @include ss.block;
+
+      background-color: map-get(ss.$colors, 'white');
+      border: 0;
+      box-shadow: 7px 7px 2px;
+      padding-bottom: 1rem;
+      width: clamp(60ch, 60%, 90ch);
+   }
+
+   img {
+      border: 0 !important;
+      box-shadow: none;
+   }
+
+   dialog {
+      @include ss.fullscreen;
+
+      >header {
+         @include ss.flex;
+
+         align-items: center;
+         justify-content: space-between;
+
+         >h1 {
+            color: $star-command-blue;
+         }
+
+         >img {
+            @include ss.imgbutton(45px, 0);
+         }
+      }
+   }
+
+   >header {
+      @include ss.flex;
+
+      align-items: center;
+      justify-content: space-between;
+
+      @media (max-width: 426px) {
+         flex-direction: column;
+      }
+
+      >div {
+         @include ss.flex;
+
+         img {
+            @include ss.imgbutton(50px, 1px);
+         }
+
+         >div#settings>dialog>div>div {
+            @include ss.flex;
+
+            align-items: center;
+         }
+
+         >div#words {
+
+            &#words,
+            &#archieve {
+               dialog>div>div:last-child>* {
+                  @include ss.highlight('bubble');
+                  @include ss.flex;
+
+                  align-items: center;
+                  justify-content: space-between;
+
+                  &:hover img {
+                     display: flex;
+                  }
+
+                  >div {
+                     @include ss.flex;
+
+                     img {
+                        @include ss.imgbutton(30px, 0);
+
+                        display: none;
+                     }
+                  }
+               }
+            }
+
+            &#words>dialog>div>div:first-child {
+               @include ss.flex;
+
+               align-items: center;
+               margin-bottom: 10px;
+
+               img {
+                  @include ss.imgbutton(35px, 1px);
+               }
+
+               #all>dialog>div>span {
+                  margin-right: 7px;
+               }
+            }
+         }
+      }
+
+      >h1 {
+         color: $star-command-blue;
+         font-size: 2.5rem;
+      }
+   }
+
+   >nav {
+      @include ss.border;
+      @include ss.flex;
+
+      align-items: center;
+      border-radius: 7px;
+      justify-content: space-between;
+      width: fit-content;
+
+      @media (max-width: 426px) {
+         margin: 0;
+         width: 100%;
+      }
+
+      >div {
+         @include ss.flex;
+
+         >img {
+            @include ss.imgbutton(35px, 0);
+         }
+      }
+
+      >input {
+         border: 0;
+         box-shadow: none;
+         color: $magenta-process;
+         width: 75%;
+      }
+   }
+
+   >#results {
+      b,
+      h3 {
+         color: $star-command-blue;
+      }
+
+      >div:nth-child(1):not(#error) {
+         @include ss.flex;
+
+         justify-content: space-between;
+
+         >div {
+            @include ss.flex;
+
+            align-items: center;
+
+            &:nth-child(2) {
+               >img {
+                  @include ss.imgbutton(45px, 0);
+               }
+
+               >input {
+                  accent-color: $magenta-process;
+                  height: 25px;
+                  width: 25px;
+               }
+            }
+         }
+      }
+   }
+
+   .word {
+      color: $magenta-process;
+      cursor: pointer;
+   }
+
+   .snackbar {
+      @include ss.inline;
+
+      animation: in 700ms ease, out 700ms ease 5s;
+      background-color: map-get(ss.$colors, 'black');
+      bottom: 15px;
+      color: map-get(ss.$colors, 'white');
+      left: 15px;
+      position: fixed;
+      min-width: 250px;
+
+      @keyframes in {
+         from {
+            transform: translateY(120%);
+         }
+      }
+
+      @keyframes out {
+         to {
+            transform: translateY(150%);
+         }
+      }
+   }
+}
