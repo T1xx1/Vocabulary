@@ -1,0 +1,24 @@
+{
+  "name": "Vocabulary",
+  "version": "1.2.0",
+  "lang": "en",
+  "description": "Search and learn words get their definitions, synonyms and antonyms",
+  "start_url": "https://t1xx1.github.io/Vocabulary",
+  "background_color": "#1bb2ff",
+  "theme_color": "#000000",
+  "dir": "auto",
+  "display": "fullscreen",
+  "orientation": "any",
+  "icons": [
+    {
+      "src": "./icons/32-white.png",
+      "type": "image/png",
+      "sizes": "32x32"
+    },
+    {
+      "src": "./icons/144-black.png",
+      "type": "image/png",
+      "sizes": "144x144"
+    }
+  ]
+}
