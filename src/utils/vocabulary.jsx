@@ -1,27 +1,21 @@
-import info from './data/info.json';
+import info from '../data/info.json';
 
-import Localvocabulary from '../snippets/localvocabulary';
+import LocalStorage from '../snippets/localstorage';
 
-export default class Vocabulary extends Localvocabulary {
+export default class Vocabulary extends LocalStorage {
    constructor() {
       super(info.name, '2.0', {
          words: {
-            archieved: [],
             history: [],
             saved: []
          },
          settings: {}
       });
+
+      if (this.value === null) this.init();
    }
 
-   arch(word) {
-      this.rm(word);
-      this.value.words.archieved = [...new Set([...this.value.words.archieved, word])];
-   }
-   dearch(word) {
-      this.value.words.archieved.filter(w => w !== word);
-      this.save(word);
-   }
+
    isSaved(word) {
       return this.value.words.saved.includes(word) ? true : false;
    }
@@ -29,6 +23,6 @@ export default class Vocabulary extends Localvocabulary {
       this.value.words.saved = [...new Set([...this.value.words.saved, word])];
    }
    rm(word) {
-      this.value.words.saved.filter(w => w !== word);
+      this.value.words.saved = this.value.words.saved.filter(w => word !== w);
    }
 }

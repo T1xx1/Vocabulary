@@ -7,18 +7,18 @@ import Snackbar from '../components/snackbar';
 export default function Settings({ vocabulary, value, setValue }) {
    let setting = {
       backup: () => {
-         localvocabulary.setItem('backup', JSON.stringify(value));
+         window.localStorage.setItem('backup', JSON.stringify(value));
 
          Snackbar('Backup created');
       },
-      defaultWord: () => {console.log(vocabulary, value)
+      defaultWord: () => {
          if (!vocabulary.value.settings.defaultWord) vocabulary.settings = {};
 
          vocabulary.settings.defaultWord = document.querySelector('#settings').querySelector('input').value;
          setValue(vocabulary.value);
       },
       deleteBackup: () => {
-         window.confirm('Are you sure you want to delete the backup') && localvocabulary.removeItem('backup');
+         window.confirm('Are you sure you want to delete the backup') && window.localStorage.removeItem('backup');
 
          Snackbar('Backup deleted');
       },
@@ -40,7 +40,7 @@ export default function Settings({ vocabulary, value, setValue }) {
          Snackbar('Resetted');
       },*/
       restoreBackup: () => {
-         window.confirm('Are you sure you want to restore the backup?') && vocabulary.write(JSON.parse(localvocabulary.getItem('backup')));
+         window.confirm('Are you sure you want to restore the backup?') && vocabulary.write(JSON.parse(window.localStorage.getItem('backup')));
 
          Snackbar('Restored');
       },

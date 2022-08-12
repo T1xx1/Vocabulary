@@ -34,7 +34,6 @@
 
 ### Changed
 - Reorganized folder structure
-- First definitions bigger than others
 - Max 5 definitions
 - New favicon
 - Better icons

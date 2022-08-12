@@ -287,7 +287,7 @@ body {
   padding-bottom: 1.5rem;
 }
 
-button, #app dialog > header > img, #app > header > div img, #app > header > div > div#words#words dialog > div > div:last-child > * > div img, #app > header > div > div#words#words > dialog > div > div:first-child img, #app > nav > div > img, #app > #results > div:nth-child(1):not(#error) > div:nth-child(2) > img, img[ss-imgbutton],
+button, #app dialog > div:first-child > img, #app > header > div img, #app > header > div > div#words#words > dialog > div > div:last-child > * > div img, #app > header > div > div#words#words > dialog > div > div:first-child img, #app > nav > div > img, #app > #results > div:nth-child(1):not(#error) > div:nth-child(2) > img, img[ss-imgbutton],
 [ss-imgbutton-s] > img, a[ss-abutton],
 [ss-abutton-s] > a {
   border-radius: 6px;
@@ -297,25 +297,25 @@ button, #app dialog > header > img, #app > header > div img, #app > header > div
   cursor: pointer;
   font-size: 1rem;
 }
-button:hover, #app dialog > header > img:hover, #app > header > div img:hover, #app > header > div > div#words#words dialog > div > div:last-child > * > div img:hover, #app > header > div > div#words#words > dialog > div > div:first-child img:hover, #app > nav > div > img:hover, #app > #results > div:nth-child(1):not(#error) > div:nth-child(2) > img:hover, img[ss-imgbutton]:hover,
+button:hover, #app dialog > div:first-child > img:hover, #app > header > div img:hover, #app > header > div > div#words#words > dialog > div > div:last-child > * > div img:hover, #app > header > div > div#words#words > dialog > div > div:first-child img:hover, #app > nav > div > img:hover, #app > #results > div:nth-child(1):not(#error) > div:nth-child(2) > img:hover, img[ss-imgbutton]:hover,
 [ss-imgbutton-s] > img:hover, a[ss-abutton]:hover,
 [ss-abutton-s] > a:hover {
   background-color: #aaaaaa;
 }
-button:disabled, #app dialog > header > img:disabled, #app > header > div img:disabled, #app > header > div > div#words#words dialog > div > div:last-child > * > div img:disabled, #app > header > div > div#words#words > dialog > div > div:first-child img:disabled, #app > nav > div > img:disabled, #app > #results > div:nth-child(1):not(#error) > div:nth-child(2) > img:disabled, img[ss-imgbutton]:disabled,
+button:disabled, #app dialog > div:first-child > img:disabled, #app > header > div img:disabled, #app > header > div > div#words#words > dialog > div > div:last-child > * > div img:disabled, #app > header > div > div#words#words > dialog > div > div:first-child img:disabled, #app > nav > div > img:disabled, #app > #results > div:nth-child(1):not(#error) > div:nth-child(2) > img:disabled, img[ss-imgbutton]:disabled,
 [ss-imgbutton-s] > img:disabled, a[ss-abutton]:disabled,
 [ss-abutton-s] > a:disabled {
   border-color: #f0f0f0;
   color: #f0f0f0;
   cursor: not-allowed;
 }
-button[type=reset], #app dialog > header > img[type=reset], #app > header > div img[type=reset], #app > header > div > div#words#words dialog > div > div:last-child > * > div img[type=reset], #app > header > div > div#words#words > dialog > div > div:first-child img[type=reset], #app > nav > div > img[type=reset], #app > #results > div:nth-child(1):not(#error) > div:nth-child(2) > img[type=reset], img[type=reset][ss-imgbutton],
+button[type=reset], #app dialog > div:first-child > img[type=reset], #app > header > div img[type=reset], #app > header > div > div#words#words > dialog > div > div:last-child > * > div img[type=reset], #app > header > div > div#words#words > dialog > div > div:first-child img[type=reset], #app > nav > div > img[type=reset], #app > #results > div:nth-child(1):not(#error) > div:nth-child(2) > img[type=reset], img[type=reset][ss-imgbutton],
 [ss-imgbutton-s] > img[type=reset], a[type=reset][ss-abutton],
 [ss-abutton-s] > a[type=reset] {
   border-color: #ff0000;
   color: #ff0000;
 }
-button[type=submit], #app dialog > header > img[type=submit], #app > header > div img[type=submit], #app > header > div > div#words#words dialog > div > div:last-child > * > div img[type=submit], #app > header > div > div#words#words > dialog > div > div:first-child img[type=submit], #app > nav > div > img[type=submit], #app > #results > div:nth-child(1):not(#error) > div:nth-child(2) > img[type=submit], img[type=submit][ss-imgbutton],
+button[type=submit], #app dialog > div:first-child > img[type=submit], #app > header > div img[type=submit], #app > header > div > div#words#words > dialog > div > div:last-child > * > div img[type=submit], #app > header > div > div#words#words > dialog > div > div:first-child img[type=submit], #app > nav > div > img[type=submit], #app > #results > div:nth-child(1):not(#error) > div:nth-child(2) > img[type=submit], img[type=submit][ss-imgbutton],
 [ss-imgbutton-s] > img[type=submit], a[type=submit][ss-abutton],
 [ss-abutton-s] > a[type=submit] {
   border-color: #008000;
@@ -968,16 +968,16 @@ details[ss-detailsfieldset]:not([open]),
   min-height: 100vh;
   min-width: 100vw;
 }
-#app dialog > header {
+#app dialog > div:first-child {
   display: flex;
   flex-wrap: wrap;
   align-items: center;
   justify-content: space-between;
 }
-#app dialog > header > h1 {
+#app dialog > div:first-child > h1 {
   color: #007ab8;
 }
-#app dialog > header > img {
+#app dialog > div:first-child > img {
   padding: 0;
   height: 45px;
   width: 45px;
@@ -1007,25 +1007,28 @@ details[ss-detailsfieldset]:not([open]),
   flex-wrap: wrap;
   align-items: center;
 }
-#app > header > div > div#words#words dialog > div > div:last-child > *, #app > header > div > div#words#archieve dialog > div > div:last-child > * {
+#app > header > div > div#words#words > dialog > div > div:last-child > * {
   display: flex;
   flex-wrap: wrap;
   align-items: center;
   justify-content: space-between;
 }
-#app > header > div > div#words#words dialog > div > div:last-child > *:hover, #app > header > div > div#words#archieve dialog > div > div:last-child > *:hover {
+#app > header > div > div#words#words > dialog > div > div:last-child > *:hover {
   background-color: #aaaaaa;
   border-radius: 6px;
   padding: 0.4rem 0.6rem;
 }
-#app > header > div > div#words#words dialog > div > div:last-child > *:hover img, #app > header > div > div#words#archieve dialog > div > div:last-child > *:hover img {
+#app > header > div > div#words#words > dialog > div > div:last-child > *:hover {
+  padding: 0.4rem 0.6rem;
+}
+#app > header > div > div#words#words > dialog > div > div:last-child > *:hover img {
   display: flex;
 }
-#app > header > div > div#words#words dialog > div > div:last-child > * > div, #app > header > div > div#words#archieve dialog > div > div:last-child > * > div {
+#app > header > div > div#words#words > dialog > div > div:last-child > * > div {
   display: flex;
   flex-wrap: wrap;
 }
-#app > header > div > div#words#words dialog > div > div:last-child > * > div img, #app > header > div > div#words#archieve dialog > div > div:last-child > * > div img {
+#app > header > div > div#words#words > dialog > div > div:last-child > * > div img {
   padding: 0;
   height: 30px;
   width: 30px;

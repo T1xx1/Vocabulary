@@ -29,7 +29,7 @@ body {
    @media (min-width: 426px) {
       @include ss.block;
 
-      background-color: map-get(ss.$colors, 'white');
+      background-color: ss.color('white');
       border: 0;
       box-shadow: 7px 7px 2px;
       padding-bottom: 1rem;
@@ -44,7 +44,7 @@ body {
    dialog {
       @include ss.fullscreen;
 
-      >header {
+      >div:first-child {
          @include ss.flex;
 
          align-items: center;
@@ -84,28 +84,28 @@ body {
          }
 
          >div#words {
+            &#words>dialog>div>div:last-child>* {
+               @include ss.highlight('bubble');
+               @include ss.flex;
 
-            &#words,
-            &#archieve {
-               dialog>div>div:last-child>* {
-                  @include ss.highlight('bubble');
-                  @include ss.flex;
+               align-items: center;
+               justify-content: space-between;
 
-                  align-items: center;
-                  justify-content: space-between;
+               &:hover {
+                  @include ss.padding('inline');
 
-                  &:hover img {
+                  img {
                      display: flex;
                   }
+               }
 
-                  >div {
-                     @include ss.flex;
+               >div {
+                  @include ss.flex;
 
-                     img {
-                        @include ss.imgbutton(30px, 0);
+                  img {
+                     @include ss.imgbutton(30px, 0);
 
-                        display: none;
-                     }
+                     display: none;
                   }
                }
             }
@@ -164,6 +164,7 @@ body {
    }
 
    >#results {
+
       b,
       h3 {
          color: $star-command-blue;
@@ -203,9 +204,9 @@ body {
       @include ss.inline;
 
       animation: in 700ms ease, out 700ms ease 5s;
-      background-color: map-get(ss.$colors, 'black');
+      background-color: ss.color('black');
       bottom: 15px;
-      color: map-get(ss.$colors, 'white');
+      color: ss.color('white');
       left: 15px;
       position: fixed;
       min-width: 250px;

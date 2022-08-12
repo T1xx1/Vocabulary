@@ -1,8 +1,6 @@
 {
-   "settings": {
-      "installInSrcFolder": true
-   },
    "snippets": {
-      "localstorage.jsx": "2022-08-05, 23:48:--"
+      "dialog.jsx": "2022-08-07 15:36:32",
+      "localstorage.jsx": "2022-08-07 15:36:42"
    }
 }
