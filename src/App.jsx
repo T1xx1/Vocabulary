@@ -19,7 +19,7 @@ export default function App() {
       setValue(vocabulary.value);
 
       vocabulary.write();
-   }
+   };
 
    /*let defaultWord = vocabulary.value.settings.defaultWord;
    let url = new URL(window.location.href);
@@ -37,7 +37,7 @@ export default function App() {
 
    //if (importWord) vocabulary.value.words.saved = [...new Set([...vocabulary.value.words.saved, ...importWord.split(',')])]
 
-   return <div id='app'>
+   return <>
       <header>
          <h1 onClick={() => window.location.href = info.start_url} title={info.start_url}>{info.name}</h1>
          <div>
@@ -47,5 +47,5 @@ export default function App() {
       </header>
       <Search search={search} setSearch={setSearch} setResult={setResult} vocabulary={vocabulary} update={update} />
       <div id='results'>{result}</div>
-   </div>;
+   </>;
 }

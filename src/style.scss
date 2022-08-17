@@ -6,37 +6,33 @@ $magenta-process: #ff1b8d;
 
 :root {
    color-scheme: light;
-   overflow-x: hidden;
 
-   [hidden] {
-      display: none !important;
+   @media (min-width: 426px) {
+      background-color: $capri;
    }
 }
 
 body {
-   @media (min-width: 426px) {
-      background-color: $capri;
+   @include ss.flex;
 
-      >#root {
-         @include ss.flex;
-
-         justify-content: center;
-      }
-   }
+   justify-content: center;
 }
 
-#app {
+#root {
    @media (min-width: 426px) {
       @include ss.block;
 
       background-color: ss.color('white');
       border: 0;
-      box-shadow: 7px 7px 2px;
+      box-shadow: none;
+      height: fit-content;
       padding-bottom: 1rem;
-      width: clamp(60ch, 60%, 90ch);
+      width: clamp(500px, 80vw, 700px);
    }
 
    img {
+      @include ss.imgbutton(50px, 0);
+
       border: 0 !important;
       box-shadow: none;
    }
@@ -53,10 +49,6 @@ body {
          >h1 {
             color: $star-command-blue;
          }
-
-         >img {
-            @include ss.imgbutton(45px, 0);
-         }
       }
    }
 
@@ -72,59 +64,6 @@ body {
 
       >div {
          @include ss.flex;
-
-         img {
-            @include ss.imgbutton(50px, 1px);
-         }
-
-         >div#settings>dialog>div>div {
-            @include ss.flex;
-
-            align-items: center;
-         }
-
-         >div#words {
-            &#words>dialog>div>div:last-child>* {
-               @include ss.highlight('bubble');
-               @include ss.flex;
-
-               align-items: center;
-               justify-content: space-between;
-
-               &:hover {
-                  @include ss.padding('inline');
-
-                  img {
-                     display: flex;
-                  }
-               }
-
-               >div {
-                  @include ss.flex;
-
-                  img {
-                     @include ss.imgbutton(30px, 0);
-
-                     display: none;
-                  }
-               }
-            }
-
-            &#words>dialog>div>div:first-child {
-               @include ss.flex;
-
-               align-items: center;
-               margin-bottom: 10px;
-
-               img {
-                  @include ss.imgbutton(35px, 1px);
-               }
-
-               #all>dialog>div>span {
-                  margin-right: 7px;
-               }
-            }
-         }
       }
 
       >h1 {
@@ -134,17 +73,21 @@ body {
    }
 
    >nav {
-      @include ss.border;
+      @include ss.border('inline');
       @include ss.flex;
 
       align-items: center;
-      border-radius: 7px;
+      margin: 0 0 10px 15px;
       justify-content: space-between;
       width: fit-content;
 
       @media (max-width: 426px) {
-         margin: 0;
+         margin-left: 0;
          width: 100%;
+
+         >input {
+            width: 75%;
+         }
       }
 
       >div {
@@ -159,7 +102,6 @@ body {
          border: 0;
          box-shadow: none;
          color: $magenta-process;
-         width: 75%;
       }
    }
 
@@ -170,7 +112,16 @@ body {
          color: $star-command-blue;
       }
 
-      >div:nth-child(1):not(#error) {
+      >#error {
+         @media (max-width: 426px) {
+            @include ss.flex;
+
+            align-items: center;
+            flex-direction: column;
+         }
+      }
+
+      >#header {
          @include ss.flex;
 
          justify-content: space-between;
@@ -180,18 +131,34 @@ body {
 
             align-items: center;
 
+            &:nth-child(1) {
+               align-items: baseline;
+
+               >span {
+                  color: ss.color('gray-web');
+               }
+            }
+
             &:nth-child(2) {
-               >img {
-                  @include ss.imgbutton(45px, 0);
+               @include ss.flex;
+
+               align-items: center;
+
+               img {
+                  @include ss.imgbutton(40px, 0);
                }
 
-               >input {
+               input {
                   accent-color: $magenta-process;
-                  height: 25px;
-                  width: 25px;
+                  height: 26px;
+                  width: 26px;
                }
             }
          }
+      }
+
+      #result>div>div {
+         margin-left: 10px;
       }
    }
 
@@ -221,6 +188,55 @@ body {
          to {
             transform: translateY(150%);
          }
+      }
+   }
+}
+
+div#settings>dialog>div>div {
+   @include ss.flex;
+
+   align-items: center;
+}
+
+div#words {
+   &#words>dialog>div>div:last-child>* {
+      @include ss.highlight('bubble');
+      @include ss.flex;
+
+      align-items: center;
+      justify-content: space-between;
+
+      &:hover {
+         @include ss.padding('inline');
+
+         img {
+            display: flex;
+         }
+      }
+
+      >div {
+         @include ss.flex;
+
+         img {
+            @include ss.imgbutton(30px, 0);
+
+            display: none;
+         }
+      }
+   }
+
+   &#words>dialog>div>div:first-child {
+      @include ss.flex;
+
+      align-items: center;
+      margin-bottom: 10px;
+
+      img {
+         @include ss.imgbutton(35px, 1px);
+      }
+
+      #all>dialog>div>span {
+         margin-right: 7px;
       }
    }
 }

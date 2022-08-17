@@ -9,9 +9,19 @@
   color: #000000;
 }
 
+*[ss-bg_black],
+[ss-bg_black-s] > * {
+  background-color: #000000;
+}
+
 *[ss-white],
 [ss-white-s] > * {
   color: #ffffff;
+}
+
+*[ss-bg_white],
+[ss-bg_white-s] > * {
+  background-color: #ffffff;
 }
 
 *[ss-aqua],
@@ -19,9 +29,19 @@
   color: #00ffff;
 }
 
+*[ss-bg_aqua],
+[ss-bg_aqua-s] > * {
+  background-color: #00ffff;
+}
+
 *[ss-blue],
 [ss-blue-s] > * {
   color: #0000ff;
+}
+
+*[ss-bg_blue],
+[ss-bg_blue-s] > * {
+  background-color: #0000ff;
 }
 
 *[ss-green],
@@ -29,9 +49,19 @@
   color: #00ff00;
 }
 
+*[ss-bg_green],
+[ss-bg_green-s] > * {
+  background-color: #00ff00;
+}
+
 *[ss-magenta],
 [ss-magenta-s] > * {
   color: #ff00ff;
+}
+
+*[ss-bg_magenta],
+[ss-bg_magenta-s] > * {
+  background-color: #ff00ff;
 }
 
 *[ss-red],
@@ -39,14 +69,29 @@
   color: #ff0000;
 }
 
+*[ss-bg_red],
+[ss-bg_red-s] > * {
+  background-color: #ff0000;
+}
+
 *[ss-yellow],
 [ss-yellow-s] > * {
   color: #ffff00;
 }
 
-*[ss-ao_english],
-[ss-ao_english-s] > * {
+*[ss-bg_yellow],
+[ss-bg_yellow-s] > * {
+  background-color: #ffff00;
+}
+
+*[ss-ao-english],
+[ss-ao-english-s] > * {
   color: #008000;
+}
+
+*[ss-bg_ao-english],
+[ss-bg_ao-english-s] > * {
+  background-color: #008000;
 }
 
 *[ss-azure],
@@ -54,44 +99,89 @@
   color: #0080ff;
 }
 
-*[ss-chartreuse_web],
-[ss-chartreuse_web-s] > * {
+*[ss-bg_azure],
+[ss-bg_azure-s] > * {
+  background-color: #0080ff;
+}
+
+*[ss-chartreuse-web],
+[ss-chartreuse-web-s] > * {
   color: #80ff00;
 }
 
-*[ss-electric_blue],
-[ss-electric_blue-s] > * {
+*[ss-bg_chartreuse-web],
+[ss-bg_chartreuse-web-s] > * {
+  background-color: #80ff00;
+}
+
+*[ss-electric-blue],
+[ss-electric-blue-s] > * {
   color: #80ffff;
 }
 
-*[ss-gray_web],
-[ss-gray_web-s] > * {
+*[ss-bg_electric-blue],
+[ss-bg_electric-blue-s] > * {
+  background-color: #80ffff;
+}
+
+*[ss-gray-web],
+[ss-gray-web-s] > * {
   color: #808080;
 }
 
-*[ss-laser_lemon],
-[ss-laser_lemon-s] > * {
+*[ss-bg_gray-web],
+[ss-bg_gray-web-s] > * {
+  background-color: #808080;
+}
+
+*[ss-laser-lemon],
+[ss-laser-lemon-s] > * {
   color: #ffff80;
 }
 
-*[ss-light_coral],
-[ss-light_coral-s] > * {
+*[ss-bg_laser-lemon],
+[ss-bg_laser-lemon-s] > * {
+  background-color: #ffff80;
+}
+
+*[ss-light-coral],
+[ss-light-coral-s] > * {
   color: #ff8080;
 }
 
-*[ss-maroon_web],
-[ss-maroon_web-s] > * {
+*[ss-bg_light-coral],
+[ss-bg_light-coral-s] > * {
+  background-color: #ff8080;
+}
+
+*[ss-maroon-web],
+[ss-maroon-web-s] > * {
   color: #800000;
 }
 
-*[ss-medium_slate_blue],
-[ss-medium_slate_blue-s] > * {
+*[ss-bg_maroon-web],
+[ss-bg_maroon-web-s] > * {
+  background-color: #800000;
+}
+
+*[ss-medium-slate-blue],
+[ss-medium-slate-blue-s] > * {
   color: #8080ff;
 }
 
-*[ss-navy_blue],
-[ss-navy_blue-s] > * {
+*[ss-bg_medium-slate-blue],
+[ss-bg_medium-slate-blue-s] > * {
+  background-color: #8080ff;
+}
+
+*[ss-navy-blue],
+[ss-navy-blue-s] > * {
   color: #000080;
+}
+
+*[ss-bg_navy-blue],
+[ss-bg_navy-blue-s] > * {
+  background-color: #000080;
 }
 
 *[ss-olive],
@@ -99,9 +189,19 @@
   color: #808000;
 }
 
+*[ss-bg_olive],
+[ss-bg_olive-s] > * {
+  background-color: #808000;
+}
+
 *[ss-orange],
 [ss-orange-s] > * {
   color: #ff8000;
+}
+
+*[ss-bg_orange],
+[ss-bg_orange-s] > * {
+  background-color: #ff8000;
 }
 
 *[ss-patriarch],
@@ -109,9 +209,19 @@
   color: #800080;
 }
 
-*[ss-pink_flamingo],
-[ss-pink_flamingo-s] > * {
+*[ss-bg_patriarch],
+[ss-bg_patriarch-s] > * {
+  background-color: #800080;
+}
+
+*[ss-pink-flamingo],
+[ss-pink-flamingo-s] > * {
   color: #ff80ff;
+}
+
+*[ss-bg_pink-flamingo],
+[ss-bg_pink-flamingo-s] > * {
+  background-color: #ff80ff;
 }
 
 *[ss-rose],
@@ -119,14 +229,29 @@
   color: #ff0080;
 }
 
-*[ss-screamin_green],
-[ss-screamin_green-s] > * {
+*[ss-bg_rose],
+[ss-bg_rose-s] > * {
+  background-color: #ff0080;
+}
+
+*[ss-screamin-green],
+[ss-screamin-green-s] > * {
   color: #80ff80;
 }
 
-*[ss-spring_green],
-[ss-spring_green-s] > * {
+*[ss-bg_screamin-green],
+[ss-bg_screamin-green-s] > * {
+  background-color: #80ff80;
+}
+
+*[ss-spring-green],
+[ss-spring-green-s] > * {
   color: #00ff80;
+}
+
+*[ss-bg_spring-green],
+[ss-bg_spring-green-s] > * {
+  background-color: #00ff80;
 }
 
 *[ss-teal],
@@ -134,9 +259,19 @@
   color: #008080;
 }
 
-*[ss-violet_color_wheel],
-[ss-violet_color_wheel-s] > * {
+*[ss-bg_teal],
+[ss-bg_teal-s] > * {
+  background-color: #008080;
+}
+
+*[ss-violet-color-wheel],
+[ss-violet-color-wheel-s] > * {
   color: #8000ff;
+}
+
+*[ss-bg_violet-color-wheel],
+[ss-bg_violet-color-wheel-s] > * {
+  background-color: #8000ff;
 }
 
 *[ss-cultured],
@@ -144,14 +279,29 @@
   color: #f0f0f0;
 }
 
-*[ss-smoky_black],
-[ss-smoky_black-s] > * {
+*[ss-bg_cultured],
+[ss-bg_cultured-s] > * {
+  background-color: #f0f0f0;
+}
+
+*[ss-smoky-black],
+[ss-smoky-black-s] > * {
   color: #0f0f0f;
 }
 
-*[ss-eerie_black],
-[ss-eerie_black-s] > * {
+*[ss-bg_smoky-black],
+[ss-bg_smoky-black-s] > * {
+  background-color: #0f0f0f;
+}
+
+*[ss-eerie-black],
+[ss-eerie-black-s] > * {
   color: #1c1c1c;
+}
+
+*[ss-bg_eerie-black],
+[ss-bg_eerie-black-s] > * {
+  background-color: #1c1c1c;
 }
 
 *[ss-jet],
@@ -159,24 +309,49 @@
   color: #393939;
 }
 
-*[ss-davys_grey],
-[ss-davys_grey-s] > * {
+*[ss-bg_jet],
+[ss-bg_jet-s] > * {
+  background-color: #393939;
+}
+
+*[ss-davys-grey],
+[ss-davys-grey-s] > * {
   color: #555555;
 }
 
-*[ss-sonic_silver],
-[ss-sonic_silver-s] > * {
+*[ss-bg_davys-grey],
+[ss-bg_davys-grey-s] > * {
+  background-color: #555555;
+}
+
+*[ss-sonic-silver],
+[ss-sonic-silver-s] > * {
   color: #717171;
 }
 
-*[ss-spanish_gray],
-[ss-spanish_gray-s] > * {
+*[ss-bg_sonic-silver],
+[ss-bg_sonic-silver-s] > * {
+  background-color: #717171;
+}
+
+*[ss-spanish-gray],
+[ss-spanish-gray-s] > * {
   color: #8e8e8e;
 }
 
-*[ss-silver_chalice],
-[ss-silver_chalice-s] > * {
+*[ss-bg_spanish-gray],
+[ss-bg_spanish-gray-s] > * {
+  background-color: #8e8e8e;
+}
+
+*[ss-silver-chalice],
+[ss-silver-chalice-s] > * {
   color: #aaaaaa;
+}
+
+*[ss-bg_silver-chalice],
+[ss-bg_silver-chalice-s] > * {
+  background-color: #aaaaaa;
 }
 
 *[ss-silver],
@@ -184,9 +359,19 @@
   color: #c6c6c6;
 }
 
+*[ss-bg_silver],
+[ss-bg_silver-s] > * {
+  background-color: #c6c6c6;
+}
+
 *[ss-platinum],
 [ss-platinum-s] > * {
   color: #e3e3e3;
+}
+
+*[ss-bg_platinum],
+[ss-bg_platinum-s] > * {
+  background-color: #e3e3e3;
 }
 
 *[ss-montserrat],
@@ -287,7 +472,7 @@ body {
   padding-bottom: 1.5rem;
 }
 
-button, #app dialog > div:first-child > img, #app > header > div img, #app > header > div > div#words#words > dialog > div > div:last-child > * > div img, #app > header > div > div#words#words > dialog > div > div:first-child img, #app > nav > div > img, #app > #results > div:nth-child(1):not(#error) > div:nth-child(2) > img, img[ss-imgbutton],
+button, #root img, #root > nav > div > img, #root > #results > #header > div:nth-child(2) img, div#words#words > dialog > div > div:last-child > * > div img, div#words#words > dialog > div > div:first-child img, img[ss-imgbutton],
 [ss-imgbutton-s] > img, a[ss-abutton],
 [ss-abutton-s] > a {
   border-radius: 6px;
@@ -297,25 +482,25 @@ button, #app dialog > div:first-child > img, #app > header > div img, #app > hea
   cursor: pointer;
   font-size: 1rem;
 }
-button:hover, #app dialog > div:first-child > img:hover, #app > header > div img:hover, #app > header > div > div#words#words > dialog > div > div:last-child > * > div img:hover, #app > header > div > div#words#words > dialog > div > div:first-child img:hover, #app > nav > div > img:hover, #app > #results > div:nth-child(1):not(#error) > div:nth-child(2) > img:hover, img[ss-imgbutton]:hover,
+button:hover, #root img:hover, #root > #results > #header > div:nth-child(2) img:hover, div#words#words > dialog > div > div:last-child > * > div img:hover, div#words#words > dialog > div > div:first-child img:hover, img[ss-imgbutton]:hover,
 [ss-imgbutton-s] > img:hover, a[ss-abutton]:hover,
 [ss-abutton-s] > a:hover {
   background-color: #aaaaaa;
 }
-button:disabled, #app dialog > div:first-child > img:disabled, #app > header > div img:disabled, #app > header > div > div#words#words > dialog > div > div:last-child > * > div img:disabled, #app > header > div > div#words#words > dialog > div > div:first-child img:disabled, #app > nav > div > img:disabled, #app > #results > div:nth-child(1):not(#error) > div:nth-child(2) > img:disabled, img[ss-imgbutton]:disabled,
+button:disabled, #root img:disabled, #root > #results > #header > div:nth-child(2) img:disabled, div#words#words > dialog > div > div:last-child > * > div img:disabled, div#words#words > dialog > div > div:first-child img:disabled, img[ss-imgbutton]:disabled,
 [ss-imgbutton-s] > img:disabled, a[ss-abutton]:disabled,
 [ss-abutton-s] > a:disabled {
   border-color: #f0f0f0;
   color: #f0f0f0;
   cursor: not-allowed;
 }
-button[type=reset], #app dialog > div:first-child > img[type=reset], #app > header > div img[type=reset], #app > header > div > div#words#words > dialog > div > div:last-child > * > div img[type=reset], #app > header > div > div#words#words > dialog > div > div:first-child img[type=reset], #app > nav > div > img[type=reset], #app > #results > div:nth-child(1):not(#error) > div:nth-child(2) > img[type=reset], img[type=reset][ss-imgbutton],
+button[type=reset], #root img[type=reset], #root > #results > #header > div:nth-child(2) img[type=reset], div#words#words > dialog > div > div:last-child > * > div img[type=reset], div#words#words > dialog > div > div:first-child img[type=reset], img[type=reset][ss-imgbutton],
 [ss-imgbutton-s] > img[type=reset], a[type=reset][ss-abutton],
 [ss-abutton-s] > a[type=reset] {
   border-color: #ff0000;
   color: #ff0000;
 }
-button[type=submit], #app dialog > div:first-child > img[type=submit], #app > header > div img[type=submit], #app > header > div > div#words#words > dialog > div > div:last-child > * > div img[type=submit], #app > header > div > div#words#words > dialog > div > div:first-child img[type=submit], #app > nav > div > img[type=submit], #app > #results > div:nth-child(1):not(#error) > div:nth-child(2) > img[type=submit], img[type=submit][ss-imgbutton],
+button[type=submit], #root img[type=submit], #root > #results > #header > div:nth-child(2) img[type=submit], div#words#words > dialog > div > div:last-child > * > div img[type=submit], div#words#words > dialog > div > div:first-child img[type=submit], img[type=submit][ss-imgbutton],
 [ss-imgbutton-s] > img[type=submit], a[type=submit][ss-abutton],
 [ss-abutton-s] > a[type=submit] {
   border-color: #008000;
@@ -361,6 +546,12 @@ fieldset > h3 {
   margin: 0;
 }
 
+footer {
+  margin: 0.6rem 0.9rem;
+  margin-left: 0;
+  margin-right: 0;
+}
+
 form {
   border-radius: 10px;
   border: 2.5px solid currentColor;
@@ -373,12 +564,6 @@ form > h1,
 form > h2,
 form > h3 {
   margin: 0;
-}
-
-footer {
-  margin: 0.6rem 0.9rem;
-  margin-left: 0;
-  margin-right: 0;
 }
 
 h1,
@@ -576,6 +761,10 @@ th {
   text-align: center;
 }
 
+time {
+  font-family: "Roboto";
+}
+
 ul li {
   list-style-type: disc;
 }
@@ -726,19 +915,19 @@ table[ss-note] tr:first-child {
   margin: 0;
 }
 
-*[ss-block-blur],
-[ss-block-blur-s] > * {
+*[ss-block_blur],
+[ss-block_blur-s] > * {
   border-radius: 10px;
   box-shadow: 0 0 5px #808080;
   margin: 0.6rem 0.9rem;
   padding: 8px 12.5px;
 }
-*[ss-block-blur] > h1,
-*[ss-block-blur] > h2,
-*[ss-block-blur] > h3,
-[ss-block-blur-s] > * > h1,
-[ss-block-blur-s] > * > h2,
-[ss-block-blur-s] > * > h3 {
+*[ss-block_blur] > h1,
+*[ss-block_blur] > h2,
+*[ss-block_blur] > h3,
+[ss-block_blur-s] > * > h1,
+[ss-block_blur-s] > * > h2,
+[ss-block_blur-s] > * > h3 {
   margin: 0;
 }
 
@@ -759,8 +948,8 @@ table[ss-note] tr:first-child {
   padding: 0.4rem 0.6rem;
 }
 
-*[ss-inline-blur],
-[ss-inline-blur-s] > * {
+*[ss-inline_blur],
+[ss-inline_blur-s] > * {
   border-radius: 6px;
   box-shadow: 0 0 5px #808080;
   padding: 0.4rem 0.6rem;
@@ -772,14 +961,14 @@ table[ss-note] tr:first-child {
   border: 2.5px solid currentColor;
 }
 
-*[ss-border-inline],
-[ss-border-inline-s] > * {
+*[ss-border_inline],
+[ss-border_inline-s] > * {
   border-radius: 10px;
   border: 2.5px solid currentColor;
 }
 
-*[ss-border-blur],
-[ss-border-blur-s] > * {
+*[ss-border_blur],
+[ss-border_blur-s] > * {
   border-radius: 10px;
   box-shadow: 0 0 5px #808080;
 }
@@ -789,8 +978,8 @@ table[ss-note] tr:first-child {
   border-radius: 10px;
 }
 
-*[ss-border-radius-inline],
-[ss-border-radius-inline-s] > * {
+*[ss-border-radius_inline],
+[ss-border-radius_inline-s] > * {
   border-radius: 6px;
 }
 
@@ -809,8 +998,8 @@ table[ss-note] tr:first-child {
   padding: 8px 12.5px;
 }
 
-*[ss-padding-inline],
-[ss-padding-inline-s] > * {
+*[ss-padding_inline],
+[ss-padding_inline-s] > * {
   padding: 0.4rem 0.6rem;
 }
 
@@ -833,8 +1022,8 @@ table[ss-note] tr:first-child {
   background-color: #aaaaaa;
 }
 
-*[ss-highlight-bubble]:hover,
-[ss-highlight-bubble-s] > *:hover {
+*[ss-highlight_bubble]:hover,
+[ss-highlight_bubble-s] > *:hover {
   background-color: #aaaaaa;
   border-radius: 6px;
   padding: 0.4rem 0.6rem;
@@ -848,13 +1037,13 @@ table[ss-note] tr:first-child {
   padding: 0;
 }
 
-*[ss-var-number],
-[ss-var-number-s] > * {
+*[ss-var_number],
+[ss-var_number-s] > * {
   color: #80ff80;
 }
 
-*[ss-var-string],
-[ss-var-string-s] > * {
+*[ss-var_string],
+[ss-var_string-s] > * {
   color: #ff8000;
 }
 
@@ -922,25 +1111,21 @@ details[ss-detailsfieldset]:not([open]),
 
 :root {
   color-scheme: light;
-  overflow-x: hidden;
 }
-:root [hidden] {
-  display: none !important;
-}
-
 @media (min-width: 426px) {
-  body {
+  :root {
     background-color: #47c2ff;
   }
-  body > #root {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-  }
+}
+
+body {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
 }
 
 @media (min-width: 426px) {
-  #app {
+  #root {
     border-radius: 10px;
     border: 2.5px solid currentColor;
     margin: 0.6rem 0.9rem;
@@ -948,170 +1133,142 @@ details[ss-detailsfieldset]:not([open]),
     box-shadow: 1.5px 1.5px 0 currentColor;
     background-color: #ffffff;
     border: 0;
-    box-shadow: 7px 7px 2px;
+    box-shadow: none;
+    height: fit-content;
     padding-bottom: 1rem;
-    width: clamp(60ch, 60%, 90ch);
+    width: clamp(500px, 80vw, 700px);
   }
-  #app > h1,
-#app > h2,
-#app > h3 {
+  #root > h1,
+#root > h2,
+#root > h3 {
     margin: 0;
   }
 }
-#app img {
+#root img {
+  padding: 0;
+  height: 50px;
+  width: 50px;
   border: 0 !important;
   box-shadow: none;
 }
-#app dialog {
+#root dialog {
   border: 0;
   margin: 0;
   min-height: 100vh;
   min-width: 100vw;
 }
-#app dialog > div:first-child {
+#root dialog > div:first-child {
   display: flex;
   flex-wrap: wrap;
   align-items: center;
   justify-content: space-between;
 }
-#app dialog > div:first-child > h1 {
+#root dialog > div:first-child > h1 {
   color: #007ab8;
 }
-#app dialog > div:first-child > img {
-  padding: 0;
-  height: 45px;
-  width: 45px;
-}
-#app > header {
+#root > header {
   display: flex;
   flex-wrap: wrap;
   align-items: center;
   justify-content: space-between;
 }
 @media (max-width: 426px) {
-  #app > header {
+  #root > header {
     flex-direction: column;
   }
 }
-#app > header > div {
+#root > header > div {
   display: flex;
   flex-wrap: wrap;
 }
-#app > header > div img {
-  padding: 1px;
-  height: 50px;
-  width: 50px;
-}
-#app > header > div > div#settings > dialog > div > div {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-}
-#app > header > div > div#words#words > dialog > div > div:last-child > * {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  justify-content: space-between;
-}
-#app > header > div > div#words#words > dialog > div > div:last-child > *:hover {
-  background-color: #aaaaaa;
-  border-radius: 6px;
-  padding: 0.4rem 0.6rem;
-}
-#app > header > div > div#words#words > dialog > div > div:last-child > *:hover {
-  padding: 0.4rem 0.6rem;
-}
-#app > header > div > div#words#words > dialog > div > div:last-child > *:hover img {
-  display: flex;
-}
-#app > header > div > div#words#words > dialog > div > div:last-child > * > div {
-  display: flex;
-  flex-wrap: wrap;
-}
-#app > header > div > div#words#words > dialog > div > div:last-child > * > div img {
-  padding: 0;
-  height: 30px;
-  width: 30px;
-  display: none;
-}
-#app > header > div > div#words#words > dialog > div > div:first-child {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  margin-bottom: 10px;
-}
-#app > header > div > div#words#words > dialog > div > div:first-child img {
-  padding: 1px;
-  height: 35px;
-  width: 35px;
-}
-#app > header > div > div#words#words > dialog > div > div:first-child #all > dialog > div > span {
-  margin-right: 7px;
-}
-#app > header > h1 {
+#root > header > h1 {
   color: #007ab8;
   font-size: 2.5rem;
 }
-#app > nav {
-  border-radius: 10px;
+#root > nav {
+  border-radius: 6px;
   border: 2.5px solid currentColor;
   display: flex;
   flex-wrap: wrap;
   align-items: center;
-  border-radius: 7px;
+  margin: 0 0 10px 15px;
   justify-content: space-between;
   width: fit-content;
 }
 @media (max-width: 426px) {
-  #app > nav {
-    margin: 0;
+  #root > nav {
+    margin-left: 0;
     width: 100%;
   }
+  #root > nav > input {
+    width: 75%;
+  }
 }
-#app > nav > div {
+#root > nav > div {
   display: flex;
   flex-wrap: wrap;
 }
-#app > nav > div > img {
+#root > nav > div > img {
   padding: 0;
   height: 35px;
   width: 35px;
 }
-#app > nav > input {
+#root > nav > input {
   border: 0;
   box-shadow: none;
   color: #ff1b8d;
-  width: 75%;
 }
-#app > #results b,
-#app > #results h3 {
+#root > #results b,
+#root > #results h3 {
   color: #007ab8;
 }
-#app > #results > div:nth-child(1):not(#error) {
+@media (max-width: 426px) {
+  #root > #results > #error {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    flex-direction: column;
+  }
+}
+#root > #results > #header {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
 }
-#app > #results > div:nth-child(1):not(#error) > div {
+#root > #results > #header > div {
   display: flex;
   flex-wrap: wrap;
   align-items: center;
 }
-#app > #results > div:nth-child(1):not(#error) > div:nth-child(2) > img {
+#root > #results > #header > div:nth-child(1) {
+  align-items: baseline;
+}
+#root > #results > #header > div:nth-child(1) > span {
+  color: #808080;
+}
+#root > #results > #header > div:nth-child(2) {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+}
+#root > #results > #header > div:nth-child(2) img {
   padding: 0;
-  height: 45px;
-  width: 45px;
+  height: 40px;
+  width: 40px;
 }
-#app > #results > div:nth-child(1):not(#error) > div:nth-child(2) > input {
+#root > #results > #header > div:nth-child(2) input {
   accent-color: #ff1b8d;
-  height: 25px;
-  width: 25px;
+  height: 26px;
+  width: 26px;
 }
-#app .word {
+#root > #results #result > div > div {
+  margin-left: 10px;
+}
+#root .word {
   color: #ff1b8d;
   cursor: pointer;
 }
-#app .snackbar {
+#root .snackbar {
   border-radius: 6px;
   border: 2.5px solid currentColor;
   padding: 0.4rem 0.6rem;
@@ -1132,6 +1289,54 @@ details[ss-detailsfieldset]:not([open]),
   to {
     transform: translateY(150%);
   }
+}
+
+div#settings > dialog > div > div {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+}
+
+div#words#words > dialog > div > div:last-child > * {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+}
+div#words#words > dialog > div > div:last-child > *:hover {
+  background-color: #aaaaaa;
+  border-radius: 6px;
+  padding: 0.4rem 0.6rem;
+}
+div#words#words > dialog > div > div:last-child > *:hover {
+  padding: 0.4rem 0.6rem;
+}
+div#words#words > dialog > div > div:last-child > *:hover img {
+  display: flex;
+}
+div#words#words > dialog > div > div:last-child > * > div {
+  display: flex;
+  flex-wrap: wrap;
+}
+div#words#words > dialog > div > div:last-child > * > div img {
+  padding: 0;
+  height: 30px;
+  width: 30px;
+  display: none;
+}
+div#words#words > dialog > div > div:first-child {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  margin-bottom: 10px;
+}
+div#words#words > dialog > div > div:first-child img {
+  padding: 1px;
+  height: 35px;
+  width: 35px;
+}
+div#words#words > dialog > div > div:first-child #all > dialog > div > span {
+  margin-right: 7px;
 }
 
 /*# sourceMappingURL=style.css.map */

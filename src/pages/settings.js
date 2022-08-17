@@ -1,5 +1,6 @@
+import Dialog from '../snippets/dialog';
+
 import Credits from './credits';
-import Dialog from '../components/dialog';
 import download from '../utils/download';
 import gear from '../assets/img/gear.png';
 import Snackbar from '../components/snackbar';
@@ -63,7 +64,7 @@ export default function Settings({ vocabulary, value, setValue }) {
       }
    };
 
-   return Dialog('settings', gear, <>
+   return <Dialog id='settings' icon={gear}>
       <div>
          <span>Deafult word</span>
          <input type='text' placeholder='Word' onKeyUp={setting.defaultWord} defaultValue={value.settings.defaultWord} />
@@ -92,5 +93,5 @@ export default function Settings({ vocabulary, value, setValue }) {
       <div>
          <Credits />
       </div>
-   </>);
+   </Dialog>;
 }

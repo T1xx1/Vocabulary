@@ -1,7 +1,7 @@
 import { useEffect } from 'react';
 
 import arrows from '../assets/img/arrows.png';
-import chain from '../assets/img/chain.png';
+import points from '../assets/img/points.png';
 import info from '../data/info.json';
 import lens from '../assets/img/lens.png';
 
@@ -25,9 +25,14 @@ export default function Search({ search, setSearch, setResult, vocabulary, updat
          Dictionary(search).then(response => {
             if (response.title) {
                setResult(<>
-                  <div id='error'>Cannot find <Word inner={search} /></div>
-                  <Google q={search} />
-                  <Report word={search} />
+                  <div id='error'>
+                     <div>
+                        <span>Cannot find </span>
+                        <Word inner={search} />
+                     </div>
+                     <Report word={search} />
+                     <Google q={search} />
+                  </div>
                </>);
             } else {
                vocabulary.value.words.history = [...new Set([...vocabulary.value.words.history, search])];
@@ -37,9 +42,11 @@ export default function Search({ search, setSearch, setResult, vocabulary, updat
                response = response[0];
 
                setResult(<>
-                  <div>
+                  <div id='header'>
                      <div>
-                        <h2><Word inner={search} /></h2>
+                        <h2>
+                           <Word inner={search} />
+                        </h2>
                         <span>{response.phonetic}</span>
                      </div>
                      <div>
@@ -58,15 +65,15 @@ export default function Search({ search, setSearch, setResult, vocabulary, updat
                               Snackbar('Word saved');
                            }
                         }} />
-                        <img src={chain} alt="Share" onClick={() => {
-                           navigator.share({
+                        <img src={points} alt="Share" onClick={() => {
+                           window.navigator.share({
                               title: `Vocabulary: ${search}`,
                               url: `${info.start_url}?search=${search}`
                            });
                         }} />
                      </div>
                   </div>
-                  <div>{response.meanings.map(meaning => {
+                  <div id='result'>{response.meanings.map(meaning => {
                      return <div key={meaning.partOfSpeech}>
                         <h3>{meaning.partOfSpeech}</h3>
                         <ol>{meaning.definitions.slice(0, 5).map(word => <li key={word.definition}>{word.definition}</li>)}</ol>
@@ -84,8 +91,6 @@ export default function Search({ search, setSearch, setResult, vocabulary, updat
                      <b>Sources</b>
                      <ul>{response.sourceUrls.map(source => <li key={source}><a href={source}>{new URL(source).host}</a></li>)}</ul>
                   </div>}
-                  < br />
-                  <Google q={response.word} />
                </>);
             }
          });
