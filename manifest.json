@@ -1,24 +1,32 @@
 {
-  "name": "Vocabulary",
-  "version": "1.2.0",
-  "lang": "en",
-  "description": "Search and learn words get their definitions, synonyms and antonyms",
-  "start_url": "https://t1xx1.github.io/Vocabulary",
-  "background_color": "#1bb2ff",
-  "theme_color": "#000000",
-  "dir": "auto",
-  "display": "fullscreen",
-  "orientation": "any",
-  "icons": [
-    {
-      "src": "./icons/32-white.png",
-      "type": "image/png",
-      "sizes": "32x32"
-    },
-    {
-      "src": "./icons/144-black.png",
-      "type": "image/png",
-      "sizes": "144x144"
-    }
-  ]
+   "name": "Vocabulary",
+   "short_name": "Vocabulary",
+   "icons": [
+      {
+         "src": "favicon.ico",
+         "sizes": "100x100",
+         "type": "image/x-icon"
+      },
+      {
+         "src": "Vocabulary.png",
+         "sizes": "100x100",
+         "type": "image/x-icon"
+      },
+      {
+         "src": "Vocabulary512.png",
+         "sizes": "512x512",
+         "type": "image/x-icon",
+         "purpose": "any"
+      }
+   ],
+   "start_url": "https://t1xx1.github.io/Vocabulary",
+   "display": "standalone",
+   "background_color": "#47c2ff",
+   "description": "Search and learn words",
+   "dir": "ltr",
+   "categories": "education,utilities",
+   "lang": "en",
+   "orientation": "portrait-primary",
+   "scope": "/",
+   "theme_color": "#137ec5"
 }
