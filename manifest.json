@@ -8,12 +8,12 @@
          "type": "image/x-icon"
       },
       {
-         "src": "Vocabulary.png",
+         "src": "logo.png",
          "sizes": "100x100",
          "type": "image/x-icon"
       },
       {
-         "src": "Vocabulary512.png",
+         "src": "vocabulary512.png",
          "sizes": "512x512",
          "type": "image/x-icon",
          "purpose": "any"
