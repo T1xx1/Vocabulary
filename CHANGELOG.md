@@ -19,13 +19,13 @@
 ### Added
 
 -  Upload words button
--  [Unaviable words](md/unaviable%20words.md) list
--  Search bar for saed words
+-  Search bar in saved words
 -  Random word search
 -  Word report
 -  Restyle
 -  New favico
 -  Search words on click
+-  Snackbars
 
 ### Changed
 

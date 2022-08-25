@@ -171,7 +171,8 @@ img {
    @include ss.block('blur');
 
    @include phone {
-      width: 100%;
+      margin: 0;
+      width: clamp(100px, 95vw, 100%);
    }
 
    @keyframes in {
@@ -194,7 +195,7 @@ img {
    left: 10px;
    padding: 15px;
    position: fixed;
-   width: 350px;
+   width: 300px;
 }
 
 .word {
@@ -315,18 +316,16 @@ img {
             &[hidden] {
                display: none;
             }
+         }
 
-            &:hover img {
-               display: block;
-            }
-
-            img {
-               display: none;
-            }
+         &:hover img {
+            display: block;
          }
 
          img {
-            @include ss.imgbutton(22px, 2px);
+            @include ss.imgbutton(25px, 2px);
+
+            display: none;
          }
       }
    }

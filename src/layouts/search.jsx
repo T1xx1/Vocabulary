@@ -144,7 +144,7 @@ export default function Search({ value, dispatch, search, setSearch, setResults 
                      <Word w={search} setSearch={setSearch} />
                      <span> not found </span>
                   </div>
-                  <Report w={search} setSearch={setSearch} />
+                  <Report word={search} />
                </div>
             );
          });
