@@ -1,3 +1,4 @@
+import React from 'react';
 import { useEffect, useState, useReducer } from 'react';
 
 import LocalStorage from './snippets/localstorage';
@@ -97,7 +98,7 @@ export default function App() {
 
    return (
       <>
-         <Header value={value} dispatch={dispatch} setSearch={setSearch} storage={storage} />
+         <Header value={value} dispatch={dispatch} setSearch={setSearch} />
          <Search value={value} dispatch={dispatch} search={search} setSearch={setSearch} setResults={setResults} />
          <div id='results'>{results}</div>
       </>

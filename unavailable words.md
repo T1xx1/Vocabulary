@@ -1,6 +1,4 @@
-[Back](../README.md)
-
-# Unaviable words
+# Unavailable words
 
 -  abasment
 -  allitteration

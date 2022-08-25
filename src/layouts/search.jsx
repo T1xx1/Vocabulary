@@ -1,7 +1,8 @@
+import React from 'react';
 import { useEffect, useState } from 'react';
 
 import arrows from '../assets/arrows.png';
-import points from '../assets/points.png';
+import dots from '../assets/dots.png';
 import lens from '../assets/lens.png';
 import info from '../data/info.json';
 
@@ -18,7 +19,7 @@ export default function Search({ value, dispatch, search, setSearch, setResults 
 
    useEffect(() => {
       if ([null, ''].includes(search.replaceAll(' ', ''))) {
-         setResults(<></>);
+         setResults('');
 
          return;
       }
@@ -70,7 +71,7 @@ export default function Search({ value, dispatch, search, setSearch, setResults 
                            title='Save/remove'
                         />
                         <img
-                           src={points}
+                           src={dots}
                            alt='Share'
                            onClick={() => {
                               window.navigator.share({
@@ -137,13 +138,13 @@ export default function Search({ value, dispatch, search, setSearch, setResults 
          })
          .catch(() => {
             setResults(
-               <div id='error'>
+               <div className='error'>
                   <div>
                      <span>Word </span>
                      <Word w={search} setSearch={setSearch} />
                      <span> not found </span>
                   </div>
-                  <Report word={search} />
+                  <Report w={search} setSearch={setSearch} />
                </div>
             );
          });
@@ -161,7 +162,9 @@ export default function Search({ value, dispatch, search, setSearch, setResults 
                if (e.ctrlKey === true && e.key === 'q')
                   try {
                      document.querySelector('input[type="checkbox"]').click();
-                  } catch {}
+                  } catch {
+                     setResults(<div className='error'>Search a word to save it </div>);
+                  }
             }}
             placeholder='Search a word...'
             value={input}

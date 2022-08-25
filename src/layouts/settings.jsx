@@ -1,3 +1,4 @@
+import React from 'react';
 import { useEffect, useReducer } from 'react';
 
 import Dialog from '../snippets/dialog';
@@ -8,7 +9,7 @@ import gear from '../assets/gear.png';
 import Snackbar from '../components/snackbar';
 import Dictionary from '../services/dictionary';
 
-export default function Settings({ value, dispatch, storage }) {
+export default function Settings({ value, dispatch }) {
    let [settings, dispatchS] = useReducer((state, action) => {
       switch (action.type) {
          case 'defaultWord':
@@ -59,7 +60,8 @@ export default function Settings({ value, dispatch, storage }) {
                      );
 
                      Snackbar('Words downloaded');
-                  }}>
+                  }}
+               >
                   Download words
                </button>
                <div>
@@ -102,7 +104,8 @@ export default function Settings({ value, dispatch, storage }) {
                      });
 
                      Snackbar('History cleaned');
-                  }}>
+                  }}
+               >
                   Clear history
                </button>
                <button
@@ -121,7 +124,8 @@ export default function Settings({ value, dispatch, storage }) {
 
                         Snackbar('Words deleted');
                      }
-                  }}>
+                  }}
+               >
                   Delete words
                </button>
                <button
@@ -134,7 +138,8 @@ export default function Settings({ value, dispatch, storage }) {
 
                         Snackbar('Reset completed');
                      }
-                  }}>
+                  }}
+               >
                   Reset
                </button>
             </div>

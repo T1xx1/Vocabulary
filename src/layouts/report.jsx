@@ -1,3 +1,5 @@
+import React from 'react';
+
 import api from '../data/api.json';
 import info from '../data/info.json';
 

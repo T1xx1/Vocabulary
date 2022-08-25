@@ -11,14 +11,17 @@
       "react": "^18.1.0",
       "react-dom": "^18.1.0",
       "react-scripts": "^5.0.1",
+      "sass": "^1.54.5",
       "web-vitals": "^2.1.4"
    },
    "scripts": {
       "start": "react-scripts start",
       "build": "react-scripts build",
-      "test": "react-scripts test",
-      "eject": "react-scripts eject",
-      "deploy": "gh-pages -d build"
+      "deploy": "gh-pages -d build",
+      "lint": "eslint .",
+      "fix": "eslint --fix .",
+      "format": "prettier --write \"**/*.+(js|jsx|json|css|md)\"",
+      "commit": "npm run lint && npm run format"
    },
    "eslintConfig": {
       "extends": [
@@ -39,6 +42,12 @@
       ]
    },
    "devDependencies": {
-      "gh-pages": "^4.0.0"
+      "eslint": "^8.22.0",
+      "eslint-config-prettier": "^8.5.0",
+      "eslint-plugin-prettier": "^4.2.1",
+      "eslint-plugin-react": "^7.31.0",
+      "gh-pages": "^4.0.0",
+      "husky": "^8.0.1",
+      "prettier": "^2.7.1"
    }
 }

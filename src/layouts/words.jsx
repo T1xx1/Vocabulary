@@ -1,3 +1,5 @@
+import React from 'react';
+
 import Dialog from '../snippets/dialog';
 
 import book from '../assets/book.png';

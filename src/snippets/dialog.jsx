@@ -1,3 +1,5 @@
+import React from 'react';
+
 export default function Dialog({ id, icon, children }) {
    let title = id.charAt(0).toUpperCase() + id.slice(1);
 

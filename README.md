@@ -2,4 +2,4 @@
 
 Search and learn words
 
-- [Changelog](CHANGELOG.md)
+-  [Changelog](CHANGELOG.md)
