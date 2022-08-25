@@ -1,51 +1,105 @@
-import { useState } from 'react';
+import { useEffect, useState, useReducer } from 'react';
 
-import info from './data/info.json';
+import LocalStorage from './snippets/localstorage';
 
+import initial from './data/initial.json';
+
+import Header from './layouts/header';
 import Search from './layouts/search';
-import Settings from './pages/settings';
-import Words from './pages/words';
-import Vocabulary from './utils/vocabulary';
 
 export default function App() {
-   const vocabulary = new Vocabulary();
+   const storage = new LocalStorage('Vocabulary', '2.0', initial);
 
-   const [value, setValue] = useState(vocabulary.value);
+   const [value, dispatch] = useReducer((state, action) => {
+      switch (action.type) {
+         case 'clear':
+            return {
+               ...state,
+               words: {
+                  ...state.words,
+                  history: [],
+               },
+            };
+         case 'edit':
+            return {
+               ...state,
+               ...action.payload,
+            };
+         case 'history':
+            return {
+               ...state,
+               words: {
+                  ...state.words,
+                  history: [...new Set([...state.words.history, ...action.payload])],
+               },
+            };
+         case 'reset':
+            return initial;
+         case 'rm':
+            return {
+               ...state,
+               words: {
+                  ...state.words,
+                  saved: state.words.saved.filter(w => action.payload !== w),
+               },
+            };
+         case 'save':
+            return {
+               ...state,
+               words: {
+                  ...state.words,
+                  saved: [...new Set([...state.words.saved, ...action.payload])],
+               },
+            };
+         default:
+            return value;
+      }
+   }, storage.value);
 
-   let [search, setSearch] = useState(null);
-   let [result, setResult] = useState(null);
+   useEffect(() => {
+      storage.value = value;
+      storage.write();
+   }, [value]);
 
-   let update = () => {
-      setValue(vocabulary.value);
+   let [search, setSearch] = useState('');
+   let [results, setResults] = useState(<></>);
 
-      vocabulary.write();
-   };
+   useEffect(() => {
+      if (localStorage.getItem('Vocabulary') !== null) {
+         let old = JSON.parse(localStorage.getItem('Vocabulary'));
 
-   /*let defaultWord = vocabulary.value.settings.defaultWord;
-   let url = new URL(window.location.href);
-   let word;
+         dispatch({
+            type: 'save',
+            payload: old.learned,
+         });
 
-   let urlWord = url.searchParams.get('search');
+         dispatch({
+            type: 'history',
+            payload: old.history,
+         });
 
-   if (urlWord) {
-      word = urlWord;
-   } else if (defaultWord) word = defaultWord;*/
+         localStorage.removeItem('Vocabulary');
+      }
 
-   //setSearch(word);
+      let url = new URL(window.location.href);
 
-   //let importWord = url.searchParams.get('import');
+      setSearch(value.settings.defaultWord || url.searchParams.get('q') || '');
 
-   //if (importWord) vocabulary.value.words.saved = [...new Set([...vocabulary.value.words.saved, ...importWord.split(',')])]
+      let importUrl = url.searchParams.get('import');
 
-   return <>
-      <header>
-         <h1 onClick={() => window.location.href = info.start_url} title={info.start_url}>{info.name}</h1>
-         <div>
-            <Words value={value} vocabulary={vocabulary} update={update} />
-            <Settings value={value} vocabulary={vocabulary} update={update} />
-         </div>
-      </header>
-      <Search search={search} setSearch={setSearch} setResult={setResult} vocabulary={vocabulary} update={update} />
-      <div id='results'>{result}</div>
-   </>;
+      if (importUrl) {
+         dispatch({
+            type: 'save',
+            payload: importUrl.split(','),
+         });
+      }
+   }, []);
+
+   return (
+      <>
+         <Header value={value} dispatch={dispatch} setSearch={setSearch} storage={storage} />
+         <Search value={value} dispatch={dispatch} search={search} setSearch={setSearch} setResults={setResults} />
+         <div id='results'>{results}</div>
+      </>
+   );
 }

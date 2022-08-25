@@ -2,5 +2,4 @@
 
 Search and learn words
 
-## Links
 - [Changelog](CHANGELOG.md)

@@ -1,3 +1,7 @@
-export default function Word({ inner }) {
-   return <span className='word'>{inner}</span>;
+export default function Word({ w, setSearch }) {
+   return (
+      <span className='word' onClick={() => setSearch(w)}>
+         {w}
+      </span>
+   );
 }

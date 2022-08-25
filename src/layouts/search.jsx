@@ -1,116 +1,180 @@
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 
-import arrows from '../assets/img/arrows.png';
-import points from '../assets/img/points.png';
+import arrows from '../assets/arrows.png';
+import points from '../assets/points.png';
+import lens from '../assets/lens.png';
 import info from '../data/info.json';
-import lens from '../assets/img/lens.png';
 
 import Dictionary from '../services/dictionary';
-import Google from '../components/google';
-import Randomword from '../services/randomword';
-import Report from '../components/report';
+import Random from '../services/random';
+import Report from './report';
 import Word from '../components/word';
 import Snackbar from '../components/snackbar';
 
-export default function Search({ search, setSearch, setResult, vocabulary, update }) {
-   let random = () => Randomword().then(word => setSearch(word[0]));
-   let research = () => setSearch(document.querySelector('#search').value);
+export default function Search({ value, dispatch, search, setSearch, setResults }) {
+   let [input, setInput] = useState(search);
+
+   let research = () => setSearch(document.querySelector('input[type="search"]').value);
 
    useEffect(() => {
-      if (search && search !== '') {
-         search = search.toLowerCase();
+      if ([null, ''].includes(search.replaceAll(' ', ''))) {
+         setResults(<></>);
 
-         setResult(<span>Searching <Word inner={search} />...</span>);
+         return;
+      }
 
-         Dictionary(search).then(response => {
-            if (response.title) {
-               setResult(<>
-                  <div id='error'>
-                     <div>
-                        <span>Cannot find </span>
-                        <Word inner={search} />
-                     </div>
-                     <Report word={search} />
-                     <Google q={search} />
-                  </div>
-               </>);
-            } else {
-               vocabulary.value.words.history = [...new Set([...vocabulary.value.words.history, search])];
+      setInput(search);
+      setResults(
+         <span>
+            Searching <Word w={search} setSearch={setSearch} />
+            ...
+         </span>
+      );
 
-               update();
+      Dictionary(search)
+         .then(response => {
+            response = response[0];
 
-               response = response[0];
-
-               setResult(<>
+            setResults(
+               <>
                   <div id='header'>
-                     <div>
+                     <span>
                         <h2>
-                           <Word inner={search} />
+                           <Word w={search} setSearch={setSearch} />
                         </h2>
-                        <span>{response.phonetic}</span>
-                     </div>
+                        {response.phonetic}
+                     </span>
                      <div>
-                        <input type="checkbox" defaultChecked={vocabulary.isSaved(search)} onClick={() => {
-                           if (vocabulary.isSaved(search)) {
-                              vocabulary.rm(search);
+                        <input
+                           type='checkbox'
+                           defaultChecked={value.words.saved.includes(search)}
+                           onChange={e => {
+                              e = e.target.checked;
 
-                              update();
+                              if (e) {
+                                 dispatch({
+                                    type: 'save',
+                                    payload: [search],
+                                 });
 
-                              Snackbar('Word unsaved');
-                           } else {
-                              vocabulary.save(search);
+                                 Snackbar('Word saved');
+                              } else {
+                                 dispatch({
+                                    type: 'rm',
+                                    payload: search,
+                                 });
 
-                              update();
-
-                              Snackbar('Word saved');
-                           }
-                        }} />
-                        <img src={points} alt="Share" onClick={() => {
-                           window.navigator.share({
-                              title: `Vocabulary: ${search}`,
-                              url: `${info.start_url}?search=${search}`
-                           });
-                        }} />
+                                 Snackbar('Word removed');
+                              }
+                           }}
+                           title='Save/remove'
+                        />
+                        <img
+                           src={points}
+                           alt='Share'
+                           onClick={() => {
+                              window.navigator.share({
+                                 title: `Word ${search} on Vocabulary`,
+                                 url: `${info.start_url}?q=${search}`,
+                              });
+                           }}
+                           title='Share'
+                        />
                      </div>
                   </div>
-                  <div id='result'>{response.meanings.map(meaning => {
-                     return <div key={meaning.partOfSpeech}>
-                        <h3>{meaning.partOfSpeech}</h3>
-                        <ol>{meaning.definitions.slice(0, 5).map(word => <li key={word.definition}>{word.definition}</li>)}</ol>
-                        {meaning.synonyms.length === 0 ? <></> : <div>
-                           <b>Synonyms</b>
-                           <ul>{meaning.synonyms.map(word => <li key={word}><Word inner={word} /></li>)}</ul>
-                        </div>}
-                        {meaning.antonyms.length === 0 ? <></> : <div>
-                           <b>Antonyms</b>
-                           <ul>{meaning.antonyms.map(word => <li key={word}><Word inner={word} /></li>)}</ul>
-                        </div>}
-                     </div>;
-                  })}</div>
-                  {response.sourceUrls.length === 0 ? <></> : <div>
-                     <b>Sources</b>
-                     <ul>{response.sourceUrls.map(source => <li key={source}><a href={source}>{new URL(source).host}</a></li>)}</ul>
-                  </div>}
-               </>);
-            }
+                  <div id='results'>
+                     {response.meanings.map(meaning => {
+                        return (
+                           <div key={meaning.partOfSpeech}>
+                              <h3>{meaning.partOfSpeech}</h3>
+                              <ol>
+                                 {meaning.definitions.slice(0, 5).map(word => (
+                                    <li key={word.definition}>{word.definition}</li>
+                                 ))}
+                              </ol>
+                              {meaning.synonyms.length !== 0 && (
+                                 <div>
+                                    <b>Synonyms</b>
+                                    <ul>
+                                       {meaning.synonyms.map(word => (
+                                          <li key={word}>
+                                             <Word w={word} setSearch={setSearch} />
+                                          </li>
+                                       ))}
+                                    </ul>
+                                 </div>
+                              )}
+                              {meaning.antonyms.length !== 0 && (
+                                 <div>
+                                    <b>Antonyms</b>
+                                    <ul>
+                                       {meaning.antonyms.map(word => (
+                                          <li key={word}>
+                                             <Word w={word} setSearch={setSearch} />
+                                          </li>
+                                       ))}
+                                    </ul>
+                                 </div>
+                              )}
+                           </div>
+                        );
+                     })}
+                  </div>
+                  {response.sourceUrls.length !== 0 && (
+                     <div>
+                        <b>Sources</b>
+                        <ul>
+                           {response.sourceUrls.map(source => (
+                              <li key={source}>
+                                 <a href={source}>{new URL(source).host}</a>
+                              </li>
+                           ))}
+                        </ul>
+                     </div>
+                  )}
+               </>
+            );
+         })
+         .catch(() => {
+            setResults(
+               <div id='error'>
+                  <div>
+                     <span>Word </span>
+                     <Word w={search} setSearch={setSearch} />
+                     <span> not found </span>
+                  </div>
+                  <Report word={search} />
+               </div>
+            );
          });
-      } else setResult(<></>);
    }, [search]);
 
-   return <nav>
-      <input
-         type='search'
-         id='search'
-         autoFocus
-         defaultValue={search}
-         onKeyUp={e => {
-            if (e.key === 'Enter') research();
-         }}
-         placeholder='Search a word...'
-      />
-      <div>
-         <img src={arrows} alt='Random' onClick={random} />
-         <img src={lens} alt='Search' onClick={research} />
-      </div>
-   </nav>;
+   return (
+      <nav>
+         <input
+            type='search'
+            autoFocus
+            list='datalist'
+            onChange={e => setInput(e.target.value.toLowerCase())}
+            onKeyUp={e => {
+               if (e.key === 'Enter') research();
+               if (e.ctrlKey === true && e.key === 'q')
+                  try {
+                     document.querySelector('input[type="checkbox"]').click();
+                  } catch {}
+            }}
+            placeholder='Search a word...'
+            value={input}
+         />
+         <datalist id='datalist'>
+            {value.words.history.map(word => (
+               <option key={word}>{word}</option>
+            ))}
+         </datalist>
+         <div>
+            <img src={arrows} alt='Random' onClick={() => Random().then(word => setSearch(word[0]))} title='Random' />
+            <img src={lens} alt='Search' onClick={research} title='Search' />
+         </div>
+      </nav>
+   );
 }

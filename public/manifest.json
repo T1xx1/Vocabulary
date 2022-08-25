@@ -4,23 +4,29 @@
    "icons": [
       {
          "src": "favicon.ico",
-         "sizes": "96x96",
+         "sizes": "100x100",
          "type": "image/x-icon"
       },
       {
-         "src": "vocabulary.png",
-         "sizes": "144x144",
+         "src": "Vocabulary.png",
+         "sizes": "100x100",
          "type": "image/x-icon"
+      },
+      {
+         "src": "Vocabulary512.png",
+         "sizes": "512x512",
+         "type": "image/x-icon",
+         "purpose": "any"
       }
    ],
    "start_url": "https://t1xx1.github.io/Vocabulary",
    "display": "standalone",
-   "background_color": "#33bbff",
+   "background_color": "#47c2ff",
    "description": "Search and learn words",
    "dir": "ltr",
    "categories": "education,utilities",
    "lang": "en",
-   "orientation": "any",
+   "orientation": "portrait-primary",
    "scope": "/",
-   "theme_color": "#000000"
+   "theme_color": "#137ec5"
 }
