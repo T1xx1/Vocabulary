@@ -9,6 +9,12 @@
       },
       {
          "src": "logo.png",
+         "sizes": "144x144",
+         "type": "image/x-icon",
+         "purpose": "any"
+      },
+      {
+         "src": "logo.png",
          "sizes": "512x512",
          "type": "image/x-icon",
          "purpose": "any"
