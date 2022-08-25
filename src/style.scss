@@ -1,0 +1,333 @@
+@use '../../Sasscript/ss.scss';
+
+$accent-color: #ff006e;
+$bg-color: #47c2ff;
+$theme-color: #137ec5;
+
+@mixin pc {
+   @media (min-width: 426px) {
+      @content;
+   }
+}
+
+@mixin phone {
+   @media (max-width: 426px) {
+      @content;
+   }
+}
+
+:root {
+   color-scheme: light;
+
+   @include pc {
+      background-color: $bg-color;
+   }
+}
+
+body {
+   @include ss.flex('', '', '', center);
+}
+
+dialog {
+   @include ss.fullscreen;
+
+   h1 {
+      color: $theme-color;
+   }
+
+   > :first-child {
+      @include ss.flex('', '', '', space-between, center);
+
+      img {
+         @include ss.imgbutton(40px, 3px);
+      }
+   }
+
+   > :nth-child(2) {
+      @include ss.grid;
+
+      grid-template-columns: 1fr;
+   }
+}
+
+img {
+   @include ss.imgbutton(50px, 0);
+   @include ss.reset('border');
+
+   border: 0 !important;
+}
+
+#root {
+   @include pc {
+      @include ss.block;
+      @include ss.reset('border');
+
+      background-color: ss.color('white');
+      height: fit-content;
+      padding: 5px 13px 15px;
+      width: clamp(500px, 80vw, 700px);
+   }
+
+   header {
+      @include ss.flex('', '', '', space-between, center);
+
+      @include phone {
+         flex-direction: column;
+      }
+
+      >div {
+         @include ss.flex;
+
+         >div {
+            height: 50px;
+         }
+      }
+
+      >h1 {
+         color: $theme-color;
+         font-size: 2.7rem;
+      }
+   }
+
+   nav {
+      @include ss.border('inline');
+      @include ss.flex('', '', '', space-between, center);
+
+      width: fit-content;
+
+      @include phone {
+         margin-left: 0;
+         width: 100%;
+
+         >input {
+            width: 75%;
+         }
+      }
+
+      div {
+         @include ss.flex;
+
+         img {
+            @include ss.imgbutton(37px, 0);
+         }
+      }
+
+      input {
+         border: 0;
+         box-shadow: none;
+         color: $accent-color;
+      }
+   }
+
+   #results {
+
+      b,
+      h3 {
+         color: $theme-color;
+      }
+
+      #error {
+         @media (max-width: 426px) {
+            @include ss.flex;
+
+            align-items: center;
+            flex-direction: column;
+         }
+      }
+
+      #header {
+         @include ss.flex('', '', '', space-between);
+
+         >span {
+            @include ss.flex('', '', '', '', baseline);
+
+            >span {
+               color: ss.color('gray-web');
+            }
+         }
+
+         >div {
+            @include ss.flex('', '', '', '', center);
+
+            img {
+               @include ss.imgbutton(40px, 1px);
+            }
+
+            input {
+               accent-color: $accent-color;
+               height: 30px;
+               width: 30px;
+            }
+         }
+      }
+
+      #result>div>div {
+         margin-left: 10px;
+      }
+   }
+}
+
+.snackbar {
+   @include ss.block('blur');
+
+   @include phone {
+      width: 100%;
+   }
+
+   @keyframes in {
+      from {
+         transform: translateY(150px);
+      }
+   }
+
+   @keyframes out {
+      to {
+         transform: translateY(150px);
+      }
+   }
+
+   animation: in 600ms ease,
+   out 600ms 5s;
+   background-color: ss.color('black');
+   bottom: 10px;
+   color: ss.color('white');
+   left: 10px;
+   padding: 15px;
+   position: fixed;
+   width: 350px;
+}
+
+.word {
+   color: $accent-color;
+   cursor: pointer;
+}
+
+#all>dialog>div:last-child {
+   > :first-child {
+      @include ss.flex('', '', '', space-between, center);
+
+      @include phone {
+         flex-direction: column;
+
+         progress {
+            width: 100%;
+         }
+      }
+
+      progress {
+         width: 75%;
+      }
+   }
+
+   > :nth-child(2) {
+      @include ss.flex('', wrap, '', flex-start);
+
+      >* {
+         margin-right: 5px;
+      }
+   }
+}
+
+#report {
+   form {
+      @include ss.flex('', '', '', center);
+
+      @include pc {
+         >* {
+            margin-right: 10px;
+         }
+      }
+
+      @include phone {
+         @include ss.reset;
+
+         flex-direction: column;
+
+         >* {
+            margin-bottom: 10px;
+         }
+      }
+   }
+
+   >img {
+      @include ss.padding('inline');
+   }
+}
+
+#settings>dialog> :nth-child(2) {
+   @include ss.flex(column);
+
+   #dangerZone>* {
+      color: ss.color('red');
+      margin: 0 12px 10px 0;
+   }
+
+   #defaultWord>span {
+      margin-right: 10px;
+   }
+
+   #files>div {
+      margin-top: 10px;
+
+      @include phone {
+         input {
+            width: 100%;
+         }
+      }
+
+      span {
+         margin: 0 15px 15px 0;
+      }
+   }
+}
+
+#words>dialog>div:nth-child(2) {
+   >div {
+      @include ss.flex('', '', '', space-between, center);
+
+      @include phone {
+         flex-direction: column;
+      }
+
+      height: fit-content;
+
+      img {
+         @include ss.imgbutton(45px);
+      }
+
+      input {
+         margin-right: 15px;
+
+         @include phone {
+            width: 100%;
+         }
+      }
+   }
+
+   ul {
+      padding: 0;
+
+      >* {
+         @include ss.highlight('bubble');
+         @include ss.flex('', '', '', space-between, center);
+
+         @include pc {
+            &[hidden] {
+               display: none;
+            }
+
+            &:hover img {
+               display: block;
+            }
+
+            img {
+               display: none;
+            }
+         }
+
+         img {
+            @include ss.imgbutton(22px, 2px);
+         }
+      }
+   }
+}
