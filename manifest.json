@@ -9,11 +9,6 @@
       },
       {
          "src": "logo.png",
-         "sizes": "100x100",
-         "type": "image/x-icon"
-      },
-      {
-         "src": "vocabulary512.png",
          "sizes": "512x512",
          "type": "image/x-icon",
          "purpose": "any"
