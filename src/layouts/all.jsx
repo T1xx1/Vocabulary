@@ -17,7 +17,9 @@ export default function All({ value, setSearch }) {
          </div>
          <div>
             {value.words.saved.map(word => (
-               <Word w={word} setSearch={setSearch} key={word} />
+               <Word setSearch={setSearch} key={word}>
+                  {word}
+               </Word>
             ))}
          </div>
       </Dialog>

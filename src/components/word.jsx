@@ -1,11 +1,16 @@
 import React from 'react';
 
-export default function Word({ w, setSearch }) {
+export default function Word({ children, setSearch }) {
    return (
-      <span className='word' onClick={() => setSearch(w)}>
-         {w}
+      <span
+         className='word'
+         onClick={() => {
+            setSearch(children);
+
+            document.querySelectorAll('dialog[open]').forEach(dialog => dialog.close());
+         }}
+      >
+         {children}
       </span>
    );
 }
-
-Word.propsTypes = {};

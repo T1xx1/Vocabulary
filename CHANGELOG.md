@@ -20,6 +20,9 @@
 ### Added
 
 -  No internet connection error
+-  Reported word list
+-  Dialogs now close at word click
+-  Default word 'welcome'
 
 ## 1.3.0 • 2022-08-26
 

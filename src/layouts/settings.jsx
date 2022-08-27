@@ -4,9 +4,9 @@ import Dialog from '../snippets/dialog';
 import download from '../snippets/download';
 
 import gear from '../assets/gear.png';
+import info from '../data/info.json';
 
 import Snackbar from '../components/snackbar';
-import Dictionary from '../services/dictionary';
 
 export default function Settings({ value, dispatch }) {
    return (
@@ -36,13 +36,15 @@ export default function Settings({ value, dispatch }) {
                <button
                   type='button'
                   onClick={() => {
+                     Snackbar('Downloading...');
+
                      download(
                         `Vocabulary ${new Date().toISOString()}.txt`,
                         'text/plain',
                         JSON.stringify(value.words.saved).slice(1).replace(']', '').replaceAll('"', '')
                      );
 
-                     Snackbar('Words downloaded');
+                     Snackbar('Download completed');
                   }}
                >
                   Download words
@@ -59,12 +61,6 @@ export default function Settings({ value, dispatch }) {
                            let words = reader.result.replaceAll('\r\n', '').replaceAll(/,+/g, ',').split(',');
 
                            Snackbar('Uploading...');
-
-                           /* for (let word of words) {
-                              await Dictionary(word).catch(() => {
-                                 words = words.filter(w => w !== word);
-                              });
-                           } */
 
                            dispatch({
                               type: 'save',
@@ -129,6 +125,7 @@ export default function Settings({ value, dispatch }) {
                </button>
             </div>
          </div>
+         <span>Vocabulary • {info.version}</span>
       </Dialog>
    );
 }

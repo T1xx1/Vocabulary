@@ -3,5 +3,7 @@
       "history": [],
       "saved": []
    },
-   "settings": {}
+   "settings": {
+      "defaultWord": "welcome"
+   }
 }

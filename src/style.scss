@@ -4,12 +4,6 @@ $accent-color: #ff006e;
 $bg-color: #47c2ff;
 $theme-color: #137ec5;
 
-@mixin pc {
-   @media (min-width: 426px) {
-      @content;
-   }
-}
-
 @mixin phone {
    @media (max-width: 426px) {
       @content;
@@ -17,10 +11,11 @@ $theme-color: #137ec5;
 }
 
 :root {
+   background-color: $bg-color;
    color-scheme: light;
 
-   @include pc {
-      background-color: $bg-color;
+   @include phone {
+      background-color: ss.color('white');
    }
 }
 
@@ -58,14 +53,16 @@ img {
 }
 
 #root {
-   @include pc {
-      @include ss.block;
-      @include ss.reset('border');
+   @include ss.block;
+   @include ss.reset('border');
 
-      background-color: ss.color('white');
-      height: fit-content;
-      padding: 5px 13px 15px;
-      width: clamp(500px, 80vw, 800px);
+   background-color: ss.color('white');
+   height: fit-content;
+   padding: 5px 12px 15px;
+   width: clamp(500px, 80vw, 800px);
+
+   @include phone {
+      @include ss.reset;
    }
 
    header {
@@ -75,17 +72,17 @@ img {
          flex-direction: column;
       }
 
-      >div {
+      > div {
          @include ss.flex;
 
-         >div {
+         > div {
             height: 50px;
          }
       }
 
-      >h1 {
+      > h1 {
          color: $theme-color;
-         font-size: 2.7rem;
+         font-size: 2.8rem;
       }
    }
 
@@ -99,8 +96,8 @@ img {
          margin-left: 0;
          width: 100%;
 
-         >input {
-            width: 75%;
+         > input {
+            width: calc(100% - 40px);
          }
       }
 
@@ -113,40 +110,32 @@ img {
       }
 
       input {
-         border: 0;
-         box-shadow: none;
+         @include ss.reset('border');
+
          color: $accent-color;
       }
    }
 
    #results {
-
       b,
       h3 {
          color: $theme-color;
       }
 
-      #error {
-         @media (max-width: 426px) {
-            @include ss.flex;
-
-            align-items: center;
-            flex-direction: column;
+      @include phone {
+         .error {
+            @include ss.flex(column, '', '', '', center);
          }
       }
 
       #header {
          @include ss.flex('', '', '', space-between);
 
-         >span {
+         > :first-child {
             @include ss.flex('', '', '', '', baseline);
-
-            >span {
-               color: ss.color('gray-web');
-            }
          }
 
-         >div {
+         > :last-child {
             @include ss.flex('', '', '', '', center);
 
             img {
@@ -160,15 +149,17 @@ img {
             }
          }
       }
-
-      #result>div>div {
-         margin-left: 10px;
-      }
    }
 
    #signature {
-      bottom: 10px;
-      left: 10px;
+      @include phone {
+         background-color: ss.color('white');
+         width: 100%;
+      }
+
+      bottom: 0;
+      left: 0;
+      padding: 15px;
       position: fixed;
    }
 }
@@ -176,8 +167,18 @@ img {
 .snackbar {
    @include ss.border-radius;
 
+   animation: in 500ms ease, out 500ms 6s;
+   background-color: ss.color('black');
+   bottom: 15px;
+   color: ss.color('white');
+   left: 15px;
+   padding: 13px 15px;
+   position: fixed;
+   width: 330px;
+   z-index: 1;
+
    @include phone {
-      width: calc(100vw - 20px);
+      width: calc(100vw - 30px);
    }
 
    @keyframes in {
@@ -191,16 +192,6 @@ img {
          transform: translateY(150px);
       }
    }
-
-   animation: in 600ms ease,
-   out 600ms 5s;
-   background-color: ss.color('black');
-   bottom: 10px;
-   color: ss.color('white');
-   left: 10px;
-   padding: 13px 15px;
-   position: fixed;
-   width: 325px;
 }
 
 .word {
@@ -208,7 +199,7 @@ img {
    cursor: pointer;
 }
 
-#all>dialog>div:nth-child(2) {
+#all > dialog > :nth-child(2) {
    > :first-child {
       @include ss.flex('', '', '', space-between, center);
 
@@ -221,14 +212,14 @@ img {
       }
 
       progress {
-         width: calc(100% - 220px);
+         width: calc(100% - 215px);
       }
    }
 
    > :last-child {
       @include ss.flex('', wrap);
 
-      >* {
+      > * {
          margin-right: 5px;
       }
    }
@@ -238,41 +229,43 @@ img {
    form {
       @include ss.flex('', '', '', center);
 
-      @include pc {
-         >* {
-            margin-right: 10px;
-         }
-      }
-
       @include phone {
          @include ss.reset;
 
          flex-direction: column;
 
-         >* {
-            margin-bottom: 10px;
+         > * {
+            margin-bottom: 15px;
          }
+      }
+
+      > * {
+         margin-right: 15px;
       }
    }
 
-   >img {
+   > img {
       @include ss.padding('inline');
    }
 }
 
-#settings>dialog> :nth-child(2) {
+#reported > img {
+   @include ss.padding('inline');
+}
+
+#settings > dialog > :nth-child(2) {
    @include ss.flex(column);
 
-   #dangerZone>* {
+   #dangerZone > * {
       color: ss.color('red');
-      margin: 0 12px 10px 0;
+      margin: 0 15px 10px 0;
    }
 
-   #defaultWord>span {
+   #defaultWord > span {
       margin-right: 10px;
    }
 
-   #files>div {
+   #files > div {
       margin-top: 10px;
 
       @include phone {
@@ -287,15 +280,15 @@ img {
    }
 }
 
-#words>dialog>div:nth-child(2) {
-   >div {
+#words > dialog > :nth-child(2) {
+   > div {
       @include ss.flex('', '', '', space-between, center);
+
+      height: fit-content;
 
       @include phone {
          flex-direction: column;
       }
-
-      height: fit-content;
 
       img {
          @include ss.imgbutton(45px);
@@ -313,14 +306,12 @@ img {
    ul {
       padding: 0;
 
-      >* {
-         @include ss.highlight('bubble');
+      > * {
          @include ss.flex('', '', '', space-between, center);
+         @include ss.highlight('bubble');
 
-         @include pc {
-            &[hidden] {
-               display: none;
-            }
+         &[hidden] {
+            display: none;
          }
 
          &:hover img {

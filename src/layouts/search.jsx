@@ -30,7 +30,7 @@ export default function Search({ value, dispatch, search, setSearch, setResults 
       setInput(search);
       setResults(
          <span>
-            Searching <Word w={search} setSearch={setSearch} />
+            Searching <Word setSearch={setSearch}>{search}</Word>
             ...
          </span>
       );
@@ -42,12 +42,12 @@ export default function Search({ value, dispatch, search, setSearch, setResults 
             setResults(
                <>
                   <div id='header'>
-                     <span>
+                     <div>
                         <h2>
-                           <Word w={search} setSearch={setSearch} />
+                           <Word setSearch={setSearch}>{search}</Word>
                         </h2>
                         {response.phonetic}
-                     </span>
+                     </div>
                      <div>
                         <input
                            type='checkbox'
@@ -102,7 +102,7 @@ export default function Search({ value, dispatch, search, setSearch, setResults 
                                     <ul>
                                        {meaning.synonyms.map(word => (
                                           <li key={word}>
-                                             <Word w={word} setSearch={setSearch} />
+                                             <Word setSearch={setSearch}>{word}</Word>
                                           </li>
                                        ))}
                                     </ul>
@@ -114,7 +114,7 @@ export default function Search({ value, dispatch, search, setSearch, setResults 
                                     <ul>
                                        {meaning.antonyms.map(word => (
                                           <li key={word}>
-                                             <Word w={word} setSearch={setSearch} />
+                                             <Word setSearch={setSearch}>{word}</Word>
                                           </li>
                                        ))}
                                     </ul>
@@ -144,7 +144,7 @@ export default function Search({ value, dispatch, search, setSearch, setResults 
                <div className='error'>
                   <div>
                      <span>Word </span>
-                     <Word w={search} setSearch={setSearch} />
+                     <Word setSearch={setSearch}>{search}</Word>
                      <span> not found </span>
                   </div>
                   <Report word={search} />

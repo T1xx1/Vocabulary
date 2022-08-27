@@ -36,7 +36,7 @@ export default function Words({ value, dispatch, setSearch }) {
                <ul>
                   {value.words.saved.sort().map(word => (
                      <li key={word}>
-                        <Word w={word} setSearch={setSearch} />
+                        <Word setSearch={setSearch}>{word}</Word>
                         <img
                            src={trash}
                            alt='Delete'

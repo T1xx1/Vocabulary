@@ -4,6 +4,7 @@ import api from '../data/api.json';
 import info from '../data/info.json';
 
 import Dialog from '../snippets/dialog';
+import Reported from './reported';
 
 export default function Report({ word }) {
    return (
@@ -17,6 +18,7 @@ export default function Report({ word }) {
             </button>
             <input type='hidden' name='_next' value={info.start_url} />
          </form>
+         <Reported />
       </Dialog>
    );
 }
