@@ -65,7 +65,7 @@ img {
       background-color: ss.color('white');
       height: fit-content;
       padding: 5px 13px 15px;
-      width: clamp(500px, 80vw, 700px);
+      width: clamp(500px, 80vw, 800px);
    }
 
    header {
@@ -165,14 +165,19 @@ img {
          margin-left: 10px;
       }
    }
+
+   #signature {
+      bottom: 10px;
+      left: 10px;
+      position: fixed;
+   }
 }
 
 .snackbar {
-   @include ss.block('blur');
+   @include ss.border-radius;
 
    @include phone {
-      margin: 0;
-      width: clamp(100px, 95vw, 100%);
+      width: calc(100vw - 20px);
    }
 
    @keyframes in {
@@ -193,9 +198,9 @@ img {
    bottom: 10px;
    color: ss.color('white');
    left: 10px;
-   padding: 15px;
+   padding: 13px 15px;
    position: fixed;
-   width: 300px;
+   width: 325px;
 }
 
 .word {
@@ -203,7 +208,7 @@ img {
    cursor: pointer;
 }
 
-#all>dialog>div:last-child {
+#all>dialog>div:nth-child(2) {
    > :first-child {
       @include ss.flex('', '', '', space-between, center);
 
@@ -216,12 +221,12 @@ img {
       }
 
       progress {
-         width: 75%;
+         width: calc(100% - 220px);
       }
    }
 
-   > :nth-child(2) {
-      @include ss.flex('', wrap, '', flex-start);
+   > :last-child {
+      @include ss.flex('', wrap);
 
       >* {
          margin-right: 5px;

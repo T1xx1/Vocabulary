@@ -1,6 +1,7 @@
 {
    "settings": {
-      "installInSrcFolder": true
+      "installInSrcFolder": true,
+      "autoUpdate": true
    },
    "snippets": {
       "dialog.jsx": "2022-08-25 19:33:20",

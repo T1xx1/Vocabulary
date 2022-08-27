@@ -8,7 +8,7 @@ import Dialog from '../snippets/dialog';
 export default function Report({ word }) {
    return (
       <Dialog id='report'>
-         <form action={`${api.report}/cbcbc4466b2792c4fb4e774dda86f505`} method='POST'>
+         <form action={`${api.report}/c0f583921a7eb01fcc26c0d9f91d1f26`} method='POST'>
             <input type='text' defaultValue={word} name='Word' placeholder='Word...' required spellCheck={false} />
             <input type='email' name='Email' placeholder='Your email (optional)...' />
             <input type='hidden' name='_autoresponse' />

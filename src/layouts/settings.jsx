@@ -1,5 +1,4 @@
 import React from 'react';
-import { useEffect, useReducer } from 'react';
 
 import Dialog from '../snippets/dialog';
 import download from '../snippets/download';
@@ -10,27 +9,6 @@ import Snackbar from '../components/snackbar';
 import Dictionary from '../services/dictionary';
 
 export default function Settings({ value, dispatch }) {
-   let [settings, dispatchS] = useReducer((state, action) => {
-      switch (action.type) {
-         case 'defaultWord':
-            return {
-               ...state,
-               defaultWord: action.payload,
-            };
-         default:
-            return settings;
-      }
-   }, value.settings);
-
-   useEffect(() => {
-      dispatch({
-         type: 'edit',
-         payload: {
-            settings: settings,
-         },
-      });
-   }, [settings]);
-
    return (
       <Dialog id='settings' icon={gear}>
          <div id='defaultWord'>
@@ -38,13 +16,18 @@ export default function Settings({ value, dispatch }) {
             <input
                type='text'
                onChange={e => {
-                  dispatchS({
-                     type: 'defaultWord',
-                     payload: e.target.value.toLowerCase(),
+                  dispatch({
+                     type: 'edit',
+                     payload: {
+                        settings: {
+                           ...value.settings,
+                           defaultWord: e.target.value.toLowerCase(),
+                        },
+                     },
                   });
                }}
                placeholder='Word...'
-               value={settings.defaultWord ?? ''}
+               value={value.settings.defaultWord ?? ''}
             />
          </div>
          <div>
@@ -72,14 +55,16 @@ export default function Settings({ value, dispatch }) {
                         let reader = new FileReader();
 
                         reader.readAsText(e.target.files[0]);
-                        reader.onload = () => {
-                           let words = String(reader.result.replaceAll('\r\n', '').replaceAll(/,+/g, ',')).split(',');
+                        reader.onload = async () => {
+                           let words = reader.result.replaceAll('\r\n', '').replaceAll(/,+/g, ',').split(',');
 
-                           words.forEach(word => {
-                              Dictionary(word).catch(() => {
-                                 words.filter(w => word !== w);
+                           Snackbar('Uploading...');
+
+                           /* for (let word of words) {
+                              await Dictionary(word).catch(() => {
+                                 words = words.filter(w => w !== word);
                               });
-                           });
+                           } */
 
                            dispatch({
                               type: 'save',

@@ -101,6 +101,10 @@ export default function App() {
          <Header value={value} dispatch={dispatch} setSearch={setSearch} />
          <Search value={value} dispatch={dispatch} search={search} setSearch={setSearch} setResults={setResults} />
          <div id='results'>{results}</div>
+         <div id='snackbars'></div>
+         <span id='signature'>
+            Build by <a href='https://github.com/T1xx1'>T1xx1</a>
+         </span>
       </>
    );
 }

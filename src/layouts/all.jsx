@@ -1,26 +1,23 @@
 import React from 'react';
 
 import grid from '../assets/grid.png';
+import constants from '../data/constants.json';
 
 import Dialog from '../snippets/dialog';
 import Word from '../components/word';
 
 export default function All({ value, setSearch }) {
-   const WORDS = 500000;
-
    return (
       <Dialog id='all' icon={grid}>
          <div>
-            <progress max={WORDS} value={value.words.saved.length}></progress>
+            <progress max={constants.words} value={value.words.saved.length}></progress>
             <div>
-               {value.words.saved.length} / 500.000 • {((100 / WORDS) * value.words.saved.length).toFixed(2)}%
+               {value.words.saved.length} / 500.000 • {((100 / constants.words) * value.words.saved.length).toFixed(2)}%
             </div>
          </div>
          <div>
             {value.words.saved.map(word => (
-               <span key={word}>
-                  <Word w={word} setSearch={setSearch} />
-               </span>
+               <Word w={word} setSearch={setSearch} key={word} />
             ))}
          </div>
       </Dialog>

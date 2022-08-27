@@ -18,8 +18,11 @@ export default function Search({ value, dispatch, search, setSearch, setResults 
    let research = () => setSearch(document.querySelector('input[type="search"]').value);
 
    useEffect(() => {
-      if ([null, ''].includes(search.replaceAll(' ', ''))) {
-         setResults('');
+      try {
+         if ([null, ''].includes(search.replaceAll(' ', ''))) throw <></>;
+         if (!navigator.onLine) throw <div className='error'>No internet connection</div>;
+      } catch (node) {
+         setResults(node);
 
          return;
       }

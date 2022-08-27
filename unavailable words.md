@@ -24,6 +24,7 @@
 -  mouring
 -  nightground
 -  outgasses
+-  outshame
 -  paned
 -  pansophy
 -  pharagraf
@@ -36,6 +37,8 @@
 -  scop
 -  swives
 -  stokings
+-  stylebook
+-  tactlessnesses
 -  throught
 -  travel book
 -  trone

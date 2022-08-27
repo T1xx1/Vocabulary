@@ -8,21 +8,19 @@
          "type": "image/x-icon"
       },
       {
-         "src": "logo.png",
+         "src": "logo144.png",
          "sizes": "144x144",
-         "type": "image/x-icon",
-         "purpose": "any"
+         "type": "image/x-icon"
       },
       {
-         "src": "logo.png",
+         "src": "logo512.png",
          "sizes": "512x512",
-         "type": "image/x-icon",
-         "purpose": "any"
+         "type": "image/x-icon"
       }
    ],
    "start_url": "https://t1xx1.github.io/Vocabulary",
    "display": "standalone",
-   "background_color": "#47c2ff",
+   "background_color": "#ffffff",
    "description": "Search and learn words",
    "dir": "ltr",
    "categories": "education,utilities",
