@@ -1,21 +1,19 @@
-@use '../../Sasscript/ss.scss';
+@use '../../Sasscript/src/ss.scss';
 
-$accent-color: #ff006e;
-$bg-color: #47c2ff;
-$theme-color: #137ec5;
-
-@mixin phone {
-   @media (max-width: 426px) {
-      @content;
-   }
-}
+$accent-color: #ff00ff;
+$bg-color: #0bc9fe;
+$theme-color: #2176ff;
 
 :root {
    background-color: $bg-color;
    color-scheme: light;
 
-   @include phone {
+   @include ss.breakpoint('mobile') {
       background-color: ss.color('white');
+   }
+
+   [hidden] {
+      display: none !important;
    }
 }
 
@@ -28,13 +26,18 @@ dialog {
 
    h1 {
       color: $theme-color;
+      margin: 5px 0;
+   }
+
+   > img {
+      @include ss.imgbutton(45px);
    }
 
    > :first-child {
       @include ss.flex('', '', '', space-between, center);
 
       img {
-         @include ss.imgbutton(40px, 3px);
+         @include ss.imgbutton(40px);
       }
    }
 
@@ -58,81 +61,33 @@ img {
 
    background-color: ss.color('white');
    height: fit-content;
-   padding: 5px 12px 15px;
+   padding: 3px 12px;
    width: clamp(500px, 80vw, 800px);
 
-   @include phone {
+   @include ss.breakpoint('mobile') {
       @include ss.reset;
    }
 
-   header {
-      @include ss.flex('', '', '', space-between, center);
-
-      @include phone {
-         flex-direction: column;
-      }
-
-      > div {
-         @include ss.flex;
-
-         > div {
-            height: 50px;
-         }
-      }
-
-      > h1 {
-         color: $theme-color;
-         font-size: 2.8rem;
-      }
-   }
-
-   nav {
-      @include ss.border('inline');
-      @include ss.flex('', '', '', space-between, center);
-
-      width: fit-content;
-
-      @include phone {
-         margin-left: 0;
-         width: 100%;
-
-         > input {
-            width: calc(100% - 40px);
-         }
-      }
-
-      div {
-         @include ss.flex;
-
-         img {
-            @include ss.imgbutton(37px, 0);
-         }
-      }
-
-      input {
-         @include ss.reset('border');
-
-         color: $accent-color;
-      }
-   }
-
    #results {
+      margin-bottom: 15px;
+      width: 100%;
+
       b,
       h3 {
          color: $theme-color;
       }
 
-      @include phone {
+      @include ss.breakpoint('mobile') {
          .error {
             @include ss.flex(column, '', '', '', center);
          }
       }
 
-      #header {
+      #bar {
          @include ss.flex('', '', '', space-between);
 
          > :first-child {
-            @include ss.flex('', '', '', '', baseline);
+            @include ss.flex('', wrap, '', '', baseline);
          }
 
          > :last-child {
@@ -149,35 +104,38 @@ img {
             }
          }
       }
+
+      #sources {
+         margin-top: 5px;
+         padding-left: 5px;
+      }
    }
 
    #signature {
-      @include phone {
+      @include ss.position(fixed, '', '', 0, 0);
+
+      padding: 13px;
+
+      @include ss.breakpoint('mobile') {
          background-color: ss.color('white');
          width: 100%;
       }
-
-      bottom: 0;
-      left: 0;
-      padding: 15px;
-      position: fixed;
    }
 }
 
+// Components
 .snackbar {
    @include ss.border-radius;
+   @include ss.position(fixed, '', '', 15px, 15px);
 
    animation: in 500ms ease, out 500ms 6s;
    background-color: ss.color('black');
-   bottom: 15px;
    color: ss.color('white');
-   left: 15px;
    padding: 13px 15px;
-   position: fixed;
    width: 330px;
    z-index: 1;
 
-   @include phone {
+   @include ss.breakpoint('mobile') {
       width: calc(100vw - 30px);
    }
 
@@ -197,22 +155,24 @@ img {
 .word {
    color: $accent-color;
    cursor: pointer;
+   user-select: none;
 }
 
+// Layouts
 #all > dialog > :nth-child(2) {
    > :first-child {
       @include ss.flex('', '', '', space-between, center);
 
-      @include phone {
+      progress {
+         width: calc(100% - 215px);
+      }
+
+      @include ss.breakpoint('mobile') {
          flex-direction: column;
 
          progress {
             width: 100%;
          }
-      }
-
-      progress {
-         width: calc(100% - 215px);
       }
    }
 
@@ -225,11 +185,32 @@ img {
    }
 }
 
+#header {
+   @include ss.flex('', '', '', space-between, center);
+
+   @include ss.breakpoint('mobile') {
+      flex-direction: column;
+   }
+
+   > div {
+      @include ss.flex;
+
+      > div {
+         height: 50px;
+      }
+   }
+
+   > h1 {
+      color: $theme-color;
+      font-size: 2.8rem;
+   }
+}
+
 #report {
    form {
       @include ss.flex('', '', '', center);
 
-      @include phone {
+      @include ss.breakpoint('mobile') {
          @include ss.reset;
 
          flex-direction: column;
@@ -253,12 +234,42 @@ img {
    @include ss.padding('inline');
 }
 
+#search {
+   @include ss.border('inline');
+   @include ss.flex('', '', '', space-between, center);
+
+   width: fit-content;
+
+   @include ss.breakpoint('mobile') {
+      width: 100%;
+
+      > input {
+         width: calc(100% - 40px);
+      }
+   }
+
+   div {
+      @include ss.flex;
+
+      img {
+         @include ss.imgbutton(37px, 0);
+      }
+   }
+
+   input {
+      @include ss.reset('border');
+
+      color: $accent-color;
+      outline: none;
+   }
+}
+
 #settings > dialog > :nth-child(2) {
    @include ss.flex(column);
 
    #dangerZone > * {
       color: ss.color('red');
-      margin: 0 15px 10px 0;
+      margin: 0 15px 15px 0;
    }
 
    #defaultWord > span {
@@ -268,7 +279,7 @@ img {
    #files > div {
       margin-top: 10px;
 
-      @include phone {
+      @include ss.breakpoint('mobile') {
          input {
             width: 100%;
          }
@@ -281,48 +292,36 @@ img {
 }
 
 #words > dialog > :nth-child(2) {
-   > div {
+   > :first-child {
       @include ss.flex('', '', '', space-between, center);
 
       height: fit-content;
 
-      @include phone {
+      @include ss.breakpoint('mobile') {
          flex-direction: column;
-      }
-
-      img {
-         @include ss.imgbutton(45px);
       }
 
       input {
          margin-right: 15px;
 
-         @include phone {
+         @include ss.breakpoint('mobile') {
             width: 100%;
          }
       }
    }
 
-   ul {
-      padding: 0;
+   > :last-child > * {
+      @include ss.flex('', '', '', space-between, center);
+      @include ss.highlight('bubble');
 
-      > * {
-         @include ss.flex('', '', '', space-between, center);
-         @include ss.highlight('bubble');
+      &:hover img {
+         display: block;
+      }
 
-         &[hidden] {
-            display: none;
-         }
+      img {
+         @include ss.imgbutton(25px, 2px);
 
-         &:hover img {
-            display: block;
-         }
-
-         img {
-            @include ss.imgbutton(25px, 2px);
-
-            display: none;
-         }
+         display: none;
       }
    }
 }

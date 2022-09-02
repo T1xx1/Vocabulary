@@ -12,7 +12,7 @@ export default function All({ value, setSearch }) {
          <div>
             <progress max={constants.words} value={value.words.saved.length}></progress>
             <div>
-               {value.words.saved.length} / 500.000 • {((100 / constants.words) * value.words.saved.length).toFixed(2)}%
+               {value.words.saved.length} / {constants.words} • {((100 / constants.words) * value.words.saved.length).toFixed(2)}%
             </div>
          </div>
          <div>

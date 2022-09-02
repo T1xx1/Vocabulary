@@ -41,7 +41,7 @@ export default function Search({ value, dispatch, search, setSearch, setResults 
 
             setResults(
                <>
-                  <div id='header'>
+                  <div id='bar'>
                      <div>
                         <h2>
                            <Word setSearch={setSearch}>{search}</Word>
@@ -71,22 +71,20 @@ export default function Search({ value, dispatch, search, setSearch, setResults 
                                  Snackbar('Word removed');
                               }
                            }}
-                           title='Save/remove'
                         />
                         <img
                            src={dots}
                            alt='Share'
                            onClick={() => {
                               window.navigator.share({
-                                 title: `Word ${search} on Vocabulary`,
+                                 title: `Word '${search}' on ${info.name}`,
                                  url: `${info.start_url}?q=${search}`,
                               });
                            }}
-                           title='Share'
                         />
                      </div>
                   </div>
-                  <div id='results'>
+                  <div>
                      {response.meanings.map(meaning => {
                         return (
                            <div key={meaning.partOfSpeech}>
@@ -125,7 +123,7 @@ export default function Search({ value, dispatch, search, setSearch, setResults 
                      })}
                   </div>
                   {response.sourceUrls.length !== 0 && (
-                     <div>
+                     <div id='sources'>
                         <b>Sources</b>
                         <ul>
                            {response.sourceUrls.map(source => (
@@ -154,10 +152,9 @@ export default function Search({ value, dispatch, search, setSearch, setResults 
    }, [search]);
 
    return (
-      <nav>
+      <nav id='search'>
          <input
             type='search'
-            autoFocus
             list='datalist'
             onChange={e => setInput(e.target.value.toLowerCase())}
             onKeyUp={e => {
@@ -165,9 +162,7 @@ export default function Search({ value, dispatch, search, setSearch, setResults 
                if (e.ctrlKey === true && e.key === 'q')
                   try {
                      document.querySelector('input[type="checkbox"]').click();
-                  } catch {
-                     setResults(<div className='error'>Search a word to save it </div>);
-                  }
+                  } catch {}
             }}
             placeholder='Search a word...'
             value={input}
@@ -178,8 +173,8 @@ export default function Search({ value, dispatch, search, setSearch, setResults 
             ))}
          </datalist>
          <div>
-            <img src={arrows} alt='Random' onClick={() => Random().then(word => setSearch(word[0]))} title='Random' />
-            <img src={lens} alt='Search' onClick={research} title='Search' />
+            <img src={arrows} alt='Random' onClick={() => Random().then(word => setSearch(word[0]))} />
+            <img src={lens} alt='Search' onClick={research} />
          </div>
       </nav>
    );

@@ -21,10 +21,10 @@ export default function Words({ value, dispatch, setSearch }) {
                      <input
                         type='text'
                         onKeyUp={e => {
-                           document.querySelector('#words ul').childNodes.forEach(li => {
-                              if (li.querySelector('.word').innerHTML.toLowerCase().includes(e.target.value.toLowerCase())) {
-                                 li.removeAttribute('hidden');
-                              } else li.setAttribute('hidden', '');
+                           document.querySelector('#words #list').childNodes.forEach(div => {
+                              if (div.querySelector('.word').innerHTML.toLowerCase().includes(e.target.value.toLowerCase())) {
+                                 div.removeAttribute('hidden');
+                              } else div.setAttribute('hidden', '');
                            });
                         }}
                         placeholder='Search in saved words...'
@@ -33,9 +33,9 @@ export default function Words({ value, dispatch, setSearch }) {
                   </div>
                   <All value={value} setSearch={setSearch} />
                </div>
-               <ul>
+               <div id='list'>
                   {value.words.saved.sort().map(word => (
-                     <li key={word}>
+                     <div key={word}>
                         <Word setSearch={setSearch}>{word}</Word>
                         <img
                            src={trash}
@@ -48,11 +48,10 @@ export default function Words({ value, dispatch, setSearch }) {
 
                               Snackbar('Word removed');
                            }}
-                           title='Delete'
                         />
-                     </li>
+                     </div>
                   ))}
-               </ul>
+               </div>
             </>
          )}
       </Dialog>

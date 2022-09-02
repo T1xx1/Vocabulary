@@ -13,7 +13,6 @@ export default function Dialog({ id, icon, children }) {
                   src='https://img.icons8.com/emoji/96/FAB005/cross-mark-emoji.png'
                   alt='Close'
                   onClick={() => document.querySelector(`#${id}>dialog`).close()}
-                  title='Close'
                />
             </div>
             <div>{children}</div>

@@ -1,9 +1,10 @@
 import React from 'react';
 
+import Dialog from '../snippets/dialog';
+
 import api from '../data/api.json';
 import info from '../data/info.json';
 
-import Dialog from '../snippets/dialog';
 import Reported from './reported';
 
 export default function Report({ word }) {

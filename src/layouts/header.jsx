@@ -5,7 +5,7 @@ import Words from './words';
 
 export default function Header({ value, dispatch, setSearch }) {
    return (
-      <header>
+      <header id='header'>
          <h1>Vocabulary</h1>
          <div>
             <Words value={value} dispatch={dispatch} setSearch={setSearch} />
