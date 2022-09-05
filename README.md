@@ -5,7 +5,6 @@ Search words and learn them, get definitions, synonyms and antonyms.
 ## Index
 
 -  [Changelog](.github/CHANGELOG.md)
--  [Features table](.github/features.md)
 -  [Screenshoot](#screenshots)
 -  [Authors](#authors)
 -  [License](#license)

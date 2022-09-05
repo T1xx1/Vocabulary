@@ -2,15 +2,14 @@ import React from 'react';
 import { useEffect, useState } from 'react';
 
 import arrows from '../assets/arrows.png';
-import dots from '../assets/dots.png';
 import lens from '../assets/lens.png';
-import info from '../data/info.json';
 
 import Dictionary from '../services/dictionary';
+import Error from './error';
 import Random from '../services/random';
 import Report from './report';
 import Word from '../components/word';
-import Snackbar from '../components/snackbar';
+import Bar from './bar';
 
 export default function Search({ value, dispatch, search, setSearch, setResults }) {
    let [input, setInput] = useState(search);
@@ -20,7 +19,12 @@ export default function Search({ value, dispatch, search, setSearch, setResults 
    useEffect(() => {
       try {
          if ([null, ''].includes(search.replaceAll(' ', ''))) throw <></>;
-         if (!navigator.onLine) throw <div className='error'>No internet connection</div>;
+         if (!navigator.onLine)
+            throw (
+               <Error value={value} dispatch={dispatch} search={search} setSearch={setSearch}>
+                  No internet connection
+               </Error>
+            );
       } catch (node) {
          setResults(node);
 
@@ -41,49 +45,7 @@ export default function Search({ value, dispatch, search, setSearch, setResults 
 
             setResults(
                <>
-                  <div id='bar'>
-                     <div>
-                        <h2>
-                           <Word setSearch={setSearch}>{search}</Word>
-                        </h2>
-                        {response.phonetic}
-                     </div>
-                     <div>
-                        <input
-                           type='checkbox'
-                           defaultChecked={value.words.saved.includes(search)}
-                           onChange={e => {
-                              e = e.target.checked;
-
-                              if (e) {
-                                 dispatch({
-                                    type: 'save',
-                                    payload: [search],
-                                 });
-
-                                 Snackbar('Word saved');
-                              } else {
-                                 dispatch({
-                                    type: 'rm',
-                                    payload: search,
-                                 });
-
-                                 Snackbar('Word removed');
-                              }
-                           }}
-                        />
-                        <img
-                           src={dots}
-                           alt='Share'
-                           onClick={() => {
-                              window.navigator.share({
-                                 title: `Word '${search}' on ${info.name}`,
-                                 url: `${info.start_url}?q=${search}`,
-                              });
-                           }}
-                        />
-                     </div>
-                  </div>
+                  <Bar value={value} dispatch={dispatch} search={search} setSearch={setSearch} phonetic={response.phonetic} />
                   <div>
                      {response.meanings.map(meaning => {
                         return (
@@ -139,14 +101,14 @@ export default function Search({ value, dispatch, search, setSearch, setResults 
          })
          .catch(() => {
             setResults(
-               <div className='error'>
+               <Error value={value} dispatch={dispatch} search={search} setSearch={setSearch}>
                   <div>
                      <span>Word </span>
                      <Word setSearch={setSearch}>{search}</Word>
                      <span> not found </span>
                   </div>
                   <Report word={search} />
-               </div>
+               </Error>
             );
          });
    }, [search]);

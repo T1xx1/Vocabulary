@@ -2,8 +2,6 @@
 
 > The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
-### [Features table](features.md)
-
 <br>
 
 <details open>
@@ -15,7 +13,7 @@
 -  [1.0.0](#100-•-setup-•-25032022)
 </details>
 
-## Unreleased
+## 1.3.1 • 2022-09-05
 
 ### Added
 
@@ -23,6 +21,11 @@
 -  Reported word list
 -  Dialogs now close at word click
 -  Default word 'welcome'
+
+### Changed
+
+- Save any words also if offline and can't find the word
+- Sticky word bar
 
 ## 1.3.0 • 2022-08-26
 

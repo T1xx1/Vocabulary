@@ -4,6 +4,7 @@ import Dialog from '../snippets/dialog';
 import download from '../snippets/download';
 
 import gear from '../assets/gear.png';
+import info from '../data/info.json';
 
 import Snackbar from '../components/snackbar';
 
@@ -124,7 +125,9 @@ export default function Settings({ value, dispatch }) {
                </button>
             </div>
          </div>
-         <span>Vocabulary 1.3.0</span>
+         <span>
+            {info.name} {info.version}
+         </span>
       </Dialog>
    );
 }

@@ -8,17 +8,13 @@ $theme-color: #2176ff;
    background-color: $bg-color;
    color-scheme: light;
 
-   @include ss.breakpoint('mobile') {
-      background-color: ss.color('white');
-   }
-
-   [hidden] {
-      display: none !important;
+   @include ss.mobile {
+      background-color: ss.$white;
    }
 }
 
 body {
-   @include ss.flex('', '', '', center);
+   @include ss.flex($justify-content: center);
 }
 
 dialog {
@@ -34,7 +30,7 @@ dialog {
    }
 
    > :first-child {
-      @include ss.flex('', '', '', space-between, center);
+      @include ss.flex($justify-content: space-between, $align-items: center);
 
       img {
          @include ss.imgbutton(40px);
@@ -59,12 +55,12 @@ img {
    @include ss.block;
    @include ss.reset('border');
 
-   background-color: ss.color('white');
+   background-color: ss.$white;
    height: fit-content;
-   padding: 3px 12px;
+   padding: 2px 15px;
    width: clamp(500px, 80vw, 800px);
 
-   @include ss.breakpoint('mobile') {
+   @include ss.mobile {
       @include ss.reset;
    }
 
@@ -77,31 +73,9 @@ img {
          color: $theme-color;
       }
 
-      @include ss.breakpoint('mobile') {
+      @include ss.mobile {
          .error {
-            @include ss.flex(column, '', '', '', center);
-         }
-      }
-
-      #bar {
-         @include ss.flex('', '', '', space-between);
-
-         > :first-child {
-            @include ss.flex('', wrap, '', '', baseline);
-         }
-
-         > :last-child {
-            @include ss.flex('', '', '', '', center);
-
-            img {
-               @include ss.imgbutton(40px, 1px);
-            }
-
-            input {
-               accent-color: $accent-color;
-               height: 30px;
-               width: 30px;
-            }
+            @include ss.flex(column, $align-items: center);
          }
       }
 
@@ -112,12 +86,12 @@ img {
    }
 
    #signature {
-      @include ss.position(fixed, '', '', 0, 0);
+      @include ss.position(fixed, $bottom: 0, $left: 0);
 
       padding: 13px;
 
-      @include ss.breakpoint('mobile') {
-         background-color: ss.color('white');
+      @include ss.mobile {
+         background-color: ss.$white;
          width: 100%;
       }
    }
@@ -126,16 +100,16 @@ img {
 // Components
 .snackbar {
    @include ss.border-radius;
-   @include ss.position(fixed, '', '', 15px, 15px);
+   @include ss.position(fixed, $bottom: 15px, $left: 15px);
 
    animation: in 500ms ease, out 500ms 6s;
-   background-color: ss.color('black');
-   color: ss.color('white');
+   background-color: ss.$black;
+   color: ss.$white;
    padding: 13px 15px;
    width: 330px;
    z-index: 1;
 
-   @include ss.breakpoint('mobile') {
+   @include ss.mobile {
       width: calc(100vw - 30px);
    }
 
@@ -161,13 +135,13 @@ img {
 // Layouts
 #all > dialog > :nth-child(2) {
    > :first-child {
-      @include ss.flex('', '', '', space-between, center);
+      @include ss.flex($justify-content: space-between, $align-items: center);
 
       progress {
          width: calc(100% - 215px);
       }
 
-      @include ss.breakpoint('mobile') {
+      @include ss.mobile {
          flex-direction: column;
 
          progress {
@@ -177,7 +151,7 @@ img {
    }
 
    > :last-child {
-      @include ss.flex('', wrap);
+      @include ss.flex($flex-wrap: wrap);
 
       > * {
          margin-right: 5px;
@@ -185,10 +159,37 @@ img {
    }
 }
 
-#header {
-   @include ss.flex('', '', '', space-between, center);
+#bar {
+   @include ss.flex($justify-content: space-between);
+   @include ss.mobile {
+      @include ss.position(sticky, $top: 0);
 
-   @include ss.breakpoint('mobile') {
+      background-color: ss.$white;
+   }
+
+   > :first-child {
+      @include ss.flex($flex-wrap: wrap, $align-items: baseline);
+   }
+
+   > :last-child {
+      @include ss.flex($align-items: center);
+
+      img {
+         @include ss.imgbutton(40px, 1px);
+      }
+
+      input {
+         accent-color: $accent-color;
+         height: 30px;
+         width: 30px;
+      }
+   }
+}
+
+#header {
+   @include ss.flex($justify-content: space-between, $align-items: center);
+
+   @include ss.mobile {
       flex-direction: column;
    }
 
@@ -202,15 +203,15 @@ img {
 
    > h1 {
       color: $theme-color;
-      font-size: 2.8rem;
+      font-size: 3rem;
    }
 }
 
 #report {
    form {
-      @include ss.flex('', '', '', center);
+      @include ss.flex($justify-content: center);
 
-      @include ss.breakpoint('mobile') {
+      @include ss.mobile {
          @include ss.reset;
 
          flex-direction: column;
@@ -236,11 +237,12 @@ img {
 
 #search {
    @include ss.border('inline');
-   @include ss.flex('', '', '', space-between, center);
+   @include ss.flex($justify-content: space-between, $align-items: center);
 
    width: fit-content;
 
-   @include ss.breakpoint('mobile') {
+   @include ss.mobile {
+      margin-left: 0;
       width: 100%;
 
       > input {
@@ -268,8 +270,9 @@ img {
    @include ss.flex(column);
 
    #dangerZone > * {
-      color: ss.color('red');
-      margin: 0 15px 15px 0;
+      @include ss.spacing;
+
+      color: ss.$red;
    }
 
    #defaultWord > span {
@@ -279,39 +282,39 @@ img {
    #files > div {
       margin-top: 10px;
 
-      @include ss.breakpoint('mobile') {
+      @include ss.mobile {
          input {
             width: 100%;
          }
       }
 
       span {
-         margin: 0 15px 15px 0;
+         @include ss.spacing;
       }
    }
 }
 
 #words > dialog > :nth-child(2) {
    > :first-child {
-      @include ss.flex('', '', '', space-between, center);
+      @include ss.flex($justify-content: space-between, $align-items: center);
 
       height: fit-content;
 
-      @include ss.breakpoint('mobile') {
+      @include ss.mobile {
          flex-direction: column;
       }
 
       input {
          margin-right: 15px;
 
-         @include ss.breakpoint('mobile') {
+         @include ss.mobile {
             width: 100%;
          }
       }
    }
 
    > :last-child > * {
-      @include ss.flex('', '', '', space-between, center);
+      @include ss.flex($justify-content: space-between, $align-items: center);
       @include ss.highlight('bubble');
 
       &:hover img {

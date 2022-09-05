@@ -57,14 +57,7 @@ export default function App() {
       }
    }, storage.value);
 
-   useEffect(() => {
-      storage.value = value;
-      storage.write();
-   }, [value]);
-
-   let [search, setSearch] = useState('');
-   let [results, setResults] = useState(<></>);
-
+   // Up to dater
    useEffect(() => {
       if (localStorage.getItem('Vocabulary') !== null) {
          let old = JSON.parse(localStorage.getItem('Vocabulary'));
@@ -96,6 +89,14 @@ export default function App() {
       }
    }, []);
 
+   useEffect(() => {
+      storage.value = value;
+      storage.write();
+   }, [value]);
+
+   let [search, setSearch] = useState('');
+   let [results, setResults] = useState(<></>);
+
    return (
       <>
          <Header value={value} dispatch={dispatch} setSearch={setSearch} />
@@ -103,7 +104,7 @@ export default function App() {
          <div id='results'>{results}</div>
          <div id='snackbars'></div>
          <span id='signature'>
-            Build by <a href='https://github.com/T1xx1'>T1xx1</a>
+            Build by <a href='https://github.com/t1xx1'>T1xx1</a>
          </span>
       </>
    );
