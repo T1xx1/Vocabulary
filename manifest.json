@@ -11,11 +11,6 @@
          "src": "logo144.png",
          "sizes": "144x144",
          "type": "image/x-icon"
-      },
-      {
-         "src": "logo512.png",
-         "sizes": "512x512",
-         "type": "image/x-icon"
       }
    ],
    "start_url": "https://t1xx1.github.io/Vocabulary",
