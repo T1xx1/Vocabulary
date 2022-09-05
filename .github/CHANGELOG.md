@@ -24,8 +24,8 @@
 
 ### Changed
 
-- Save any words also if offline and can't find the word
-- Sticky word bar
+-  Save any words also if offline and can't find the word
+-  Sticky word bar
 
 ## 1.3.0 • 2022-08-26
 
