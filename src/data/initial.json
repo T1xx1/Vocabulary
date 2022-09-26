@@ -1,6 +1,7 @@
 {
    "words": {
-      "history": [],
+      "history": [[]],
+      "reported": [],
       "saved": []
    },
    "settings": {

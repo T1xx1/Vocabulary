@@ -1,0 +1,52 @@
+#result {
+   padding-bottom: 20px;
+   width: 100%;
+
+   @include ss.tablet {
+      padding-right: 10px;
+      padding-left: 10px;
+   }
+
+   b,
+   h2 {
+      color: $theme-color;
+      display: block;
+      margin: 7px 0;
+   }
+
+   #bar {
+      @include ss.flex($justify-content: space-between, $align-items: center);
+      @include ss.position(sticky, $top: 0);
+
+      background-color: ss.$white;
+
+      > :first-child {
+         @include ss.flex($flex-wrap: wrap, $align-items: baseline);
+
+         h2 {
+            margin: 0;
+         }
+      }
+
+      > :last-child {
+         @include ss.flex($align-items: center);
+
+         img {
+            @include ss.imgbutton(37.5px, 0);
+         }
+
+         input {
+            height: 29.5px;
+            width: 29.5px;
+         }
+      }
+   }
+
+   #report {
+      float: right;
+
+      .trigger button {
+         @include ss.reset('border');
+      }
+   }
+}

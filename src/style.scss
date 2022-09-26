@@ -1,8 +1,8 @@
-@use '../../Sasscript/src/ss.scss';
+@use './ss.scss';
 
-$accent-color: #ff00ff;
-$bg-color: #0bc9fe;
-$theme-color: #2176ff;
+$accent-color: hsl(300, 100%, 50%);
+$bg-color: hsl(190, 100%, 50%);
+$theme-color: hsl(215, 100%, 50%);
 
 :root {
    background-color: $bg-color;
@@ -17,30 +17,49 @@ body {
    @include ss.flex($justify-content: center);
 }
 
-dialog {
-   @include ss.fullscreen;
+#root {
+   @include ss.block;
+   @include ss.reset('border');
 
-   h1 {
-      color: $theme-color;
-      margin: 5px 0;
+   background-color: ss.$white;
+   height: fit-content;
+   padding: 0 5px 0 13px;
+   width: clamp(500px, 80vw, 850px);
+
+   @include ss.mobile {
+      @include ss.reset;
    }
+}
 
-   > img {
-      @include ss.imgbutton(45px);
-   }
+#report {
+   form {
+      @include ss.reset;
+      @include ss.flex(column, $justify-content: center);
 
-   > :first-child {
-      @include ss.flex($justify-content: space-between, $align-items: center);
+      @include ss.mobile {
+         flex-direction: column;
+      }
 
-      img {
-         @include ss.imgbutton(40px);
+      input:first-child {
+         color: $accent-color;
+         outline: none;
+      }
+
+      textarea {
+         height: 100px;
+      }
+
+      > *:not(:last-child) {
+         margin-bottom: 15px;
       }
    }
 
-   > :nth-child(2) {
-      @include ss.grid;
+   > img {
+      @include ss.padding('inline');
+   }
 
-      grid-template-columns: 1fr;
+   #reported > img {
+      @include ss.padding('inline');
    }
 }
 
@@ -51,280 +70,14 @@ img {
    border: 0 !important;
 }
 
-#root {
-   @include ss.block;
-   @include ss.reset('border');
-
-   background-color: ss.$white;
-   height: fit-content;
-   padding: 2px 15px;
-   width: clamp(500px, 80vw, 800px);
-
-   @include ss.mobile {
-      @include ss.reset;
-   }
-
-   #results {
-      margin-bottom: 15px;
-      width: 100%;
-
-      b,
-      h3 {
-         color: $theme-color;
-      }
-
-      @include ss.mobile {
-         .error {
-            @include ss.flex(column, $align-items: center);
-         }
-      }
-
-      #sources {
-         margin-top: 5px;
-         padding-left: 5px;
-      }
-   }
-
-   #signature {
-      @include ss.position(fixed, $bottom: 0, $left: 0);
-
-      padding: 13px;
-
-      @include ss.mobile {
-         background-color: ss.$white;
-         width: 100%;
-      }
-   }
-}
-
-// Components
-.snackbar {
-   @include ss.border-radius;
-   @include ss.position(fixed, $bottom: 15px, $left: 15px);
-
-   animation: in 500ms ease, out 500ms 6s;
-   background-color: ss.$black;
-   color: ss.$white;
-   padding: 13px 15px;
-   width: 330px;
-   z-index: 1;
-
-   @include ss.mobile {
-      width: calc(100vw - 30px);
-   }
-
-   @keyframes in {
-      from {
-         transform: translateY(150px);
-      }
-   }
-
-   @keyframes out {
-      to {
-         transform: translateY(150px);
-      }
-   }
-}
-
 .word {
    color: $accent-color;
    cursor: pointer;
    user-select: none;
 }
 
-// Layouts
-#all > dialog > :nth-child(2) {
-   > :first-child {
-      @include ss.flex($justify-content: space-between, $align-items: center);
+@import './layouts/header/style.scss';
+@import './layouts/navbar/style.scss';
+@import './layouts/result/style.scss';
 
-      progress {
-         width: calc(100% - 215px);
-      }
-
-      @include ss.mobile {
-         flex-direction: column;
-
-         progress {
-            width: 100%;
-         }
-      }
-   }
-
-   > :last-child {
-      @include ss.flex($flex-wrap: wrap);
-
-      > * {
-         margin-right: 5px;
-      }
-   }
-}
-
-#bar {
-   @include ss.flex($justify-content: space-between);
-   @include ss.mobile {
-      @include ss.position(sticky, $top: 0);
-
-      background-color: ss.$white;
-   }
-
-   > :first-child {
-      @include ss.flex($flex-wrap: wrap, $align-items: baseline);
-   }
-
-   > :last-child {
-      @include ss.flex($align-items: center);
-
-      img {
-         @include ss.imgbutton(40px, 1px);
-      }
-
-      input {
-         accent-color: $accent-color;
-         height: 30px;
-         width: 30px;
-      }
-   }
-}
-
-#header {
-   @include ss.flex($justify-content: space-between, $align-items: center);
-
-   @include ss.mobile {
-      flex-direction: column;
-   }
-
-   > div {
-      @include ss.flex;
-
-      > div {
-         height: 50px;
-      }
-   }
-
-   > h1 {
-      color: $theme-color;
-      font-size: 3rem;
-   }
-}
-
-#report {
-   form {
-      @include ss.flex($justify-content: center);
-
-      @include ss.mobile {
-         @include ss.reset;
-
-         flex-direction: column;
-
-         > * {
-            margin-bottom: 15px;
-         }
-      }
-
-      > * {
-         margin-right: 15px;
-      }
-   }
-
-   > img {
-      @include ss.padding('inline');
-   }
-}
-
-#reported > img {
-   @include ss.padding('inline');
-}
-
-#search {
-   @include ss.border('inline');
-   @include ss.flex($justify-content: space-between, $align-items: center);
-
-   width: fit-content;
-
-   @include ss.mobile {
-      margin-left: 0;
-      width: 100%;
-
-      > input {
-         width: calc(100% - 40px);
-      }
-   }
-
-   div {
-      @include ss.flex;
-
-      img {
-         @include ss.imgbutton(37px, 0);
-      }
-   }
-
-   input {
-      @include ss.reset('border');
-
-      color: $accent-color;
-      outline: none;
-   }
-}
-
-#settings > dialog > :nth-child(2) {
-   @include ss.flex(column);
-
-   #dangerZone > * {
-      @include ss.spacing;
-
-      color: ss.$red;
-   }
-
-   #defaultWord > span {
-      margin-right: 10px;
-   }
-
-   #files > div {
-      margin-top: 10px;
-
-      @include ss.mobile {
-         input {
-            width: 100%;
-         }
-      }
-
-      span {
-         @include ss.spacing;
-      }
-   }
-}
-
-#words > dialog > :nth-child(2) {
-   > :first-child {
-      @include ss.flex($justify-content: space-between, $align-items: center);
-
-      height: fit-content;
-
-      @include ss.mobile {
-         flex-direction: column;
-      }
-
-      input {
-         margin-right: 15px;
-
-         @include ss.mobile {
-            width: 100%;
-         }
-      }
-   }
-
-   > :last-child > * {
-      @include ss.flex($justify-content: space-between, $align-items: center);
-      @include ss.highlight('bubble');
-
-      &:hover img {
-         display: block;
-      }
-
-      img {
-         @include ss.imgbutton(25px, 2px);
-
-         display: none;
-      }
-   }
-}
+@import './_library.scss';

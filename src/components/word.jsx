@@ -1,6 +1,6 @@
 import React from 'react';
 
-export default function Word({ children, setSearch }) {
+export default function Word({ setSearch = () => {}, children }) {
    return (
       <span
          className='word'
@@ -10,7 +10,7 @@ export default function Word({ children, setSearch }) {
             document.querySelectorAll('dialog[open]').forEach(dialog => dialog.close());
          }}
       >
-         {children}
+         {children.toLowerCase()}
       </span>
    );
 }

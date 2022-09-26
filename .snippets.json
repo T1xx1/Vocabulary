@@ -4,8 +4,11 @@
       "autoUpdate": true
    },
    "snippets": {
-      "dialog.jsx": "2022-09-02 21:56:19",
-      "download.jsx": "2022-09-02 21:56:19",
-      "localstorage.jsx": "2022-09-02 21:56:19"
+      "dialog.jsx": "2022-09-12 16:28:00",
+      "divimg.jsx": "2022-09-12 16:28:00",
+      "download.jsx": "2022-09-12 16:28:00",
+      "localstorage.jsx": "2022-09-12 16:28:00",
+      "signature.jsx": "2022-09-12 16:28:00",
+      "snackbar.jsx": "2022-09-12 16:28:00"
    }
 }

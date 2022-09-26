@@ -5,10 +5,4 @@ import './style.scss';
 
 import App from './App.jsx';
 
-const root = ReactDOM.createRoot(document.querySelector('#root'));
-
-root.render(
-   <React.StrictMode>
-      <App />
-   </React.StrictMode>
-);
+ReactDOM.createRoot(document.querySelector('#root')).render(<App />);

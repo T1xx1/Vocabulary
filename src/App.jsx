@@ -1,92 +1,27 @@
-import React from 'react';
-import { useEffect, useState, useReducer } from 'react';
+import React, { useEffect, useState, useReducer } from 'react';
 
-import LocalStorage from './snippets/localstorage';
+import Signature from './snippets/signature';
 
-import initial from './data/initial.json';
+import reducer from './reducer';
+import sbc from './sbc';
 
 import Header from './layouts/header';
-import Search from './layouts/search';
+import Search from './layouts/navbar';
+
+import storage from './storage';
+import url from './url';
 
 export default function App() {
-   const storage = new LocalStorage('Vocabulary', '2.0', initial);
+   const [value, dispatch] = useReducer(reducer, storage.value);
 
-   const [value, dispatch] = useReducer((state, action) => {
-      switch (action.type) {
-         case 'clear':
-            return {
-               ...state,
-               words: {
-                  ...state.words,
-                  history: [],
-               },
-            };
-         case 'edit':
-            return {
-               ...state,
-               ...action.payload,
-            };
-         case 'history':
-            return {
-               ...state,
-               words: {
-                  ...state.words,
-                  history: [...new Set([...state.words.history, ...action.payload])],
-               },
-            };
-         case 'reset':
-            return initial;
-         case 'rm':
-            return {
-               ...state,
-               words: {
-                  ...state.words,
-                  saved: state.words.saved.filter(w => action.payload !== w),
-               },
-            };
-         case 'save':
-            return {
-               ...state,
-               words: {
-                  ...state.words,
-                  saved: [...new Set([...state.words.saved, ...action.payload])],
-               },
-            };
-         default:
-            return value;
-      }
-   }, storage.value);
-
-   // Up to dater
    useEffect(() => {
-      if (localStorage.getItem('Vocabulary') !== null) {
-         let old = JSON.parse(localStorage.getItem('Vocabulary'));
+      sbc(value.words, 3, dispatch);
 
-         dispatch({
-            type: 'save',
-            payload: old.learned,
-         });
+      dispatch({
+         type: 'words history new',
+      });
 
-         dispatch({
-            type: 'history',
-            payload: old.history,
-         });
-
-         localStorage.removeItem('Vocabulary');
-      }
-
-      let url = new URL(window.location.href);
-
-      setSearch(value.settings.defaultWord || url.searchParams.get('q') || '');
-
-      let importUrl = url.searchParams.get('import');
-
-      if (importUrl) {
-         dispatch({
-            type: 'save',
-            payload: importUrl.split(','),
-         });
-      }
+      url(value.settings, setSearch, dispatch);
    }, []);
 
    useEffect(() => {
@@ -95,17 +30,24 @@ export default function App() {
    }, [value]);
 
    let [search, setSearch] = useState('');
-   let [results, setResults] = useState(<></>);
+   let [result, setResult] = useState(<></>);
 
    return (
       <>
-         <Header value={value} dispatch={dispatch} setSearch={setSearch} />
-         <Search value={value} dispatch={dispatch} search={search} setSearch={setSearch} setResults={setResults} />
-         <div id='results'>{results}</div>
-         <div id='snackbars'></div>
-         <span id='signature'>
-            Build by <a href='https://github.com/t1xx1'>T1xx1</a>
-         </span>
+         <Header
+            value={value}
+            setSearch={setSearch}
+            dispatch={dispatch}
+         />
+         <Search
+            v={value.words}
+            search={search}
+            setSearch={setSearch}
+            setResult={setResult}
+            dispatch={dispatch}
+         />
+         <div id='result'>{result}</div>
+         <Signature />
       </>
    );
 }

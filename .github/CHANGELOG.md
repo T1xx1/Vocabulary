@@ -1,17 +1,30 @@
 # Changelog
 
-> The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
-
-<br>
+> The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0).
 
 <details open>
    <summary>Versions</summary>
 
--  [1.3.0](#130)
--  [1.2.0](#120-•-12042022)
--  [1.1.0](#110-•-react-•-01042022)
--  [1.0.0](#100-•-setup-•-25032022)
+-  [1.4.0](#140)
+-  [1.3.0](#130-•-2022-08-26)
+-  [1.2.0](#120-•-2022-04-12)
+-  [1.1.0](#110-•-react-•-2022-04-01)
+-  [1.0.0](#100-•-setup-•-2022-03-25)
 </details>
+
+## Unreleased
+
+### Added
+
+-  Download and upload button moved in words dialog
+-  Your reports list in report
+-  Close profile
+-  Report button also in settings
+
+### Fixed
+
+-  Words history
+-  Upload words will not lose spaces in them
 
 ## 1.3.1 • 2022-09-05
 
@@ -24,7 +37,7 @@
 
 ### Changed
 
--  Save any words also if offline and can't find the word
+-  Save any words also if offline or not found
 -  Sticky word bar
 
 ## 1.3.0 • 2022-08-26
