@@ -76,8 +76,6 @@ img {
    user-select: none;
 }
 
-@import './layouts/header/style.scss';
-@import './layouts/navbar/style.scss';
-@import './layouts/result/style.scss';
+@import './layouts/style.scss';
 
 @import './_library.scss';

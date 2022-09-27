@@ -7,11 +7,8 @@
       padding-left: 10px;
    }
 
-   b,
    h2 {
-      color: $theme-color;
-      display: block;
-      margin: 7px 0;
+      margin: 8px 0;
    }
 
    #bar {
@@ -36,17 +33,22 @@
          }
 
          input {
+            accent-color: $accent-color;
             height: 29.5px;
             width: 29.5px;
          }
       }
    }
 
-   #report {
-      float: right;
+   #report .trigger button {
+      @include ss.reset('border');
+   }
 
-      .trigger button {
-         @include ss.reset('border');
+   #sources {
+      margin: 8px 0;
+
+      b {
+         color: $theme-color;
       }
    }
 }

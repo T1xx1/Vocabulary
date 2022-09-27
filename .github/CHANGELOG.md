@@ -5,26 +5,30 @@
 <details open>
    <summary>Versions</summary>
 
--  [1.4.0](#140)
+-  [1.4.0](#140-•-2022-09-27)
 -  [1.3.0](#130-•-2022-08-26)
 -  [1.2.0](#120-•-2022-04-12)
 -  [1.1.0](#110-•-react-•-2022-04-01)
 -  [1.0.0](#100-•-setup-•-2022-03-25)
 </details>
 
-## Unreleased
+## 1.4.0 • 2022-09-27
 
 ### Added
 
--  Download and upload button moved in words dialog
--  Your reports list in report
+-  Your words reports list in report dialog
 -  Close profile
--  Report button also in settings
+-  Report word button also in settings
+-  Scroll on top button
+
+### Changed
+
+-  Download and upload words button moved in words dialog
 
 ### Fixed
 
 -  Words history
--  Upload words will not lose spaces in them
+-  Missing spaces uploading a word file
 
 ## 1.3.1 • 2022-09-05
 

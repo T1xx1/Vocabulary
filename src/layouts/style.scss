@@ -1,0 +1,17 @@
+@import './header/style.scss';
+@import './navbar/style.scss';
+@import './result/style.scss';
+
+#up {
+   @include ss.reset;
+   @include ss.box(50px, 50px);
+   @include ss.flex($justify-content: center, $align-items: center);
+   @include ss.position(fixed, $right: 15px, $bottom: 15px);
+
+   background-color: $accent-color;
+   border-radius: 50%;
+
+   svg {
+      border-radius: inherit;
+   }
+}

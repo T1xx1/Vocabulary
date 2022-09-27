@@ -7,6 +7,7 @@ import sbc from './sbc';
 
 import Header from './layouts/header';
 import Search from './layouts/navbar';
+import Up from './layouts/up';
 
 import storage from './storage';
 import url from './url';
@@ -48,6 +49,8 @@ export default function App() {
          />
          <div id='result'>{result}</div>
          <Signature />
+         <Up />
+         
       </>
    );
 }

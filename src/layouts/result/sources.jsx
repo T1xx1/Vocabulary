@@ -2,7 +2,7 @@ import React from 'react';
 
 export default function Sources({ v }) {
    return (
-      <div>
+      <div id='sources'>
          <b>Sources</b>
          <ul>
             {v.map(source => {
