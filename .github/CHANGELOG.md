@@ -12,6 +12,17 @@
 -  [1.0.0](#100-•-setup-•-2022-03-25)
 </details>
 
+## 1.4.1
+
+### Added
+
+-  Clear reports button
+
+### Fixed
+
+-  All dialog overflow
+-  Saved words were saved also as reported
+
 ## 1.4.0 • 2022-09-27
 
 ### Added

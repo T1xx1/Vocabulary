@@ -11,18 +11,19 @@ export default function sbc(v, currentVersion, dispatch) {
       }
    };
 
+   /*
+   1.0
+   {
+      "words": [],
+      "history": []
+   }
+   */
+
    // Deprecated
    version('2.0', old => {
-      console.log(old);
-
       dispatch({
          type: 'words history add',
          payload: old.words.history,
-      });
-
-      dispatch({
-         type: 'words reported add',
-         payload: old.words.saved,
       });
 
       dispatch({
@@ -30,6 +31,19 @@ export default function sbc(v, currentVersion, dispatch) {
          payload: old.words.saved,
       });
    });
+
+   /*
+   {
+      "words": {
+         "history": [],
+         "reported": [],
+         "saved": []
+      },
+      "settings": {
+         "defaultWord": "welcome"
+      }
+   }
+   */
 
    version(3, () => {
       dispatch({

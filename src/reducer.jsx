@@ -68,6 +68,11 @@ export default (state, action) => {
                            reported: [...new Set([...state.words.reported, ...action.payload])],
                         },
                      };
+                  case 'del':
+                     return {
+                        ...state,
+                        reported: initial.words.reported,
+                     };
                }
                break;
          }

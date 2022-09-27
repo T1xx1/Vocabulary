@@ -6,6 +6,8 @@ import Settings from './settings';
 import Words from './words';
 
 export default function Header({ value, setSearch, dispatch }) {
+   console.log(info.name);
+   
    return (
       <header>
          <h1 onClick={() => (window.location.href = info.start_url)}>{info.name}</h1>

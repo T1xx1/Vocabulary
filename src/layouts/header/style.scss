@@ -35,7 +35,7 @@ header {
       }
 
       > :last-child {
-         @include ss.flex;
+         @include ss.flex($flex-wrap: wrap);
 
          > * {
             margin-right: 6px;

@@ -50,7 +50,6 @@ export default function App() {
          <div id='result'>{result}</div>
          <Signature />
          <Up />
-         
       </>
    );
 }

@@ -63,6 +63,17 @@ export default function Settings({ value, setSearch, dispatch }) {
                <button
                   type='button'
                   onClick={() => {
+                     dispatch({
+                        type: 'words reported del',
+                     });
+
+                     Snackbar('Reports cleared');
+                  }}>
+                  Clear reports
+               </button>
+               <button
+                  type='button'
+                  onClick={() => {
                      if (window.confirm('Are you sure you want to reset everything?')) {
                         dispatch({
                            type: 'settings reset',
