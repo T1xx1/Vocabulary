@@ -1,26 +1,18 @@
 {
    "name": "Vocabulary",
    "short_name": "Vocabulary",
+   "description": "Search and learn words",
+   "start_url": "https://t1xx1.github.io/Vocabulary",
    "icons": [
-      {
-         "src": "favicon.ico",
-         "sizes": "100x100",
-         "type": "image/x-icon"
-      },
       {
          "src": "logo144.png",
          "sizes": "144x144",
          "type": "image/x-icon"
       }
    ],
-   "start_url": "https://t1xx1.github.io/Vocabulary",
-   "display": "standalone",
+   "theme_color": "#006aff",
    "background_color": "#ffffff",
-   "description": "Search and learn words",
-   "dir": "ltr",
-   "categories": "education,utilities",
-   "lang": "en",
+   "display": "standalone",
    "orientation": "portrait-primary",
-   "scope": "/",
-   "theme_color": "#137ec5"
+   "scope": "/"
 }
