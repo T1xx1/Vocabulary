@@ -39,7 +39,7 @@ export default function Navbar({ v, search, setSearch, setResult, dispatch }) {
       Dictionary(search)
          .then(response =>
             result(
-               v.saved,
+               v,
                response,
                {
                   word: response.word,
@@ -52,7 +52,7 @@ export default function Navbar({ v, search, setSearch, setResult, dispatch }) {
          )
          .catch(() => {
             result(
-               v.saved,
+               v,
                {
                   word: search,
                },

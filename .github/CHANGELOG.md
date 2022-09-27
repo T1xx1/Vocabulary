@@ -21,7 +21,7 @@
 ### Fixed
 
 -  All dialog overflow
--  Saved words were saved also as reported
+-  Saved words are displayed as reports
 
 ## 1.4.0 • 2022-09-27
 

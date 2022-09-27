@@ -58,7 +58,7 @@ export default function Settings({ value, setSearch, dispatch }) {
 
                      Snackbar('History cleaned');
                   }}>
-                  Clear history
+                  Clean history
                </button>
                <button
                   type='button'
@@ -67,9 +67,9 @@ export default function Settings({ value, setSearch, dispatch }) {
                         type: 'words reported del',
                      });
 
-                     Snackbar('Reports cleared');
+                     Snackbar('Reports cleaned');
                   }}>
-                  Clear reports
+                  Clean reports
                </button>
                <button
                   type='button'

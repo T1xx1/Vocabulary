@@ -8,13 +8,13 @@ export default function result(v, response, defaultV, setSearch, setResult, disp
    setResult(
       <>
          <Bar
-            v={v}
+            v={v.saved}
             response={response}
             dispatch={dispatch}
          />
          <div id='word'>{children}</div>
          <Report
-            v={v}
+            v={v.reported}
             defaultV={defaultV}
             setSearch={setSearch}
             dispatch={dispatch}
