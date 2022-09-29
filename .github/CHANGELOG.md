@@ -14,6 +14,13 @@
 
 ## 1.4.1
 
+### Fixed
+
+- Words search bar not filtering
+- Clear reports button actually not cleaning
+
+## 1.4.1
+
 ### Added
 
 -  Clear reports button

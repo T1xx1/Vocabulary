@@ -17,7 +17,7 @@ export default function Report({ v, defaultV, setSearch, dispatch }) {
                e.target.parentNode.parentNode.close();
 
                dispatch({
-                  type: 'report',
+                  type: 'words reported add',
                   payload: [defaultV.word],
                });
 

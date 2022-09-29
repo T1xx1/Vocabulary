@@ -56,5 +56,17 @@ export default function sbc(v, currentVersion, dispatch) {
             };
          },
       });
+
+      // Fix population 'reported' error in v1.4.1
+      dispatch({
+         type: 'edit',
+         payload: state => {
+            if (state.reported) delete state.reported;
+
+            return {
+               ...state,
+            };
+         },
+      });
    });
 }

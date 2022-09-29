@@ -26,9 +26,8 @@ export default function Words({ v, setSearch, dispatch }) {
             ) : (
                <input
                   type='text'
-                  autoFocus={false}
                   onKeyUp={e => {
-                     e.target.parentNode.parentNode.nextElementSibling.childNodes.forEach(word => {
+                     e.target.parentNode.nextElementSibling.childNodes.forEach(word => {
                         if (word.innerHTML.includes(e.target.value.toLowerCase())) {
                            word.removeAttribute('hidden');
                         } else word.setAttribute('hidden', '');

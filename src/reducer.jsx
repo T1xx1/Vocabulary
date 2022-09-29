@@ -71,7 +71,10 @@ export default (state, action) => {
                   case 'del':
                      return {
                         ...state,
-                        reported: initial.words.reported,
+                        words: {
+                           ...state.words,
+                           reported: initial.words.reported,
+                        },
                      };
                }
                break;
