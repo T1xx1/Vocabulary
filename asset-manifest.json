@@ -1,14 +1,14 @@
 {
   "files": {
     "main.css": "/Vocabulary/static/css/main.53533999.css",
-    "main.js": "/Vocabulary/static/js/main.a9f93c92.js",
+    "main.js": "/Vocabulary/static/js/main.8d6b2e09.js",
     "static/media/lens.png": "/Vocabulary/static/media/lens.5b56eb058af34ebdd2a1.png",
     "index.html": "/Vocabulary/index.html",
     "main.53533999.css.map": "/Vocabulary/static/css/main.53533999.css.map",
-    "main.a9f93c92.js.map": "/Vocabulary/static/js/main.a9f93c92.js.map"
+    "main.8d6b2e09.js.map": "/Vocabulary/static/js/main.8d6b2e09.js.map"
   },
   "entrypoints": [
     "static/css/main.53533999.css",
-    "static/js/main.a9f93c92.js"
+    "static/js/main.8d6b2e09.js"
   ]
 }
