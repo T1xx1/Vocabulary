@@ -12,12 +12,18 @@
 -  [1.0.0](#100-•-setup-•-2022-03-25)
 </details>
 
-## 1.4.1
+## 1.4.3
 
 ### Fixed
 
-- Words search bar not filtering
-- Clear reports button actually not cleaning
+-  Only lowercase words
+
+## 1.4.2
+
+### Fixed
+
+-  Words search bar not filtering words
+-  Clear reports button actually not cleaning
 
 ## 1.4.1
 

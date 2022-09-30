@@ -1,21 +1,18 @@
-nav {
+#nav {
+   @include ss.reset;
    @include ss.border('inline');
    @include ss.flex($justify-content: space-between, $align-items: center);
 
-   margin-right: 15px;
+   margin: 0 0 10px 15px;
    width: fit-content;
 
    @include ss.mobile {
-      margin-left: 0;
+      margin: 0;
       width: 100%;
    }
 
    div {
       @include ss.flex;
-   }
-
-   img {
-      @include ss.imgbutton(35px, 0);
    }
 
    input {

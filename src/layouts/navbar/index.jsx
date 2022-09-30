@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 
 import crossarrows from '../../assets/crossarrows.png';
 import lens from '../../assets/lens.png';
@@ -10,14 +10,17 @@ import Word from '../../components/word';
 
 import result from '../result';
 import word from '../result/word';
+import Imgbutton from '../../components/imgbutton';
 
 export default function Navbar({ v, search, setSearch, setResult, dispatch }) {
-   let research = () => setSearch(document.querySelector('input[type="search"]').value);
+   let [input, setInput] = useState(search);
+
+   let research = word => setSearch(word.toLowerCase());
 
    useEffect(() => {
       try {
+         if (!window.navigator.onLine) throw setResult('No internet connection');
          if ([null, ''].includes(search.replaceAll(' ', ''))) throw <></>;
-         if (!window.navigator.onLine) throw setResult(<>No internet connection</>);
       } catch (node) {
          setResult(node);
 
@@ -73,19 +76,25 @@ export default function Navbar({ v, search, setSearch, setResult, dispatch }) {
    }, [search]);
 
    return (
-      <nav>
+      <form
+         id='nav'
+         onKeyUp={e => {
+            if (e.ctrlKey && e.key === 'q')
+               try {
+                  document.querySelector('[type="checkbox"]').click();
+               } catch {}
+         }}
+         onSubmit={e => {
+            e.preventDefault();
+
+            research(e.target.children[0].value);
+         }}>
          <input
             type='search'
             list='datalist'
-            onKeyUp={e => {
-               if (e.key === 'Enter') research();
-               if (e.ctrlKey && e.key === 'q')
-                  try {
-                     document.querySelector('input[type="checkbox"]').click();
-                  } catch {}
-            }}
+            onChange={e => setInput(e.target.value.toLowerCase())}
             placeholder='Search a word...'
-            defaultValue={search}
+            value={input}
          />
          <datalist id='datalist'>
             {[
@@ -101,17 +110,17 @@ export default function Navbar({ v, search, setSearch, setResult, dispatch }) {
                ))}
          </datalist>
          <div>
-            <img
+            <Imgbutton
                src={crossarrows}
                alt='Random'
                onClick={async () => setSearch(await Random())}
             />
-            <img
+            <Imgbutton
                src={lens}
                alt='Search'
-               onClick={research}
+               type='submit'
             />
          </div>
-      </nav>
+      </form>
    );
 }

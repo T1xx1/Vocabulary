@@ -31,38 +31,6 @@ body {
    }
 }
 
-#report {
-   form {
-      @include ss.reset;
-      @include ss.flex(column, $justify-content: center);
-
-      @include ss.mobile {
-         flex-direction: column;
-      }
-
-      input:first-child {
-         color: $accent-color;
-         outline: none;
-      }
-
-      textarea {
-         height: 100px;
-      }
-
-      > *:not(:last-child) {
-         margin-bottom: 15px;
-      }
-   }
-
-   > img {
-      @include ss.padding('inline');
-   }
-
-   #reported > img {
-      @include ss.padding('inline');
-   }
-}
-
 img {
    @include ss.imgbutton(50px, 0);
    @include ss.reset('border');
@@ -70,12 +38,8 @@ img {
    border: 0 !important;
 }
 
-.word {
-   color: $accent-color;
-   cursor: pointer;
-   user-select: none;
-}
+@import './components/style';
 
-@import './layouts/style.scss';
+@import './layouts/style';
 
-@import './_library.scss';
+@import './_library';

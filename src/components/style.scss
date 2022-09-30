@@ -1,0 +1,47 @@
+#report {
+   form {
+      @include ss.reset;
+      @include ss.flex(column, $justify-content: center);
+
+      @include ss.mobile {
+         flex-direction: column;
+      }
+
+      input:first-child {
+         color: $accent-color;
+         outline: none;
+      }
+
+      textarea {
+         height: 100px;
+      }
+
+      > *:not(:last-child) {
+         margin-bottom: 15px;
+      }
+   }
+
+   > img {
+      @include ss.padding('inline');
+   }
+
+   #reported > img {
+      @include ss.padding('inline');
+   }
+}
+
+.imgbutton {
+   @include ss.reset;
+
+   height: 35px;
+
+   img {
+      @include ss.imgbutton(35px, 0);
+   }
+}
+
+.word {
+   color: $accent-color;
+   cursor: pointer;
+   user-select: none;
+}

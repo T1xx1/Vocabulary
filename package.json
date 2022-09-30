@@ -1,6 +1,6 @@
 {
    "name": "vocabulary",
-   "version": "1.4.2",
+   "version": "1.4.3",
    "homepage": "https://t1xx1.github.io/Vocabulary",
    "private": true,
    "dependencies": {
