@@ -5,23 +5,23 @@ $bg-color: hsl(190, 100%, 50%);
 $theme-color: hsl(215, 100%, 50%);
 
 :root {
-   background-color: $bg-color;
    color-scheme: light;
+}
+
+body {
+   @include ss.flex($justify-content: center);
+
+   background-color: $bg-color;
 
    @include ss.mobile {
       background-color: ss.$white;
    }
 }
 
-body {
-   @include ss.flex($justify-content: center);
-}
-
 #root {
-   @include ss.block;
-   @include ss.reset('border');
-
    background-color: ss.$white;
+   border-radius: 15px;
+   margin-top: 15px;
    height: fit-content;
    padding: 0 5px 0 13px;
    width: clamp(500px, 80vw, 850px);
@@ -29,13 +29,6 @@ body {
    @include ss.mobile {
       @include ss.reset;
    }
-}
-
-img {
-   @include ss.imgbutton(50px, 0);
-   @include ss.reset('border');
-
-   border: 0 !important;
 }
 
 @import './components/style';

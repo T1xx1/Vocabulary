@@ -3,24 +3,21 @@ import React, { useEffect, useState } from 'react';
 import crossarrows from '../../assets/crossarrows.png';
 import lens from '../../assets/lens.png';
 
-import Dictionary from '../../services/dictionary';
 import Random from '../../services/random';
 
+import Imgbutton from '../../components/imgbutton';
 import Word from '../../components/word';
 
-import result from '../result';
-import word from '../result/word';
-import Imgbutton from '../../components/imgbutton';
+import Datalist from './datalist';
+import research from './research';
 
 export default function Navbar({ v, search, setSearch, setResult, dispatch }) {
    let [input, setInput] = useState(search);
 
-   let research = word => setSearch(word.toLowerCase());
-
    useEffect(() => {
       try {
-         if (!window.navigator.onLine) throw setResult('No internet connection');
-         if ([null, ''].includes(search.replaceAll(' ', ''))) throw <></>;
+         if (!window.navigator.onLine) throw 'No internet connection';
+         if ([null, ''].includes(search.replaceAll(' ', ''))) throw '';
       } catch (node) {
          setResult(node);
 
@@ -39,40 +36,7 @@ export default function Navbar({ v, search, setSearch, setResult, dispatch }) {
          </span>
       );
 
-      Dictionary(search)
-         .then(response =>
-            result(
-               v,
-               response,
-               {
-                  word: response.word,
-               },
-               setSearch,
-               setResult,
-               dispatch,
-               word(response, setSearch)
-            )
-         )
-         .catch(() => {
-            result(
-               v,
-               {
-                  word: search,
-               },
-               {
-                  word: search,
-                  description: 404,
-               },
-               setSearch,
-               setResult,
-               dispatch,
-               <>
-                  <span>Word </span>
-                  <Word setSearch={setSearch}>{search}</Word>
-                  <span> not found</span>
-               </>
-            );
-         });
+      research(v, search, setSearch, setResult, dispatch);
    }, [search]);
 
    return (
@@ -87,7 +51,7 @@ export default function Navbar({ v, search, setSearch, setResult, dispatch }) {
          onSubmit={e => {
             e.preventDefault();
 
-            research(e.target.children[0].value);
+            setSearch(e.target.children[0].value.toLowerCase());
          }}>
          <input
             type='search'
@@ -96,24 +60,18 @@ export default function Navbar({ v, search, setSearch, setResult, dispatch }) {
             placeholder='Search a word...'
             value={input}
          />
-         <datalist id='datalist'>
-            {[
-               ...v.history.reduce((result, arr) => {
-                  arr.forEach(word => result.add(word));
-
-                  return result;
-               }, new Set()),
-            ]
-               .sort()
-               .map(word => (
-                  <option key={word}>{word}</option>
-               ))}
-         </datalist>
+         <Datalist v={v} />
          <div>
             <Imgbutton
                src={crossarrows}
                alt='Random'
-               onClick={async () => setSearch(await Random())}
+               type='button'
+               onClick={async () => {
+                  let random = await Random();
+
+                  setInput(random);
+                  setSearch(random);
+               }}
             />
             <Imgbutton
                src={lens}

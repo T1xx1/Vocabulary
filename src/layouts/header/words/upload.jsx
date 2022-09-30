@@ -1,14 +1,15 @@
 import React from 'react';
 
-import Divimg from '../../../snippets/divimg';
 import Snackbar from '../../../snippets/snackbar';
 
 import uparrow from '../../../assets/uparrow.png';
 
+import Imgbutton from '../../../components/imgbutton';
+
 export default function Upload({ dispatch }) {
    return (
       <>
-         <Divimg
+         <Imgbutton
             src={uparrow}
             onClick={e => e.target.parentNode.nextElementSibling.click()}
          />

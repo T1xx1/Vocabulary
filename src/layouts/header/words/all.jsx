@@ -6,12 +6,13 @@ import grid from '../../../assets/grid.png';
 import constants from '../../../data/constants.json';
 
 import Word from '../../../components/word';
+import Imgbutton from '../../../components/imgbutton';
 
 export default function All({ v, setSearch }) {
    return (
       <Dialog
          id='all'
-         trigger={<img src={grid} />}>
+         trigger={<Imgbutton src={grid} />}>
          <div>
             <meter
                max={constants.words}

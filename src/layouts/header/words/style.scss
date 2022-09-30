@@ -1,0 +1,41 @@
+#words .inner > :first-child {
+   @include ss.flex($justify-content: space-between, $align-items: center);
+
+   @include ss.mobile {
+      flex-direction: column;
+
+      input {
+         width: 100%;
+      }
+   }
+
+   > div {
+      @include ss.flex;
+   }
+}
+
+#all .inner {
+   > :first-child {
+      @include ss.flex($justify-content: space-between, $align-items: center);
+
+      meter {
+         width: calc(100% - 210px);
+      }
+
+      @include ss.mobile {
+         flex-direction: column;
+
+         meter {
+            width: 100%;
+         }
+      }
+   }
+
+   > :last-child {
+      @include ss.flex($flex-wrap: wrap);
+
+      > * {
+         margin-right: 6px;
+      }
+   }
+}

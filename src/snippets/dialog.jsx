@@ -4,7 +4,9 @@ export default function Dialog({ id, title = id, trigger, children }) {
    title = title.charAt(0).toUpperCase() + title.slice(1);
 
    return (
-      <div id={id} className='dialog'>
+      <div
+         id={id}
+         className='dialog'>
          <div
             className='trigger'
             onClick={e => {
@@ -13,8 +15,7 @@ export default function Dialog({ id, title = id, trigger, children }) {
                while (e?.className !== 'trigger') e = e.parentNode;
 
                e.nextElementSibling.showModal();
-            }}
-         >
+            }}>
             {trigger}
          </div>
          <dialog>

@@ -1,14 +1,15 @@
 import React from 'react';
 
-import Divimg from '../../../snippets/divimg';
 import download from '../../../snippets/download';
 import Snackbar from '../../../snippets/snackbar';
 
 import downarrow from '../../../assets/downarrow.png';
 
+import Imgbutton from '../../../components/imgbutton';
+
 export default function Download({ v }) {
    return (
-      <Divimg
+      <Imgbutton
          src={downarrow}
          onClick={() => {
             Snackbar('Downloading...');

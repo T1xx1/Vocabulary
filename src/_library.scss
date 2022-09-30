@@ -21,6 +21,8 @@
       @include ss.flex($justify-content: space-between, $align-items: center);
 
       img {
+         @include ss.reset('border');
+
          @include ss.imgbutton(40px);
       }
    }
@@ -32,7 +34,6 @@
    }
 }
 
-.divimg,
 .trigger {
    &:has(img) {
       height: 50px;

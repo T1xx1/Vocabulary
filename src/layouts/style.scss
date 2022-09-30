@@ -1,7 +1,3 @@
-@import './header/style.scss';
-@import './navbar/style.scss';
-@import './result/style.scss';
-
 #up {
    @include ss.reset;
    @include ss.box(50px, 50px);
@@ -15,3 +11,7 @@
       border-radius: inherit;
    }
 }
+
+@import './header/style.scss';
+@import './navbar/style.scss';
+@import './result/style.scss';

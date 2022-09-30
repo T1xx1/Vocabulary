@@ -7,87 +7,12 @@ header {
 
    > div {
       @include ss.flex;
-
-      > div {
-         height: 50px;
-      }
    }
 
    > h1 {
       font-size: 3rem;
    }
-
-   #all .inner {
-      > :first-child {
-         @include ss.flex($justify-content: space-between, $align-items: center);
-
-         meter {
-            width: calc(100% - 210px);
-         }
-
-         @include ss.mobile {
-            flex-direction: column;
-
-            meter {
-               width: 100%;
-            }
-         }
-      }
-
-      > :last-child {
-         @include ss.flex($flex-wrap: wrap);
-
-         > * {
-            margin-right: 6px;
-         }
-      }
-   }
-
-   #settings dialog > :nth-child(2) {
-      @include ss.flex(column);
-
-      #danger {
-         * {
-            color: ss.$red;
-         }
-
-         div {
-            @include ss.spacing;
-         }
-      }
-
-      #defaultWord span {
-         margin-right: 10px;
-      }
-
-      #files > div {
-         margin-top: 10px;
-
-         @include ss.mobile {
-            input {
-               width: 100%;
-            }
-         }
-
-         span {
-            @include ss.spacing;
-         }
-      }
-   }
-
-   #words .inner > :first-child {
-      @include ss.flex($justify-content: space-between, $align-items: center);
-
-      @include ss.mobile {
-         flex-direction: column;
-
-         input {
-            width: 100%;
-         }
-      }
-
-      > :last-child {
-         @include ss.flex;
-      }
-   }
 }
+
+@import './words/style';
+@import './settings/style';

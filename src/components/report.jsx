@@ -11,7 +11,7 @@ export default function Report({ v, defaultV, setSearch, dispatch }) {
    return (
       <Dialog
          id='report'
-         trigger={<button>Report</button>}>
+         trigger={<button type='button'>Report</button>}>
          <Form
             after={e => {
                e.target.parentNode.parentNode.close();

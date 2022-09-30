@@ -1,0 +1,19 @@
+#settings dialog > :nth-child(2) {
+   @include ss.flex(column);
+}
+
+#danger {
+   * {
+      color: ss.$red;
+   }
+
+   div {
+      @include ss.spacing;
+   }
+}
+
+#defaultWord > input {
+   border: 0;
+   border-bottom: 3px solid $accent-color;
+   outline: 0;
+}

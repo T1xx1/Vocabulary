@@ -2,8 +2,9 @@ import React from 'react';
 
 import Dialog from '../../../snippets/dialog';
 
-import book from '../../../assets/book.png';
+import vocabulary from '../../../assets/vocabulary.png';
 
+import Imgbutton from '../../../components/imgbutton';
 import List from '../../../components/list';
 
 import All from './all';
@@ -15,8 +16,8 @@ export default function Words({ v, setSearch, dispatch }) {
       <Dialog
          id='words'
          trigger={
-            <img
-               src={book}
+            <Imgbutton
+               src={vocabulary}
                alt='Words'
             />
          }>
@@ -26,6 +27,7 @@ export default function Words({ v, setSearch, dispatch }) {
             ) : (
                <input
                   type='text'
+                  className='word'
                   onKeyUp={e => {
                      e.target.parentNode.nextElementSibling.childNodes.forEach(word => {
                         if (word.innerHTML.includes(e.target.value.toLowerCase())) {

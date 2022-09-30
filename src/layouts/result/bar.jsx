@@ -1,9 +1,8 @@
 import React from 'react';
 
-import Snackbar from '../../snippets/snackbar';
-
 import Word from '../../components/word';
 import Share from './share';
+import Checkbox from './checkbox';
 
 export default function Bar({ v, response, dispatch }) {
    return (
@@ -15,29 +14,7 @@ export default function Bar({ v, response, dispatch }) {
             {response.phonetic && <span>/{response.phonetic.replace(/[/[\]]/g, '')}/</span>}
          </div>
          <div>
-            <input
-               type='checkbox'
-               defaultChecked={v.includes(response.word)}
-               onChange={e => {
-                  e = e.target.checked;
-
-                  if (e) {
-                     dispatch({
-                        type: 'words saved add',
-                        payload: [response.word],
-                     });
-
-                     Snackbar('Word saved');
-                  } else {
-                     dispatch({
-                        type: 'words saved rm',
-                        payload: response.word,
-                     });
-
-                     Snackbar('Word removed');
-                  }
-               }}
-            />
+            <Checkbox v={v} response={response} dispatch={dispatch} />
             <Share word={response.word} />
          </div>
       </div>
