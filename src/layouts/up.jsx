@@ -1,13 +1,16 @@
 import React from 'react';
 
-import Arrow from '../assets/arrow';
+import arrow from '../assets/arrow.svg';
 
 export default function Up() {
    return (
       <button
          id='up'
          onClick={() => window.scroll(0, 0)}>
-         <Arrow />
+         <img
+            src={arrow}
+            alt='Up'
+         />
       </button>
    );
 }

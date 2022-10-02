@@ -1,6 +1,6 @@
 import React from 'react';
 
-import share from '../../assets/share.png';
+import share from '../../assets/share.svg';
 import info from '../../data/info.json';
 
 import Imgbutton from '../../components/imgbutton';

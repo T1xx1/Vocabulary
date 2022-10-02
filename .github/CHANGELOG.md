@@ -24,6 +24,7 @@
 
 -  Words search bar not filtering words
 -  Clear reports button actually not cleaning
+-  Snackbar overlapping
 
 ## 1.4.1
 
