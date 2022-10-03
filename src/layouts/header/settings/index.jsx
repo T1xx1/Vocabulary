@@ -30,7 +30,7 @@ export default function Settings({ value, setSearch, dispatch }) {
                dispatch={dispatch}
             />
          </div>
-         <Danger />
+         <Danger dispatch={dispatch} />
          <span>
             {info.name} {info.version}
          </span>

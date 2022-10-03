@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 
 import crossarrows from '../../assets/crossarrows.png';
-import lens from '../../assets/lens.png';
+import lens from '../../assets/lens.svg';
 
 import Random from '../../services/random';
 

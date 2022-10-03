@@ -13,7 +13,8 @@
       }
 
       textarea {
-         height: 100px;
+         min-height: 150px;
+         resize: vertical;
       }
 
       > *:not(:last-child) {
