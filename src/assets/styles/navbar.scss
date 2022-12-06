@@ -1,0 +1,33 @@
+#nav {
+   @include ss.reset;
+   @include ss.border('inline');
+   @include ss.flex($justify-content: space-between, $align-items: center);
+
+   margin-left: 10px;
+   width: fit-content;
+
+   @include ss.mobile {
+      margin: 0;
+      width: 100%;
+   }
+
+   div {
+      @include ss.flex;
+
+      .imgbutton {
+         height: 35px;
+
+         button {
+            @include ss.model(inherit)
+         }
+      }
+   }
+
+   input {
+      @include ss.reset('border');
+
+      color: $accent-color;
+      max-width: 200px;
+      outline: none;
+   }
+}

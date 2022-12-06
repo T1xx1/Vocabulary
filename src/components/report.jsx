@@ -1,17 +1,17 @@
 import React from 'react';
 
-import Dialog from '../snippets/dialog';
-import Snackbar from '../snippets/snackbar';
+import { Dialog, funcs } from 'reactyio';
 
 import List from './list';
 
 import Form from '../services/form';
 
-export default function Report({ v, defaultV, setSearch, dispatch }) {
+export default function Report({ val, defaultV, setSearch, dispatch }) {
    return (
       <Dialog
          id='report'
-         trigger={<button type='button'>Report</button>}>
+         title='Report'
+         trigger={<button>Report</button>}>
          <Form
             after={e => {
                e.target.parentNode.parentNode.close();
@@ -21,7 +21,7 @@ export default function Report({ v, defaultV, setSearch, dispatch }) {
                   payload: [defaultV.word],
                });
 
-               Snackbar('Word reported');
+               funcs.Snackbar('Word reported');
             }}>
             <input
                type='text'
@@ -57,12 +57,12 @@ export default function Report({ v, defaultV, setSearch, dispatch }) {
          </Form>
          <div>
             <h2>Your reports</h2>
-            {v.length === 0 ? (
+            {val.length === 0 ? (
                <span>No reports</span>
             ) : (
                <ul>
                   <List
-                     v={v}
+                     val={val}
                      setSearch={setSearch}
                   />
                </ul>

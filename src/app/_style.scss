@@ -1,0 +1,25 @@
+$accent-color: hsl(300, 100%, 50%);
+$bg-color: hsl(190, 100%, 50%);
+$theme-color: hsl(215, 100%, 50%);
+
+:root {
+   @include ss.theme($theme-color);
+
+   color-scheme: light;
+}
+
+body {
+   @include ss.flex($justify-content: center);
+
+   background-color: $bg-color;
+
+   @include ss.mobile {
+      background-color: ss.$white;
+   }
+
+   ::placeholder {
+      color: $accent-color;
+   }
+}
+
+@import './box';

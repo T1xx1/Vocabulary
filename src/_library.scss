@@ -1,70 +1,53 @@
-#signature {
-   @include ss.position(fixed, $bottom: 0, $left: 0);
+#report {
+   margin-top: 10px;
 
-   padding: 10px;
-   width: 100%;
+   form {
+      @include ss.reset;
+      @include ss.flex(column, $justify-content: center);
 
-   @include ss.mobile {
-      background-color: ss.$white;
-   }
-}
+      @include ss.mobile {
+         flex-direction: column;
+      }
 
-.dialog dialog {
-   @include ss.fullscreen;
+      input:first-child {
+         color: $accent-color;
+         outline: none;
+      }
 
-   h1,
-   h2 {
-      margin: 5px 0;
-   }
+      textarea {
+         min-height: 150px;
+         resize: vertical;
+      }
 
-   > :first-child {
-      @include ss.flex($justify-content: space-between, $align-items: center);
-
-      img {
-         @include ss.reset('border');
-
-         @include ss.imgbutton(40px);
+      > *:not(:last-child) {
+         margin-bottom: 15px;
       }
    }
 
-   > :nth-child(2) {
-      @include ss.grid;
+   > img {
+      @include ss.padding('inline');
+   }
 
-      grid-template-columns: 1fr;
+   #reported > img {
+      @include ss.padding('inline');
    }
 }
 
-.trigger {
-   &:has(img) {
-      height: 50px;
+.imgbutton {
+   @include ss.reset;
+
+   height: 50px;
+
+   img {
+      @include ss.imgbutton(50px, 0);
+      @include ss.reset('border');
    }
 }
 
-.snackbar {
-   @include ss.block;
-   @include ss.reset('border');
-   @include ss.position(fixed, $bottom: 0, $left: 0);
-
-   animation: in 500ms ease, out 500ms 7s;
-   background-color: ss.$black;
-   color: ss.$white;
-   padding: 12.5px 15px;
-   width: 350px;
-   z-index: 1;
-
-   @include ss.mobile {
-      width: calc(100vw - 15px);
-   }
-
-   @keyframes in {
-      from {
-         transform: translateY(150px);
-      }
-   }
-
-   @keyframes out {
-      to {
-         transform: translateY(150px);
-      }
-   }
+.word {
+   color: $accent-color;
+   cursor: pointer;
+   display: block;
+   user-select: none;
+   max-width: 200px;
 }

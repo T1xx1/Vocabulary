@@ -1,0 +1,16 @@
+.dialog dialog {
+   @include ss.fullscreen;
+
+   > .header {
+      @include ss.flex($justify-content: space-between);
+
+      > img {
+         @include ss.imgbutton($img: 50px);
+         @include ss.reset('border');
+      }
+   }
+}
+
+.imgbutton {
+   @include ss.imgbutton;
+}

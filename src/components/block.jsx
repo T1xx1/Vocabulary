@@ -2,12 +2,12 @@ import React from 'react';
 
 import List from './list';
 
-export default function Block({ title, v, setSearch }) {
+export default function Block({ title, val, setSearch }) {
    return (
       <div className='block'>
          <b>{title}</b>
          <ul>
-            <List v={v} setSearch={setSearch} />
+            <List val={v} setSearch={setSearch} />
          </ul>
       </div>
    );

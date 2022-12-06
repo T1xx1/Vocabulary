@@ -1,0 +1,45 @@
+#bar {
+   @include ss.flex($justify-content: space-between, $align-items: center);
+   @include ss.position(sticky, $top: 0);
+
+   background-color: ss.$white;
+   padding: 7px 0;
+
+   #checkbox {
+      @include ss.model(30px);
+
+      accent-color: $accent-color;
+   }
+
+   #report .trigger button {
+      @include ss.reset('border');
+   }
+
+   #sources {
+      margin: 8px 0;
+
+      b {
+         color: $theme-color;
+      }
+   }
+
+   > :first-child {
+      @include ss.flex($flex-wrap: wrap, $align-items: baseline);
+
+      h2 {
+         margin: 0;
+      }
+   }
+
+   > :last-child {
+      @include ss.flex($align-items: center);
+
+      button {
+         height: 37.5px;
+
+         img {
+            @include ss.model(inherit);
+         }
+      }
+   }
+}

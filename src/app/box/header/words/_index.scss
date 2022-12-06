@@ -1,0 +1,26 @@
+#words.dialog .children {
+   > #bar {
+      @include ss.flex($justify-content: space-between, $align-items: center);
+      @include ss.mobile {
+         flex-direction: column;
+
+         input {
+            width: 100%;
+         }
+      }
+
+      > div {
+         @include ss.flex;
+
+         [type='file'] {
+            @include ss.hidden;
+         }
+      }
+
+      > input {
+         width: 300px;
+      }
+   }
+}
+
+@import './all/index';

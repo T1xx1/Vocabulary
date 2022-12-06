@@ -1,0 +1,14 @@
+header {
+   @include flowColumn;
+
+   > div {
+      @include ss.flex;
+   }
+
+   > h1 {
+      @include ss.title;
+   }
+}
+
+@import './settings/index';
+@import './words/index';

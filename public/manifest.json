@@ -2,17 +2,17 @@
    "name": "Vocabulary",
    "short_name": "Vocabulary",
    "description": "Search and learn words",
+   "theme_color": "#006aff",
+   "background_color": "#ffffff",
+   "scope": "https://t1xx1.github.io",
    "start_url": "https://t1xx1.github.io/Vocabulary",
+   "display": "standalone",
+   "orientation": "portrait-primary",
    "icons": [
       {
          "src": "logo144.png",
          "sizes": "144x144",
          "type": "image/x-icon"
       }
-   ],
-   "theme_color": "#006aff",
-   "background_color": "#ffffff",
-   "display": "standalone",
-   "orientation": "portrait-primary",
-   "scope": "/"
+   ]
 }

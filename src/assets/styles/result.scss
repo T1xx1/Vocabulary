@@ -1,0 +1,17 @@
+#result {
+   padding: 0 10px 17px 10px;
+   max-width: 100%;
+
+   @include ss.mobile {
+      padding-right: 0;
+      padding-left: 0;
+   }
+
+   b {
+      color: $theme-color;
+   }
+
+   h2 {
+      margin: 10px 0 5px;
+   }
+}

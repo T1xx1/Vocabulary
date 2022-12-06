@@ -1,10 +1,18 @@
 {
-   "words": {
+   "saved": {
       "history": [[]],
-      "reported": [],
-      "saved": []
+      "words": [],
+      "reports": []
    },
    "settings": {
-      "defaultWord": "welcome"
+      "wordAtOpening": {
+         "_default": "welcome",
+         "_type": "customWord",
+         "customWord": "welcome",
+         "wordOfTheDay": {
+            "date": "1970-01-01",
+            "word": "welcome"
+         }
+      }
    }
 }

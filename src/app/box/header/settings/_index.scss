@@ -1,0 +1,16 @@
+#settings.dialog .children {
+   @include ss.flex(column);
+   @include ss.spacing(10px);
+
+   #danger {
+      * {
+         color: ss.$red;
+      }
+
+      div {
+         @include ss.spacing;
+      }
+   }
+}
+
+@import './wordAtOpening/index';

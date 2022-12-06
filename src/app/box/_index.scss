@@ -1,0 +1,17 @@
+#box {
+   @include ss.model(fit-content, clamp(500px, 80vw, 1000px));
+
+   background-color: ss.$white;
+   border-radius: 15px;
+   min-height: 200px;
+   margin-top: 20px;
+   overflow-wrap: break-word;
+
+   @include ss.mobile {
+      @include ss.reset;
+
+      width: 100%;
+   }
+}
+
+@import './header';

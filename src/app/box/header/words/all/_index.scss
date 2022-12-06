@@ -1,0 +1,18 @@
+#all.dialog .children {
+   > #meter {
+      @include flowColumn {
+         > meter {
+            width: 100%;
+         }
+      }
+
+      > meter {
+         width: calc(100% - 200px);
+      }
+   }
+
+   > #list {
+      @include ss.flex($flex-wrap: wrap);
+      @include ss.spacing(5px);
+   }
+}
