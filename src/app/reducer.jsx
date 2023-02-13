@@ -61,7 +61,7 @@ export default (state, { payload, type }) => {
                      return state;
                   case '_type':
                      state.settings.wordAtOpening._type = payload;
-                     console.log(payload);
+
                      return state;
                   case 'customWord':
                      state.settings.wordAtOpening.customWord = payload;

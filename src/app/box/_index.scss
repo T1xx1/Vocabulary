@@ -4,7 +4,8 @@
    background-color: ss.$white;
    border-radius: 15px;
    min-height: 200px;
-   margin-top: 20px;
+   margin-top: 25px;
+   padding: 0.1px 0 0.5rem 0.7rem;
    overflow-wrap: break-word;
 
    @include ss.mobile {
@@ -15,3 +16,4 @@
 }
 
 @import './header';
+@import './main';

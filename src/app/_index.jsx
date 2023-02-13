@@ -1,9 +1,14 @@
 import React, { useEffect, useReducer } from 'react';
 
+import { Sign } from 'reactyio';
+
+import meta from '../data/meta';
+
 import localstorage from './localstorage';
 import reducer from './reducer';
 
 import Box from './box/_index';
+import GoUp from './goup/_index';
 
 export default function App() {
    const [value, dispatch] = useReducer(reducer, localstorage.value);
@@ -20,9 +25,13 @@ export default function App() {
    }, []);
 
    return (
-      <Box
-         val={value}
-         dispatch={dispatch}
-      />
+      <>
+         <Box
+            val={value}
+            dispatch={dispatch}
+         />
+         <GoUp />
+         <Sign user={meta.author} />
+      </>
    );
 }

@@ -7,12 +7,14 @@ export default function Main({ val, dispatch }) {
    let [result, setResult] = useState(null);
 
    return (
-      <Navbar
-         val={val}
-         search={search}
-         setSearch={setSearch}
-         setResult={setResult}
-         dispatch={dispatch}
-      />
+      <main>
+         <Navbar
+            val={val}
+            search={search}
+            setSearch={setSearch}
+            setResult={setResult}
+            dispatch={dispatch}
+         />
+      </main>
    );
 }

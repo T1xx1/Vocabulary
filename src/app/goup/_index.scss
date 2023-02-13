@@ -1,0 +1,12 @@
+#goup {
+   @include ss.reset('border');
+   @include ss.model(60px);
+   @include ss.position(fixed, $right: 15px, $bottom: 15px);
+
+   background-color: $accent-color;
+   border-radius: 50%;
+
+   > img {
+      @include ss.model(40px);
+   }
+}

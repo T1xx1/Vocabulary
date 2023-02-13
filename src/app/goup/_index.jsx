@@ -2,14 +2,14 @@ import React from 'react';
 
 import { ImgButton } from 'reactyio';
 
-import arrow from '../assets/svg/arrowup.svg';
+import src from './arrowup.svg';
 
 export default function GoUp() {
    return (
       <ImgButton
-         src={arrow}
+         src={src}
          alt='Up'
-         id='up'
+         id='goup'
          onClick={() => window.scroll(0, 0)}
       />
    );

@@ -23,3 +23,8 @@ body {
 }
 
 @import './box';
+@import './goup';
+
+#sign {
+   @include ss.position(fixed, $bottom: 10px, $left: 12.5px);
+}

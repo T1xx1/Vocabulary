@@ -11,7 +11,7 @@ export default function Random({ setSearch }) {
       <ImgButton
          src={icon}
          alt='Random'
-         onClick={async () => setSearch(await randomWord())}
+         onClick={async () => setSearch(/*await randomWord()*/"random")}
       />
    );
 }
