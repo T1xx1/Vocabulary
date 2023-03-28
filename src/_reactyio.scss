@@ -15,3 +15,7 @@
    @include ss.reset('border');
    @include ss.imgbutton;
 }
+
+#sign {
+   @include ss.position(fixed, $bottom: 10px, $left: 12.5px);
+}
